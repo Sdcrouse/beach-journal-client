@@ -6,6 +6,12 @@ Please feel free to raise a new Issue on my repository if you have any problems 
 
 Contributors are expected to follow the project's code of conduct. This can be viewed in the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) file.
 
+## LICENSE
+
+Licensed under the [MIT License](LICENSE).
+
+## Development Notes
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
