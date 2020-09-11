@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
+import { fetchBeaches } from "./actions/beachActions"
 
 class App extends Component {
   componentDidMount() {
@@ -18,13 +19,9 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = dispatch => {
   return {
-    fetchBeaches: () => {
-      fetch("http://localhost:3000/api/v1/beaches")
-        .then(resp => resp.json())
-        .then(beachJson => console.log(beachJson))
-    }
+    fetchBeaches: () => dispatch( fetchBeaches() )
   }
 }
 
