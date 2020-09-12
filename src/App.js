@@ -19,10 +19,8 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchBeaches: () => dispatch( fetchBeaches() )
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  fetchBeaches: () => dispatch( fetchBeaches() )
+});
 
 export default connect(null, mapDispatchToProps)(App);
