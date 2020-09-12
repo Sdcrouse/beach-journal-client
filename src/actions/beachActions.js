@@ -1,7 +1,9 @@
 export const fetchBeaches = () => {
-  return () => {
+  return dispatch => {
     fetch("http://localhost:3000/api/v1/beaches")
       .then(resp => resp.json())
-      .then(beachJson => console.log(beachJson))
+      .then(
+        beachJson => dispatch({ type: 'LOAD_BEACHES', beaches: beachJson.data })
+      )
   };
 }
