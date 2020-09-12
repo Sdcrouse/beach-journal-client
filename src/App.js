@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { fetchBeaches } from "./actions/beachActions"
+import { fetchBeaches } from "./actions/beachActions";
+import BeachesPage from "./components/BeachesPage";
 
 class App extends Component {
   componentDidMount() {
@@ -13,13 +14,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>Welcome to the Beach Journal!</h1>
-          <h2>Your Saved Beaches:</h2>
-          {
-            this.props.beaches.map(
-              beach => <p>{beach.attributes.name}</p>
-            )
-          }
         </header>
+        <BeachesPage beaches={this.props.beaches} />
       </div>
     );
   }
@@ -27,7 +23,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   beaches: state.beaches
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchBeaches: () => dispatch( fetchBeaches() )
