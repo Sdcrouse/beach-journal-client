@@ -1,4 +1,5 @@
 import React from 'react';
+import Location from './Location';
 
 const Beach = props => {
   const {
@@ -13,9 +14,7 @@ const Beach = props => {
   return (
     <>
       <h3>{name}</h3>
-      <p>
-        <strong>Location: </strong>{location.city}, {location.state}, {location.country}
-      </p>
+      <Location {...location} />
 
       <p><strong>Description: </strong>{description}</p>
       <p><strong>Items to Bring: </strong>{items_to_bring}</p>
