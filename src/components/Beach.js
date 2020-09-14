@@ -1,5 +1,6 @@
 import React from 'react';
 import Location from './Location';
+import Attractions from './Attractions';
 
 const Beach = props => {
   const {
@@ -20,15 +21,8 @@ const Beach = props => {
       <p><strong>Items to Bring: </strong>{items_to_bring}</p>
       <p><strong>Popular Activities: </strong>{popular_activities}</p>
       
-      {attractions.length > 0 &&
-        <>
-          <h4>Attractions:</h4>
-          {attractions.map(attraction => 
-            <p key={attraction.id}>
-              <strong>{attraction.name}: </strong>{attraction.description}
-            </p>
-          )}
-        </>
+      {attractions.length > 0 && 
+        <Attractions attractions={attractions} />
       }
     </>
   )
