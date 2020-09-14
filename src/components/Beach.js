@@ -16,10 +16,19 @@ const Beach = props => {
     <>
       <h3>{name}</h3>
       <Location {...location} />
-
       <p><strong>Description: </strong>{description}</p>
-      <p><strong>Items to Bring: </strong>{items_to_bring}</p>
-      <p><strong>Popular Activities: </strong>{popular_activities}</p>
+
+      {items_to_bring &&
+        <p>
+          <strong>Items to Bring: </strong>{items_to_bring}
+        </p>
+      }
+
+      {popular_activities &&
+        <p>
+          <strong>Popular Activities: </strong>{popular_activities}
+        </p>
+      }
       
       {attractions.length > 0 && 
         <Attractions attractions={attractions} />
