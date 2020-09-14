@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { fetchBeaches } from "./actions/beachActions";
+import Home from "./components/Home";
 import BeachesPage from "./components/BeachesPage";
 
 class App extends Component {
@@ -12,9 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Welcome to the Beach Journal!</h1>
-        </header>
+        <Home />
         <BeachesPage beaches={this.props.beaches} />
       </div>
     );
