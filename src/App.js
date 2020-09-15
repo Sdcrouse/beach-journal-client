@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchBeaches } from "./actions/beachActions";
 import Home from "./components/Home";
 import BeachesPage from "./components/BeachesPage";
+import Navbar from "./components/Navbar";
 import { Route, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navbar />
         <Switch>
           <Route path="/beaches">
             <BeachesPage beaches={this.props.beaches} />
