@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchBeaches } from "./actions/beachActions";
 import Home from "./components/Home";
 import BeachesPage from "./components/BeachesPage";
+import { Route } from "react-router-dom";
 
 class App extends Component {
   componentDidMount() {
@@ -13,8 +14,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Home />
-        <BeachesPage beaches={this.props.beaches} />
+        <Route exact path='/' component={Home} />
+        <Route exact path="/beaches" render={(routerProps) => 
+          <BeachesPage {...routerProps} beaches={this.props.beaches} />
+        }/>
       </div>
     );
   }
