@@ -14,7 +14,7 @@ const Beach = props => {
 
   return (
     <>
-      <h3>{name}</h3>
+      <h2>{name}</h2>
       <Location {...location} />
       <p><strong>Description: </strong>{description}</p>
 

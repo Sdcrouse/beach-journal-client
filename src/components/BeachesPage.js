@@ -4,9 +4,9 @@ import Beach from './Beach';
 const BeachesPage = props => (
   <>
     <header className="App-header">
-      <h2>Your Saved Beaches:</h2>
+      <h1>Your Saved Beaches:</h1>
     </header>
-    
+
     {
       props.beaches.map(
         beach => <Beach key={beach.id} {...beach.attributes} />
