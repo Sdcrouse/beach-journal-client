@@ -7,11 +7,9 @@ const BeachesPage = props => (
       <h1>Your Saved Beaches:</h1>
     </header>
 
-    {
-      props.beaches.map(
-        beach => <Beach key={beach.id} {...beach.attributes} />
-      )
-    }
+    {props.beaches.map(
+      beach => <Beach key={beach.id} {...beach.attributes} />
+    )}
   </>
 );
 
