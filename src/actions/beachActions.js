@@ -5,9 +5,9 @@ export const fetchBeaches = () => {
     fetch("http://localhost:3000/api/v1/beaches")
       .then(resp => resp.json())
       .then(beachJson => {
-        const beaches = normalizeBeachData(beachJson.data);
+        const beachesAndAssociations = normalizeBeachData(beachJson.data).entities;
 
-        dispatch({ type: 'LOAD_BEACHES', beaches: beachJson.data });
+        dispatch({ type: 'LOAD_BEACHES', beaches: beachesAndAssociations.beaches });
       })
   };
 };
