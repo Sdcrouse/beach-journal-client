@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Beach from './Beach';
+import { connect } from 'react-redux';
 
-const BeachesPage = props => (
-  <>
-    <header className="App-header">
-      <h1>Your Saved Beaches:</h1>
-    </header>
+class BeachesPage extends Component {
+  render() {
+    console.log(this.props.beaches);
+    return (
+      <>
+        <header className="App-header">
+          <h1>Your Saved Beaches:</h1>
+        </header>
 
-    {props.beaches.map(
-      beach => <Beach key={beach.id} {...beach.attributes} />
-    )}
-  </>
-);
+        {this.props.beaches.map(
+          beach => <Beach key={beach.id} {...beach.attributes} />
+        )}
+      </>
+    );
+  }
+}
 
-export default BeachesPage;
+const mapStateToProps = state => ({
+  beaches: state.beaches
+});
+
+export default connect(mapStateToProps)(BeachesPage);
