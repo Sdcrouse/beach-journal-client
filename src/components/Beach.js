@@ -8,14 +8,14 @@ const Beach = props => {
     description,
     items_to_bring,
     popular_activities,
-    location,
+    locationInfo,
     attractions
   } = props;
 
   return (
     <>
       <h2>{name}</h2>
-      <Location {...location} />
+      <Location {...locationInfo} />
       <p><strong>Description: </strong>{description}</p>
 
       {items_to_bring &&
