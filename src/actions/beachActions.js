@@ -6,11 +6,11 @@ export const fetchBeaches = () => {
       .then(resp => resp.json())
       .then(beachJson => {
         const beachesAndAssociations = normalizeBeachData(beachJson.data).entities;
-        console.log(beachesAndAssociations);
 
         dispatch({ type: 'LOAD_BEACHES', beaches: beachesAndAssociations.beaches });
         dispatch({ type: 'LOAD_LOCATIONS', locations: beachesAndAssociations.locations })
         dispatch({ type: 'LOAD_ATTRACTIONS', attractions: beachesAndAssociations.attractions });
+        dispatch({ type: 'LOAD_JOURNAL_ENTRIES', journalEntries: beachesAndAssociations.journal_entries });
       })
   };
 };
