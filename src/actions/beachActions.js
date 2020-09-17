@@ -8,6 +8,7 @@ export const fetchBeaches = () => {
         const beachesAndAssociations = normalizeBeachData(beachJson.data).entities;
 
         dispatch({ type: 'LOAD_BEACHES', beaches: beachesAndAssociations.beaches });
+        dispatch({ type: 'LOAD_ATTRACTIONS', attractions: beachesAndAssociations.attractions });
       })
   };
 };
