@@ -1,10 +1,12 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import beachesReducer from './reducers/beachesReducer';
+import locationsReducer from './reducers/locationsReducer';
 import attractionsReducer from './reducers/attractionsReducer';
 
 const reducer = combineReducers({
   beaches: beachesReducer,
+  locations: locationsReducer,
   attractions: attractionsReducer,
 });
 
