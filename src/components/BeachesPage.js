@@ -4,15 +4,16 @@ import { connect } from 'react-redux';
 
 class BeachesPage extends Component {
   render() {
-    console.log(this.props.beaches);
+    const beaches = this.props.beaches; 
+    
     return (
       <>
         <header className="App-header">
           <h1>Your Saved Beaches:</h1>
         </header>
 
-        {this.props.beaches.map(
-          beach => <Beach key={beach.id} {...beach.attributes} />
+        {Object.keys(beaches).map(
+          beachKey => <Beach key={beachKey} {...beaches[beachKey]} />
         )}
       </>
     );
