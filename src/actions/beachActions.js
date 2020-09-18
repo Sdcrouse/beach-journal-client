@@ -1,5 +1,3 @@
-import { normalize, schema } from 'normalizr';
-
 export const fetchBeaches = () => {
   return dispatch => {
     fetch("http://localhost:3000/api/v1/beaches")
