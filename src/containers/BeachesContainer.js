@@ -6,11 +6,10 @@ class BeachesContainer extends Component {
   render() {
     const { beaches, locations } = this.props;
 
-    const beachComponents = Object.keys(beaches).map(beachId => {
-      const beach = beaches[beachId];
-      const location = locations[beach.location]; // Note: beach.location is actually the id of the beach's location.
+    const beachComponents = Object.values(beaches).map(beach => {
+      const location = locations[beach.location_id];
 
-      return <Beach key={beachId} locationInfo={location} {...beach} />
+      return <Beach key={beach.id} locationInfo={location} {...beach} />
     });
 
     return (
