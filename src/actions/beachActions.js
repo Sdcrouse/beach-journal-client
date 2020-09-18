@@ -10,7 +10,7 @@ export const fetchBeaches = () => {
         dispatch({ type: 'LOAD_BEACHES', beaches: beachesAndAssociations.beaches });
         dispatch({ type: 'LOAD_LOCATIONS', locations: beachesAndAssociations.locations })
         dispatch({ type: 'LOAD_ATTRACTIONS', attractions: beachesAndAssociations.attractions });
-        dispatch({ type: 'LOAD_JOURNAL_ENTRIES', journalEntries: beachesAndAssociations.journal_entries });
+        dispatch({ type: 'LOAD_JOURNAL_ENTRIES', journal_entries: beachesAndAssociations.journal_entries });
       })
   };
 };
