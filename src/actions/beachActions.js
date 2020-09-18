@@ -54,7 +54,9 @@ const normalizeBeaches = beachesData => {
       description,
       items_to_bring,
       popular_activities,
-      location
+      location,
+      attractions,
+      journal_entries
     } = beachObj.attributes;
 
     // Add the beachObj and its attributes (not including its associations):
@@ -69,6 +71,12 @@ const normalizeBeaches = beachesData => {
 
     // Add the beachObj's location:
     normalized.locations.push(location);
+
+    // Add the beachObj's attractions:
+    normalized.attractions.push(...attractions);
+
+    // Add the beachObj's journal entries:
+    normalized.journal_entries.push(...journal_entries);
   }
   console.log("Normalized data: ", normalized);
 };
