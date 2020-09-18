@@ -18,7 +18,7 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route path="/beaches">
-            <BeachesPage beaches={this.props.beaches} />
+            <BeachesPage />
           </Route>
           <Route path='/'>
             <Home />
@@ -29,12 +29,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  beaches: state.beaches
-});
-
 const mapDispatchToProps = dispatch => ({
   fetchBeaches: () => dispatch( fetchBeaches() )
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
