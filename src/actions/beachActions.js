@@ -5,12 +5,12 @@ export const fetchBeaches = () => {
     fetch("http://localhost:3000/api/v1/beaches")
       .then(resp => resp.json())
       .then(beachJson => {
-        const beachesAndAssociations = normalizeBeaches(beachJson.data);
+        const { beaches, locations, attractions, journal_entries } = normalizeBeaches(beachJson.data);
 
-        dispatch({ type: 'LOAD_BEACHES', beaches: beachesAndAssociations.beaches });
-        dispatch({ type: 'LOAD_LOCATIONS', locations: beachesAndAssociations.locations })
-        dispatch({ type: 'LOAD_ATTRACTIONS', attractions: beachesAndAssociations.attractions });
-        dispatch({ type: 'LOAD_JOURNAL_ENTRIES', journal_entries: beachesAndAssociations.journal_entries });
+        dispatch({ type: 'LOAD_BEACHES', beaches });
+        dispatch({ type: 'LOAD_LOCATIONS', locations });
+        dispatch({ type: 'LOAD_ATTRACTIONS', attractions });
+        dispatch({ type: 'LOAD_JOURNAL_ENTRIES', journal_entries });
       })
   };
 };
