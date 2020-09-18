@@ -6,6 +6,7 @@ export const fetchBeaches = () => {
       .then(resp => resp.json())
       .then(beachJson => {
         const beachesAndAssociations = normalizeBeachData(beachJson.data).entities;
+        const beachesAndAssociationsV2 = normalizeBeaches(beachJson.data);
 
         dispatch({ type: 'LOAD_BEACHES', beaches: beachesAndAssociations.beaches });
         dispatch({ type: 'LOAD_LOCATIONS', locations: beachesAndAssociations.locations })
@@ -15,7 +16,7 @@ export const fetchBeaches = () => {
   };
 };
 
-// Helper methods:
+// Helper functions:
 
 const normalizeBeachData = beachData => {
   const data = beachData.map(beach => ({
@@ -36,3 +37,30 @@ const normalizeBeachData = beachData => {
   
   return normalize(data, [beachSchema]);
 }
+
+const normalizeBeaches = beachesData => {
+  // Initialize an object:
+  let normalized = {
+    beaches: [],
+    locations: [],
+    attractions: [],
+    journal_entries: []
+  };
+
+  // Iterate over the beachesData array:
+  for (const beachObj of beachesData) {
+    const {name, description, items_to_bring, popular_activities} = beachObj.attributes;
+
+    // Add the beachObj and its attributes (not including its associations):
+    normalized.beaches.push({
+      id: parseInt(beachObj.id),
+      location_id: beachObj.attributes.location.id,
+      name,
+      description,
+      items_to_bring,
+      popular_activities
+    });
+
+  }
+  console.log("Normalized data: ", normalized);
+};
