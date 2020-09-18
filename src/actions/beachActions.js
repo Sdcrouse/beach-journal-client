@@ -5,8 +5,7 @@ export const fetchBeaches = () => {
     fetch("http://localhost:3000/api/v1/beaches")
       .then(resp => resp.json())
       .then(beachJson => {
-        const beachesAndAssociations = normalizeBeachData(beachJson.data).entities;
-        const beachesAndAssociationsV2 = normalizeBeaches(beachJson.data);
+        const beachesAndAssociations = normalizeBeaches(beachJson.data);
 
         dispatch({ type: 'LOAD_BEACHES', beaches: beachesAndAssociations.beaches });
         dispatch({ type: 'LOAD_LOCATIONS', locations: beachesAndAssociations.locations })
@@ -17,26 +16,6 @@ export const fetchBeaches = () => {
 };
 
 // Helper functions:
-
-const normalizeBeachData = beachData => {
-  const data = beachData.map(beach => ({
-    id: beach.id,
-    type: beach.type,
-    ...beach.attributes    
-  }));
-
-  const locationSchema = new schema.Entity('locations');
-  const attractionSchema = new schema.Entity('attractions');
-  const journalEntrySchema = new schema.Entity('journal_entries');
-  
-  const beachSchema = new schema.Entity('beaches', {
-    location: locationSchema,
-    attractions: [attractionSchema],
-    journal_entries: [journalEntrySchema]
-  });
-  
-  return normalize(data, [beachSchema]);
-}
 
 const normalizeBeaches = beachesData => {
   // Initialize an object:
