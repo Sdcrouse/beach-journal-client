@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BeachCard from '../components/BeachCard';
 import Beach from '../components/Beach';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 class BeachesContainer extends Component {
   render() {
@@ -20,7 +20,6 @@ class BeachesContainer extends Component {
             </Route>
             <Route path={'/beaches'}>
               <BeachCard key={beach.id} beachInfo={beach} />
-              <Link to={`/beaches/${beach.id}`}><button>View Beach</button></Link>
             </Route>
           </Switch>
         </>
