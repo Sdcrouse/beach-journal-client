@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import JournalEntry from '../components/JournalEntry';
 
 class JournalEntriesContainer extends Component {
   render() {
@@ -10,10 +11,7 @@ class JournalEntriesContainer extends Component {
     let pageContent;
 
     if (entriesByBeach.length > 0) {
-      pageContent = 
-        <ul>
-          {entriesByBeach.map( entry => <li key={entry.id}>{entry.title}</li> )}
-        </ul>;
+      pageContent = entriesByBeach.map( entry => <JournalEntry key={entry.id} {...entry} /> )
     } else {
       pageContent = <p>No journal entries yet. Feel free to write one!</p>
     }
