@@ -7,12 +7,14 @@ const JournalEntry = ({ title, topics, date, entry_text }) => {
     topicsList = <p>Topics: {topics}</p>;
   }
 
+  const textParagraphs = entry_text.split("\n\n").map(paragraph => <p>{paragraph}</p>);
+
   return (
     <>
       <p><strong>{title}</strong></p>
       {topicsList}
       <p>{date}</p>
-      <p>{entry_text}</p>
+      {textParagraphs}
     </>
   );
 };
