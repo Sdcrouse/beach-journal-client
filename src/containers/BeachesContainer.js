@@ -27,11 +27,7 @@ class BeachesContainer extends Component {
       );
     });
 
-    return (
-      <>
-        {beachCards}
-      </>
-    );
+    return beachCards;
   }
 }
 
