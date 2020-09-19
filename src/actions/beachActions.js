@@ -1,5 +1,7 @@
 export const fetchBeaches = () => {
   return dispatch => {
+    dispatch({ type: 'RETRIEVING_SAVED_BEACHES' });
+
     fetch("http://localhost:3000/api/v1/beaches")
       .then(resp => resp.json())
       .then(beachJson => {
