@@ -21,6 +21,10 @@ class BeachesContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ beaches, locations, attractions }) => ({ beaches, locations, attractions });
+const mapStateToProps = state => ({ 
+  beaches: state.beachData.beaches,
+  locations: state.locations,
+  attractions: state.attractions
+});
 
 export default connect(mapStateToProps)(BeachesContainer);

@@ -6,7 +6,7 @@ import attractionsReducer from './reducers/attractionsReducer';
 import journalEntriesReducer from './reducers/journalEntriesReducer';
 
 const reducer = combineReducers({
-  beaches: beachesReducer,
+  beachData: beachesReducer,
   locations: locationsReducer,
   attractions: attractionsReducer,
   journalEntries: journalEntriesReducer

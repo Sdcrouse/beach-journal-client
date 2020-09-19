@@ -13,24 +13,39 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <Navbar />
-        <Switch>
-          <Route path="/beaches">
-            <BeachesPage />
-          </Route>
-          <Route path='/'>
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    );
+    let pageContent;
+
+    if (this.props.retrievingData) {
+      pageContent = 
+        <>
+          <h1>Welcome to the Beach Journal!</h1>
+          <p>Please wait while we load your saved beaches...</p>
+        </>;
+    } else {
+      pageContent = 
+        <div className="App">
+          <Navbar />
+          <Switch>
+            <Route path="/beaches">
+              <BeachesPage />
+            </Route>
+            <Route path='/'>
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+    }
+
+    return pageContent;
   }
 }
+
+const mapStateToProps = state => ({
+  retrievingData: state.beachData.retrievingData
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchBeaches: () => dispatch( fetchBeaches() )
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
