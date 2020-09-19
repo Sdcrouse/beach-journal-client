@@ -1,9 +1,11 @@
 import React from 'react';
 import Location from './Location';
 import Attractions from './Attractions';
+import JournalEntriesContainer from '../containers/JournalEntriesContainer';
 
 const Beach = props => {
   const {
+    id,
     name,
     description,
     items_to_bring,
@@ -33,6 +35,8 @@ const Beach = props => {
       {attractions.length > 0 && 
         <Attractions attractions={attractions} />
       }
+
+      <JournalEntriesContainer beachId={id} />
     </>
   )
 };
