@@ -7,12 +7,21 @@ class JournalEntriesContainer extends Component {
       entry => entry.beach_id === this.props.beachId
     );
 
-    return (
-      <>
-        <p>Displaying Journal Entries for Beach with id {this.props.beachId}:</p>
+    let pageContent;
+
+    if (entriesByBeach.length > 0) {
+      pageContent = 
         <ul>
           {entriesByBeach.map( entry => <li key={entry.id}>{entry.title}</li> )}
-        </ul>
+        </ul>;
+    } else {
+      pageContent = <p>No journal entries yet. Feel free to write one!</p>
+    }
+
+    return (
+      <>
+        <h3>Journal Entries: </h3>
+        {pageContent}
       </>
     )
   }
