@@ -7,7 +7,7 @@ const JournalEntry = ({ title, topics, date, entry_text }) => {
     topicsList = <p>Topics: {topics}</p>;
   }
 
-  const textParagraphs = entry_text.split("\n\n").map(paragraph => <p>{paragraph}</p>);
+  const textParagraphs = entry_text.split("\n\n").map((paragraph, index) => <p key={index}>{paragraph}</p>);
 
   return (
     <>
