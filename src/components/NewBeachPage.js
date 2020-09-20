@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class BeachForm extends Component {
+class NewBeachPage extends Component {
   render() {
     return (
       <h1>New Beach</h1>
@@ -8,4 +8,4 @@ class BeachForm extends Component {
   }
 }
 
-export default BeachForm;
+export default NewBeachPage;

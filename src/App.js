@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchBeaches } from "./actions/beachActions";
 import Home from "./components/Home";
 import BeachesPage from "./components/BeachesPage";
-import BeachForm from "./components/BeachForm";
+import NewBeachPage from "./components/NewBeachPage";
 import Navbar from "./components/Navbar";
 import { Route, Switch } from "react-router-dom";
 
@@ -28,7 +28,7 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route path="/beaches/new">
-              <BeachForm />
+              <NewBeachPage />
             </Route>
             <Route path="/beaches">
               <BeachesPage />
