@@ -27,6 +27,13 @@ const Navbar = () => (
       style={linkStyles}
       activeStyle={activeStyles}
     >Your Saved Beaches</NavLink>
+
+    <NavLink
+      exact
+      to="/beaches/new"
+      style={linkStyles}
+      activeStyle={activeStyles}
+    >New Beach</NavLink>
   </nav>
 );
 
