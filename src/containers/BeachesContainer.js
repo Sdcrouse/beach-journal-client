@@ -8,7 +8,7 @@ class BeachesContainer extends Component {
   render() {
     const { beaches, locations, attractions } = this.props;
 
-    const beachCards = Object.values(beaches).map(beach => {
+    const beachDivs = Object.values(beaches).map(beach => {
       const location = locations[beach.location_id];
       const beachAttractions = Object.values(attractions).filter(attr => attr.beach_id === beach.id);
 
@@ -26,7 +26,7 @@ class BeachesContainer extends Component {
       );
     });
 
-    return beachCards;
+    return beachDivs;
   }
 }
 
