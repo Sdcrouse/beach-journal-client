@@ -18,6 +18,13 @@ class NewBeachPage extends Component {
     event.preventDefault();
 
     console.log("Beach form submitted!");
+    
+    this.setState({
+      name: '',
+      description: '',
+      items_to_bring: '',
+      popular_activities: ''
+    })
   }
 
   render() {
