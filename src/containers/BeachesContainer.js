@@ -13,16 +13,16 @@ class BeachesContainer extends Component {
       const beachAttractions = Object.values(attractions).filter(attr => attr.beach_id === beach.id);
 
       return (
-        <>
+        <div key={beach.id}>
           <Switch>
             <Route path={`/beaches/${beach.id}`}>
               <Beach locationInfo={location} attractions={beachAttractions} {...beach} />
             </Route>
             <Route path={'/beaches'}>
-              <BeachCard key={beach.id} beachInfo={beach} />
+              <BeachCard beachInfo={beach} />
             </Route>
           </Switch>
-        </>
+        </div>
       );
     });
 
