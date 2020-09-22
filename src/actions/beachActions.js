@@ -4,8 +4,8 @@ export const fetchBeaches = () => {
 
     fetch("http://localhost:3000/api/v1/beaches")
       .then(resp => resp.json())
-      .then(beachJson => {
-        const { beaches, locations, attractions, journal_entries } = normalizeBeaches(beachJson.data);
+      .then(beachesJson => {
+        const { beaches, locations, attractions, journal_entries } = normalizeBeaches(beachesJson.data);
 
         dispatch({ type: 'LOAD_BEACHES', beaches });
         dispatch({ type: 'LOAD_LOCATIONS', locations });
