@@ -15,6 +15,12 @@ export const fetchBeaches = () => {
   };
 };
 
+export const createBeach = beachData => {
+  return dispatch => {
+    console.log("Submitted beach data: ", beachData);
+  }
+};
+
 // Helper functions:
 
 const normalizeBeaches = beachesData => {

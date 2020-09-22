@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { createBeach } from '../actions/beachActions';
+import { connect } from 'react-redux';
 
 class NewBeachPage extends Component {
   state = {
@@ -16,7 +18,7 @@ class NewBeachPage extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
+    this.props.createBeach(this.state);
     console.log("Beach form submitted!");
     
     this.setState({
@@ -81,4 +83,8 @@ class NewBeachPage extends Component {
   }
 }
 
-export default NewBeachPage;
+const mapDispatchToProps = dispatch => ({
+  createBeach: beachData => dispatch(createBeach(beachData))
+});
+
+export default connect(null, mapDispatchToProps)(NewBeachPage);
