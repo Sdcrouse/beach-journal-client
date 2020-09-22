@@ -1,8 +1,10 @@
+const BASE_URL = "http://localhost:3000/api/v1/beaches";
+
 export const fetchBeaches = () => {
   return dispatch => {
     dispatch({ type: 'RETRIEVING_SAVED_BEACHES' });
 
-    fetch("http://localhost:3000/api/v1/beaches")
+    fetch(BASE_URL)
       .then(resp => resp.json())
       .then(beachesJson => {
         const { beaches, locations, attractions, journal_entries } = normalizeBeaches(beachesJson.data);
@@ -27,7 +29,7 @@ export const createBeach = beachData => {
   };
 
   return dispatch => {
-    fetch("http://localhost:3000/api/v1/beaches", configObj)
+    fetch(BASE_URL, configObj)
       .then(resp => resp.json())
       .then(beachJson => {
         console.log("Returned JSON: ", beachJson);
