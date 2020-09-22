@@ -16,8 +16,22 @@ export const fetchBeaches = () => {
 };
 
 export const createBeach = beachData => {
+  console.log("Beach data: ", beachData);
+  const configObj = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(beachData)
+  };
+
   return dispatch => {
-    console.log("Submitted beach data: ", beachData);
+    fetch("http://localhost:3000/api/v1/beaches", configObj)
+      .then(resp => resp.json())
+      .then(beachJson => {
+        console.log("Returned JSON: ", beachJson);
+      })
   }
 };
 
