@@ -25,8 +25,10 @@ export const createBeach = beachData => {
       "Content-Type": "application/json",
       "Accept": "application/json"
     },
-    body: JSON.stringify(beachData)
+    body: JSON.stringify({ beach: {...beachData} })
   };
+
+  console.log("Configured data: ", configObj.body);
 
   return dispatch => {
     fetch(BASE_URL, configObj)
