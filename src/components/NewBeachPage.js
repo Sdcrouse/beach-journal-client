@@ -8,12 +8,25 @@ class NewBeachPage extends Component {
     name: '',
     description: '',
     items_to_bring: '',
-    popular_activities: ''
+    popular_activities: '',
+    location: {
+      city: ''
+    }
   }
 
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
+    })
+  }
+
+  handleLocationInputChange = event => {
+    this.setState({
+      ...this.state,
+      location: {
+        ...this.state.location,
+        [event.target.name]: event.target.value
+      }
     })
   }
 
@@ -26,7 +39,10 @@ class NewBeachPage extends Component {
       name: '',
       description: '',
       items_to_bring: '',
-      popular_activities: ''
+      popular_activities: '',
+      location: {
+        city: ''
+      }
     })
   }
 
@@ -46,6 +62,18 @@ class NewBeachPage extends Component {
               id="name"
               value={this.state.name}
               onChange={this.handleChange}
+              required
+            />
+          </p>
+          <p>
+            <strong >Location Info: </strong>
+
+            <label htmlFor="location_city" className="required-field">City: </label>
+            <input
+              name="city"
+              id="location_city"
+              value={this.state.location.city}
+              onChange={this.handleLocationInputChange}
               required
             />
           </p>
