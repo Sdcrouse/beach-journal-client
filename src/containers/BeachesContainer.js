@@ -26,7 +26,15 @@ class BeachesContainer extends Component {
       );
     });
 
-    return beachDivs;
+    return (
+      <>
+        <header className="App-header">
+          <h1>Your Saved Beaches:</h1>
+        </header>
+        
+        {beachDivs}
+      </>
+    );
   }
 }
 
