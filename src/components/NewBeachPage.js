@@ -34,12 +34,12 @@ class NewBeachPage extends Component {
     return (
       <>
         <h1>New Beach</h1>
-        <p class="required-field">Red text indicates a required field.</p>
+        <p className="required-field">Red text indicates a required field.</p>
 
         {/* Idea: For the location's state, make it required, but let users know that "N/A" is fine if the beach is in a country without states. */}
         <form onSubmit={this.handleSubmit}>
           <p>
-            <label htmlFor="name" class="required-field">Name: </label>
+            <label htmlFor="name" className="required-field">Name: </label>
             <input
               type="text"
               name="name"
@@ -50,7 +50,7 @@ class NewBeachPage extends Component {
             />
           </p>
           <p>
-            <label htmlFor="description" class="required-field">Description: </label>
+            <label htmlFor="description" className="required-field">Description: </label>
             <textarea
               name="description"
               id="description"
