@@ -10,7 +10,9 @@ class NewBeachPage extends Component {
     items_to_bring: '',
     popular_activities: '',
     location: {
-      city: ''
+      city: '',
+      state: '',
+      country: ''
     }
   }
 
@@ -41,7 +43,9 @@ class NewBeachPage extends Component {
       items_to_bring: '',
       popular_activities: '',
       location: {
-        city: ''
+        city: '',
+        state: '',
+        country: ''
       }
     })
   }
@@ -73,6 +77,25 @@ class NewBeachPage extends Component {
               name="city"
               id="location_city"
               value={this.state.location.city}
+              onChange={this.handleLocationInputChange}
+              required
+            />
+
+            <label htmlFor="location_state" className="required-field">State: </label>
+            {/* I may want to refactor this, to avoid confusion between React state and a country's states. */}
+            <input
+              name="state"
+              id="location_state"
+              value={this.state.location.state}
+              onChange={this.handleLocationInputChange}
+              required
+            />
+
+            <label htmlFor="location_country" className="required-field">Country: </label>
+            <input
+              name="country"
+              id="location_country"
+              value={this.state.location.country}
               onChange={this.handleLocationInputChange}
               required
             />
