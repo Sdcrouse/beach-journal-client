@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createBeach } from '../actions/beachActions';
 import { connect } from 'react-redux';
+import '../App.css';
 
 class NewBeachPage extends Component {
   state = {
@@ -33,10 +34,12 @@ class NewBeachPage extends Component {
     return (
       <>
         <h1>New Beach</h1>
+        <p class="required-field">Red text indicates a required field.</p>
 
+        {/* Idea: For the location's state, make it required, but let users know that "N/A" is fine if the beach is in a country without states. */}
         <form onSubmit={this.handleSubmit}>
           <p>
-            <label htmlFor="name">Name: </label>
+            <label htmlFor="name" class="required-field">Name: </label>
             <input
               type="text"
               name="name"
@@ -47,7 +50,7 @@ class NewBeachPage extends Component {
             />
           </p>
           <p>
-            <label htmlFor="description">Description: </label>
+            <label htmlFor="description" class="required-field">Description: </label>
             <textarea
               name="description"
               id="description"
