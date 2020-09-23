@@ -3,7 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { fetchBeaches } from "./actions/beachActions";
 import Home from "./components/Home";
-import BeachesPage from "./components/BeachesPage";
+import BeachesContainer from './containers/BeachesContainer';
 import NewBeachPage from "./components/NewBeachPage";
 import Navbar from "./components/Navbar";
 import { Route, Switch } from "react-router-dom";
@@ -31,7 +31,7 @@ class App extends Component {
               <NewBeachPage />
             </Route>
             <Route path="/beaches">
-              <BeachesPage />
+              <BeachesContainer />
             </Route>
             <Route path='/'>
               <Home />
