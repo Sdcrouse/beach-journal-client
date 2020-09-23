@@ -7,33 +7,32 @@ import { Switch, Route } from 'react-router-dom';
 class BeachesContainer extends Component {
   render() {
     const { beaches, locations, attractions } = this.props;
+    let [beachRoutes, beachCards] = [ [], [] ];
 
-    const beachDivs = Object.values(beaches).map(beach => {
+    for (const beach of Object.values(beaches)) {
       const location = locations[beach.location_id];
       const beachAttractions = Object.values(attractions).filter(attr => attr.beach_id === beach.id);
 
-      return (
-        <div key={beach.id}>
-          <Switch>
-            <Route path={`/beaches/${beach.id}`}>
-              <Beach locationInfo={location} attractions={beachAttractions} {...beach} />
-            </Route>
-            <Route path={'/beaches'}>
-              <BeachCard beachInfo={beach} />
-            </Route>
-          </Switch>
-        </div>
+      beachRoutes.push(
+        <Route path={`/beaches/${beach.id}`} key={beach.id}>
+          <Beach locationInfo={location} attractions={beachAttractions} {...beach} />
+        </Route>
       );
-    });
+
+      beachCards.push(<BeachCard beachInfo={beach} key={beach.id} />);
+    }
 
     return (
-      <>
-        <header className="App-header">
-          <h1>Your Saved Beaches:</h1>
-        </header>
-        
-        {beachDivs}
-      </>
+      <Switch>
+        {beachRoutes}
+        <Route path={'/beaches'}>
+          <header className="App-header">
+            <h1>Your Saved Beaches:</h1>
+          </header>
+
+          {beachCards}
+        </Route>
+      </Switch>
     );
   }
 }
