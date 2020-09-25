@@ -30,9 +30,10 @@ class App extends Component {
             <Route path="/beaches/new">
               <NewBeachPage />
             </Route>
-            <Route path="/beaches">
-              <BeachesContainer />
-            </Route>
+            <Route 
+              path="/beaches"
+              render={(props) => <BeachesContainer {...props} />}
+            />
             <Route path='/'>
               <Home />
             </Route>
