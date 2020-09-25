@@ -3,6 +3,16 @@ const locationsReducer = (state = {}, action) => {
     case('LOAD_LOCATIONS'):
       return action.locations;
 
+    case('ADD_LOCATION'):
+      if (Object.values(state).includes(action.location)) {
+        return state;
+      }
+
+      return {
+        ...state,
+        [action.location.id]: action.location
+      }
+
     default:
       return state;
   }
