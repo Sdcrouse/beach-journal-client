@@ -13,7 +13,8 @@ class NewBeachPage extends Component {
       city: '',
       state: '',
       country: ''
-    }
+    },
+    errorMessage: null
   }
 
   handleChange = event => {
@@ -34,8 +35,19 @@ class NewBeachPage extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.createBeach(this.state);
-    console.log("Beach form submitted!");
+
+    const {name, description, location} = this.state;
+    const {city, state, country} = location;
+
+    if (name === '' || description === '' || city === '' || state === '' || country === '') {
+      this.setState({
+        ...this.state,
+        errorMessage: "One or more required fields have not been filled out."
+      })
+    } else {
+      this.props.createBeach(this.state);
+      console.log("Beach form submitted!");
+    }
   }
 
   render() {
@@ -43,6 +55,10 @@ class NewBeachPage extends Component {
       <>
         <h1>New Beach</h1>
         <p className="required-field">Red text indicates a required field.</p>
+
+        {this.state.errorMessage &&
+          <h3>{this.state.errorMessage}</h3>
+        }
 
         {/* Idea: For the location's state, make it required, but let users know that "N/A" is fine if the beach is in a country without states. */}
         <form onSubmit={this.handleSubmit}>
