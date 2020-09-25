@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import BeachCard from '../components/BeachCard';
 import Beach from '../components/Beach';
 import { Switch, Route } from 'react-router-dom';
+import '../App.css';
 
 class BeachesContainer extends Component {
   render() {
@@ -28,7 +29,7 @@ class BeachesContainer extends Component {
         <Route path={'/beaches'}>
 
           {this.props.location.state && 
-            <h4 style={{color: "green"}}>{this.props.location.state.successMessage}</h4>
+            <h4 className="success-message">{this.props.location.state.successMessage}</h4>
           }
 
           <header className="App-header">
