@@ -58,7 +58,14 @@ class NewBeachPage extends Component {
 
   redirectToBeaches = () => {
     if (this.state.redirect) {
-      return <Redirect to="/beaches" />
+      return (
+        <Redirect 
+          to={{
+            pathname: "/beaches",
+            state: {successMessage: "Beach created! Scroll down to the bottom to view it."}
+          }}
+        />
+      )
     }
   }
 
@@ -66,7 +73,7 @@ class NewBeachPage extends Component {
     return (
       <>
         {this.redirectToBeaches()}
-        
+
         <h1>New Beach</h1>
         <p className="required-field">Red text indicates a required field.</p>
 

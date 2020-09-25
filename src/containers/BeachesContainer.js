@@ -26,6 +26,11 @@ class BeachesContainer extends Component {
       <Switch>
         {beachRoutes}
         <Route path={'/beaches'}>
+
+          {this.props.location.state && 
+            <h4 style={{color: "green"}}>{this.props.location.state.successMessage}</h4>
+          }
+
           <header className="App-header">
             <h1>Your Saved Beaches:</h1>
           </header>
