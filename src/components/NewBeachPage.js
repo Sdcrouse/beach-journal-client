@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { createBeach } from '../actions/beachActions';
 import { connect } from 'react-redux';
 import '../App.css';
+import { Redirect } from 'react-router-dom';
 
 class NewBeachPage extends Component {
   state = {
@@ -14,7 +15,8 @@ class NewBeachPage extends Component {
       state: '',
       country: ''
     },
-    errorMessage: null
+    errorMessage: null,
+    redirect: false
   }
 
   handleChange = event => {
@@ -47,12 +49,24 @@ class NewBeachPage extends Component {
     } else {
       this.props.createBeach(this.state);
       console.log("Beach form submitted!");
+      this.setState({
+        ...this.state,
+        redirect: true
+      })
+    }
+  }
+
+  redirectToBeaches = () => {
+    if (this.state.redirect) {
+      return <Redirect to="/beaches" />
     }
   }
 
   render() {
     return (
       <>
+        {this.redirectToBeaches()}
+        
         <h1>New Beach</h1>
         <p className="required-field">Red text indicates a required field.</p>
 
