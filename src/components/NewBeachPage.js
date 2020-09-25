@@ -36,18 +36,6 @@ class NewBeachPage extends Component {
     event.preventDefault();
     this.props.createBeach(this.state);
     console.log("Beach form submitted!");
-    
-    this.setState({
-      name: '',
-      description: '',
-      items_to_bring: '',
-      popular_activities: '',
-      location: {
-        city: '',
-        state: '',
-        country: ''
-      }
-    })
   }
 
   render() {
