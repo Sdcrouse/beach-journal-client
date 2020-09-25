@@ -35,8 +35,11 @@ export const createBeach = beachData => {
       .then(resp => resp.json())
       .then(beachJson => {
         console.log("Returned JSON: ", beachJson);
-        // const { beach, location } = normalizeBeach(beachJson.data);
-        console.log("Normalized beach data: ", normalizeBeach(beachJson.data));
+
+        const { beach, location } = normalizeBeach(beachJson.data);
+        console.log("Normalized beach data: ", { beach, location });
+
+        dispatch({ type: 'ADD_BEACH', beach });
       })
   }
 };
