@@ -20,7 +20,7 @@ class BeachesContainer extends Component {
         </Route>
       );
 
-      beachCards.push(<BeachCard beachInfo={beach} key={beach.id} />);
+      beachCards.push(<BeachCard beachInfo={beach} locationInfo={location} key={beach.id} />);
     }
 
     return (
