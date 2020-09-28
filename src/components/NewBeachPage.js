@@ -15,6 +15,7 @@ class NewBeachPage extends Component {
       state: '',
       country: ''
     },
+    attractions: [],
     errorMessage: null,
     redirect: false
   }
@@ -32,6 +33,14 @@ class NewBeachPage extends Component {
         [event.target.name]: event.target.value
       }
     })
+  }
+
+  handleAddAttraction = event => {
+    event.preventDefault();
+    
+    this.setState((state) => ({
+      attractions: [...state.attractions, {}]
+    }))
   }
 
   handleSubmit = event => {
@@ -149,6 +158,13 @@ class NewBeachPage extends Component {
               value={this.state.popular_activities}
               onChange={this.handleChange}
             />
+          </p>
+          <p>
+            <h2>Attractions:</h2>
+            {this.state.attractions.map((attraction, index) =>
+              <p key={index}>New Attraction</p>
+            )}
+            <button onClick={this.handleAddAttraction}>Add Attraction</button>
           </p>
           <p>
             <input type="submit" value="Create Beach" />
