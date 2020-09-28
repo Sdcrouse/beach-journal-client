@@ -3,6 +3,7 @@ import { createBeach } from '../actions/beachActions';
 import { connect } from 'react-redux';
 import '../App.css';
 import { Redirect } from 'react-router-dom';
+import LocationInputs from './LocationInputs';
 
 class NewBeachPage extends Component {
   state = {
@@ -104,37 +105,9 @@ class NewBeachPage extends Component {
               required
             />
           </p>
-          <p>
-            <strong >Location Info: </strong>
 
-            <label htmlFor="location_city" className="required-field">City: </label>
-            <input
-              name="city"
-              id="location_city"
-              value={location.city}
-              onChange={this.handleLocationInputChange}
-              required
-            />
+          <LocationInputs handleChange={this.handleLocationInputChange} {...location} />
 
-            <label htmlFor="location_state" className="required-field">State: </label>
-            {/* I may want to refactor this, to avoid confusion between React state and a country's states. */}
-            <input
-              name="state"
-              id="location_state"
-              value={location.state}
-              onChange={this.handleLocationInputChange}
-              required
-            />
-
-            <label htmlFor="location_country" className="required-field">Country: </label>
-            <input
-              name="country"
-              id="location_country"
-              value={location.country}
-              onChange={this.handleLocationInputChange}
-              required
-            />
-          </p>
           <p>
             <label htmlFor="description" className="required-field">Description: </label>
             <textarea
