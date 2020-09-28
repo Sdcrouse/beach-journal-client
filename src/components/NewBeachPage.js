@@ -37,7 +37,7 @@ class NewBeachPage extends Component {
 
   handleAddAttraction = event => {
     event.preventDefault();
-    
+
     this.setState((state) => ({
       attractions: [...state.attractions, {}]
     }))
@@ -76,6 +76,10 @@ class NewBeachPage extends Component {
   }
 
   render() {
+    const {
+      errorMessage, name, location, description, items_to_bring, popular_activities, attractions
+    } = this.state;
+
     return (
       <>
         {this.redirectToBeaches()}
@@ -83,8 +87,8 @@ class NewBeachPage extends Component {
         <h1>New Beach</h1>
         <p className="required-field">Red text indicates a required field.</p>
 
-        {this.state.errorMessage &&
-          <h3>{this.state.errorMessage}</h3>
+        {errorMessage &&
+          <h3>{errorMessage}</h3>
         }
 
         {/* Idea: For the location's state, make it required, but let users know that "N/A" is fine if the beach is in a country without states. */}
@@ -95,7 +99,7 @@ class NewBeachPage extends Component {
               type="text"
               name="name"
               id="name"
-              value={this.state.name}
+              value={name}
               onChange={this.handleChange}
               required
             />
@@ -107,7 +111,7 @@ class NewBeachPage extends Component {
             <input
               name="city"
               id="location_city"
-              value={this.state.location.city}
+              value={location.city}
               onChange={this.handleLocationInputChange}
               required
             />
@@ -117,7 +121,7 @@ class NewBeachPage extends Component {
             <input
               name="state"
               id="location_state"
-              value={this.state.location.state}
+              value={location.state}
               onChange={this.handleLocationInputChange}
               required
             />
@@ -126,7 +130,7 @@ class NewBeachPage extends Component {
             <input
               name="country"
               id="location_country"
-              value={this.state.location.country}
+              value={location.country}
               onChange={this.handleLocationInputChange}
               required
             />
@@ -136,7 +140,7 @@ class NewBeachPage extends Component {
             <textarea
               name="description"
               id="description"
-              value={this.state.description}
+              value={description}
               onChange={this.handleChange}
               required
             />
@@ -146,7 +150,7 @@ class NewBeachPage extends Component {
             <textarea
               name="items_to_bring"
               id="items_to_bring"
-              value={this.state.items_to_bring}
+              value={items_to_bring}
               onChange={this.handleChange}
             />
           </p>
@@ -155,13 +159,13 @@ class NewBeachPage extends Component {
             <textarea
               name="popular_activities"
               id="popular_activities"
-              value={this.state.popular_activities}
+              value={popular_activities}
               onChange={this.handleChange}
             />
           </p>
           <p>
             <h2>Attractions:</h2>
-            {this.state.attractions.map((attraction, index) =>
+            {attractions.map((attraction, index) =>
               <p key={index}>New Attraction</p>
             )}
             <button onClick={this.handleAddAttraction}>Add Attraction</button>
