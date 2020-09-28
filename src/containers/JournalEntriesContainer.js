@@ -18,7 +18,7 @@ class JournalEntriesContainer extends Component {
 
     return (
       <>
-        <h3>Journal Entries: </h3>
+        <h2>Journal Entries:</h2>
         {pageContent}
       </>
     )
