@@ -27,7 +27,6 @@ class NewBeachPage extends Component {
 
   handleLocationInputChange = event => {
     this.setState({
-      ...this.state,
       location: {
         ...this.state.location,
         [event.target.name]: event.target.value
@@ -43,14 +42,12 @@ class NewBeachPage extends Component {
 
     if (name === '' || description === '' || city === '' || state === '' || country === '') {
       this.setState({
-        ...this.state,
         errorMessage: "One or more required fields have not been filled out."
       })
     } else {
       this.props.createBeach(this.state);
       console.log("Beach form submitted!");
       this.setState({
-        ...this.state,
         redirect: true
       })
     }
