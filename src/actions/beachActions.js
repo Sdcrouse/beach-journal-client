@@ -36,8 +36,8 @@ export const createBeach = beachData => {
       .then(beachJson => {
         console.log("Returned JSON: ", beachJson);
 
-        const { beach, location } = normalizeBeach(beachJson.data);
-        console.log("Normalized beach data: ", { beach, location });
+        const { beach, location, attractions } = normalizeBeach(beachJson.data);
+        console.log("Normalized beach data: ", { beach, location, attractions });
 
         dispatch({ type: 'ADD_BEACH', beach });
         dispatch({ type: 'ADD_LOCATION', location })
@@ -101,12 +101,13 @@ const normalizeBeach = beachData => {
     description,
     items_to_bring,
     popular_activities,
+    attractions
   } = beachData.attributes;
 
   const id = parseInt(beachData.id);
   const location_id = location.id;
   
-  return {
+  const normalized = {
     beach: {
       [id]: {
         id,
@@ -117,6 +118,13 @@ const normalizeBeach = beachData => {
         popular_activities
       }
     },
-    location
+    location,
+    attractions: {}
   };
+
+  for (const attraction of attractions) {
+    normalized.attractions[attraction.id] = attraction;
+  }
+
+  return normalized;
 };
