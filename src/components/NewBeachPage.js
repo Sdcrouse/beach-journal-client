@@ -40,8 +40,17 @@ class NewBeachPage extends Component {
     event.preventDefault();
 
     this.setState((state) => ({
-      attractions: [...state.attractions, {}]
+      attractions: [...state.attractions, {category: '', name: '', description: ''}]
     }))
+  }
+
+  handleAttractionInputChange = event => {
+    let attractions = [...this.state.attractions];
+    const { dataset, name, value } = event.target;
+
+    attractions[dataset.id][name] = value;
+
+    this.setState({ attractions });
   }
 
   handleSubmit = event => {
@@ -148,6 +157,8 @@ class NewBeachPage extends Component {
                   id={categoryId}
                   data-id={index}
                   name="category"
+                  value={attraction.category}
+                  onChange={this.handleAttractionInputChange}
                 />
                 <label htmlFor={nameId}>Name: </label>
                 <input
@@ -155,12 +166,16 @@ class NewBeachPage extends Component {
                   id={nameId}
                   data-id={index}
                   name="name"
+                  value={attraction.name}
+                  onChange={this.handleAttractionInputChange}
                 />
                 <label htmlFor={descId}>Description: </label>
                 <textarea
                   id={descId}
                   data-id={index}
                   name="description"
+                  value={attraction.description}
+                  onChange={this.handleAttractionInputChange}
                 />
               </p>
             )
