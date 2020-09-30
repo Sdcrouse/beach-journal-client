@@ -149,7 +149,7 @@ class NewBeachPage extends Component {
 
           <h2>Attractions:</h2>
           {attractions_attributes.map((attraction, index) => 
-            <AttractionInputs index={index} handleChange={this.handleAttractionInputChange} {...attraction} />
+            <AttractionInputs key={index} index={index} handleChange={this.handleAttractionInputChange} {...attraction} />
           )}
           <button onClick={this.handleAddAttraction}>Add Attraction</button>
 
