@@ -159,6 +159,7 @@ class NewBeachPage extends Component {
                   name="category"
                   value={attraction.category}
                   onChange={this.handleAttractionInputChange}
+                  required
                 />
                 <label htmlFor={nameId}>Name: </label>
                 <input
@@ -168,6 +169,7 @@ class NewBeachPage extends Component {
                   name="name"
                   value={attraction.name}
                   onChange={this.handleAttractionInputChange}
+                  required
                 />
                 <label htmlFor={descId}>Description: </label>
                 <textarea
@@ -176,6 +178,7 @@ class NewBeachPage extends Component {
                   name="description"
                   value={attraction.description}
                   onChange={this.handleAttractionInputChange}
+                  required
                 />
               </p>
             )
