@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import '../App.css';
 import { Redirect } from 'react-router-dom';
 import LocationInputs from './LocationInputs';
+import AttractionInputs from './AttractionInputs';
 
 class NewBeachPage extends Component {
   state = {
@@ -147,42 +148,9 @@ class NewBeachPage extends Component {
           </p>
 
           <h2>Attractions:</h2>
-          {attractions.map((attraction, index) => {
-            let categoryId = `category-${index}`, nameId = `name-${index}`, descId = `description-${index}`;
-            return (
-              <p key={index}>
-                <label htmlFor={categoryId}>Category: </label>
-                <input
-                  type="text"
-                  id={categoryId}
-                  data-id={index}
-                  name="category"
-                  value={attraction.category}
-                  onChange={this.handleAttractionInputChange}
-                  required
-                />
-                <label htmlFor={nameId}>Name: </label>
-                <input
-                  type="text"
-                  id={nameId}
-                  data-id={index}
-                  name="name"
-                  value={attraction.name}
-                  onChange={this.handleAttractionInputChange}
-                  required
-                />
-                <label htmlFor={descId}>Description: </label>
-                <textarea
-                  id={descId}
-                  data-id={index}
-                  name="description"
-                  value={attraction.description}
-                  onChange={this.handleAttractionInputChange}
-                  required
-                />
-              </p>
-            )
-          })}
+          {attractions.map((attraction, index) => 
+            <AttractionInputs index={index} handleChange={this.handleAttractionInputChange} {...attraction} />
+          )}
           <button onClick={this.handleAddAttraction}>Add Attraction</button>
 
           <p>
