@@ -3,6 +3,12 @@ const attractionsReducer = (state = {}, action) => {
     case('LOAD_ATTRACTIONS'):
       return action.attractions;
 
+    case ('ADD_ATTRACTIONS'):
+      return {
+        ...state.attractions,
+        ...action.attractions
+      };
+
     default:
       return state;
   }

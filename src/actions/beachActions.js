@@ -40,7 +40,8 @@ export const createBeach = beachData => {
         console.log("Normalized beach data: ", { beach, location, attractions });
 
         dispatch({ type: 'ADD_BEACH', beach });
-        dispatch({ type: 'ADD_LOCATION', location })
+        dispatch({ type: 'ADD_LOCATION', location });
+        dispatch({ type: 'ADD_ATTRACTIONS', attractions });
       })
   }
 };
