@@ -66,7 +66,6 @@ class NewBeachPage extends Component {
       })
     } else {
       this.props.createBeach(this.state);
-      console.log("Beach form submitted!");
       this.setState({
         redirect: true
       })

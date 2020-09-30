@@ -18,7 +18,6 @@ export const fetchBeaches = () => {
 };
 
 export const createBeach = beachData => {
-  console.log("Beach data: ", beachData);
   const configObj = {
     method: "POST",
     headers: {
@@ -28,16 +27,11 @@ export const createBeach = beachData => {
     body: JSON.stringify({ beach: {...beachData} })
   };
 
-  console.log("Configured data: ", configObj.body);
-
   return dispatch => {
     fetch(BASE_URL, configObj)
       .then(resp => resp.json())
       .then(beachJson => {
-        console.log("Returned JSON: ", beachJson);
-
         const { beach, location, attractions } = normalizeBeach(beachJson.data);
-        console.log("Normalized beach data: ", { beach, location, attractions });
 
         dispatch({ type: 'ADD_BEACH', beach });
         dispatch({ type: 'ADD_LOCATION', location });
