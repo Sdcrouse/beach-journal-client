@@ -17,7 +17,7 @@ class NewBeachPage extends Component {
       state: '',
       country: ''
     },
-    attractions: [],
+    attractions_attributes: [],
     errorMessage: null,
     redirect: false
   }
@@ -41,17 +41,17 @@ class NewBeachPage extends Component {
     event.preventDefault();
 
     this.setState((state) => ({
-      attractions: [...state.attractions, {category: '', name: '', description: ''}]
+      attractions_attributes: [...state.attractions_attributes, {category: '', name: '', description: ''}]
     }))
   }
 
   handleAttractionInputChange = event => {
-    let attractions = [...this.state.attractions];
+    let attractions_attributes = [...this.state.attractions_attributes];
     const { dataset, name, value } = event.target;
 
-    attractions[dataset.id][name] = value;
+    attractions_attributes[dataset.id][name] = value;
 
-    this.setState({ attractions });
+    this.setState({ attractions_attributes });
   }
 
   handleSubmit = event => {
@@ -88,7 +88,7 @@ class NewBeachPage extends Component {
 
   render() {
     const {
-      errorMessage, name, location, description, items_to_bring, popular_activities, attractions
+      errorMessage, name, location, description, items_to_bring, popular_activities, attractions_attributes
     } = this.state;
 
     return (
@@ -148,7 +148,7 @@ class NewBeachPage extends Component {
           </p>
 
           <h2>Attractions:</h2>
-          {attractions.map((attraction, index) => 
+          {attractions_attributes.map((attraction, index) => 
             <AttractionInputs index={index} handleChange={this.handleAttractionInputChange} {...attraction} />
           )}
           <button onClick={this.handleAddAttraction}>Add Attraction</button>
