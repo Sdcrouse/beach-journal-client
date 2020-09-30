@@ -136,13 +136,37 @@ class NewBeachPage extends Component {
               onChange={this.handleChange}
             />
           </p>
-          <p>
-            <h2>Attractions:</h2>
-            {attractions.map((attraction, index) =>
-              <p key={index}>New Attraction</p>
-            )}
-            <button onClick={this.handleAddAttraction}>Add Attraction</button>
-          </p>
+
+          <h2>Attractions:</h2>
+          {attractions.map((attraction, index) => {
+            let categoryId = `category-${index}`, nameId = `name-${index}`, descId = `description-${index}`;
+            return (
+              <p key={index}>
+                <label htmlFor={categoryId}>Category: </label>
+                <input
+                  type="text"
+                  id={categoryId}
+                  data-id={index}
+                  name="category"
+                />
+                <label htmlFor={nameId}>Name: </label>
+                <input
+                  type="text"
+                  id={nameId}
+                  data-id={index}
+                  name="name"
+                />
+                <label htmlFor={descId}>Description: </label>
+                <textarea
+                  id={descId}
+                  data-id={index}
+                  name="description"
+                />
+              </p>
+            )
+          })}
+          <button onClick={this.handleAddAttraction}>Add Attraction</button>
+
           <p>
             <input type="submit" value="Create Beach" />
           </p>
