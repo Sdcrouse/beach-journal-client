@@ -4,7 +4,7 @@ import '../App.css';
 class JournalEntryForm extends Component {
   state = {
     journalEntry: {
-      beachId: this.props.beachId,
+      beach_id: this.props.beachId,
       date: '',
       title: '',
       topics: '',
