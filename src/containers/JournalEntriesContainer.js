@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import JournalEntry from '../components/JournalEntry';
 import { withRouter } from 'react-router';
 import { Switch, Route, Link } from 'react-router-dom';
+import JournalEntryForm from '../components/JournalEntryForm';
 
 class JournalEntriesContainer extends Component {
   render() {
@@ -32,7 +33,7 @@ class JournalEntriesContainer extends Component {
 
         <Switch>
           <Route path={`/beaches/${beachId}/journal_entries/new`}>
-            <h3>New Journal Entry</h3>
+            <JournalEntryForm beachId={beachId} />
           </Route>
         </Switch>
 
