@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
+import { connect } from 'react-redux';
+import { createJournalEntry } from '../actions/journalEntryActions';
 
 class JournalEntryForm extends Component {
   state = {
@@ -32,6 +34,7 @@ class JournalEntryForm extends Component {
         errorMessage: "One or more required fields have not been filled out."
       });
     } else {
+      this.props.createJournalEntry(this.state);
       console.log("Journal Entry succesfully written! Here's the data you submitted: ", this.state);
     }
   }
@@ -74,4 +77,8 @@ class JournalEntryForm extends Component {
   }
 }
 
-export default JournalEntryForm;
+const mapDispatchToProps = dispatch => ({
+  createJournalEntry: entryData => dispatch(createJournalEntry(entryData))
+});
+
+export default connect(null, mapDispatchToProps)(JournalEntryForm);
