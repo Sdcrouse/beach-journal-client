@@ -26,11 +26,11 @@ export const createJournalEntry = entryData => {
 };
 
 const normalizeJournalEntry = entryData => {
-  const { id, attributes } = entryData;
+  const id = parseInt(entryData.id);
 
   return {
     [id]: {
-      ...attributes,
+      ...entryData.attributes,
       id
     }
   };
