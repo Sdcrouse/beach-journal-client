@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import JournalEntry from '../components/JournalEntry';
+import { withRouter } from 'react-router';
+import { Switch, Route, Link } from 'react-router-dom';
 
 class JournalEntriesContainer extends Component {
   render() {
@@ -19,6 +21,19 @@ class JournalEntriesContainer extends Component {
     return (
       <>
         <h2>Journal Entries:</h2>
+        
+        {this.props.location.pathname === `/beaches/${this.props.beachId}` &&
+          <Link to={`/beaches/${this.props.beachId}/journal_entries/new`}>
+            <button>New Journal Entry</button>
+          </Link>
+        }
+
+        <Switch>
+          <Route path={`/beaches/${this.props.beachId}/journal_entries/new`}>
+            <h3>New Journal Entry</h3>
+          </Route>
+        </Switch>
+
         {pageContent}
       </>
     )
@@ -27,4 +42,4 @@ class JournalEntriesContainer extends Component {
 
 const mapStateToProps = ({ journalEntries }) => ({ journalEntries });
 
-export default connect(mapStateToProps)(JournalEntriesContainer);
+export default withRouter( connect(mapStateToProps)(JournalEntriesContainer) );
