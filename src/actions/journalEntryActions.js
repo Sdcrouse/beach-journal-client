@@ -19,6 +19,8 @@ export const createJournalEntry = entryData => {
         console.log("Journal Entry saved! Here it is: ", journalJson);
         const entry = normalizeJournalEntry(journalJson.data);
         console.log(entry);
+
+        dispatch({ type: 'ADD_ENTRY', entry });
       })
   }
 };
