@@ -25,6 +25,10 @@ class JournalEntriesContainer extends Component {
       <>
         <h2>Journal Entries:</h2>
 
+        {location.state && 
+          <h4 className="success-message">{location.state.successMessage}</h4>
+        }
+
         {location.pathname === `/beaches/${beachId}` &&
           <Link to={`/beaches/${beachId}/journal_entries/new`}>
             <button>New Journal Entry</button>

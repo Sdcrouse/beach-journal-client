@@ -50,7 +50,8 @@ class JournalEntryForm extends Component {
       return (
         <Redirect 
           to={{
-            pathname: `/beaches/${beach_id}`
+            pathname: `/beaches/${beach_id}`,
+            state: {successMessage: "Journal entry successfully created!"}
           }}
         />
       )
