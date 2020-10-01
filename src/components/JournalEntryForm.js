@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { connect } from 'react-redux';
 import { createJournalEntry } from '../actions/journalEntryActions';
+import { Redirect } from 'react-router-dom';
 
 class JournalEntryForm extends Component {
   state = {
@@ -12,7 +13,8 @@ class JournalEntryForm extends Component {
       topics: '',
       entry_text: ''
     },
-    errorMessage: ''
+    errorMessage: '',
+    redirect: false
   };
 
   handleChange = event => {
@@ -35,14 +37,33 @@ class JournalEntryForm extends Component {
       });
     } else {
       this.props.createJournalEntry(this.state);
+      this.setState({
+        redirect: true
+      })
+    }
+  }
+
+  redirectToBeach = beach_id => {
+    // Stretch goal: See if I can just replace the form with all of the journal entries, instead of redirecting.
+
+    if (this.state.redirect) {
+      return (
+        <Redirect 
+          to={{
+            pathname: `/beaches/${beach_id}`
+          }}
+        />
+      )
     }
   }
   
   render() {
-    const { date, title, topics, entry_text } = this.state.journalEntry;
+    const { date, title, topics, entry_text, beach_id } = this.state.journalEntry;
 
     return (
       <>
+        {this.redirectToBeach(beach_id)}
+
         <h3>New Journal Entry</h3>
         <p className="required-field">Red text indicates a required field.</p>
 
