@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../App.css';
 
 class JournalEntryForm extends Component {
   state = {
@@ -31,11 +32,12 @@ class JournalEntryForm extends Component {
     return (
       <>
         <h3>New Journal Entry</h3>
+        <p className="required-field">Red text indicates a required field.</p>
 
         <form onSubmit={this.handleSubmit}>
           <p>
-            <label htmlFor="date">Date: </label>
-            <input type="text" id="date" name="date" value={date} onChange={this.handleChange} />
+            <label className="required-field" htmlFor="date">Date: </label>
+            <input type="text" id="date" name="date" value={date} onChange={this.handleChange} required />
           </p>
           <p>
             <label htmlFor="title">Title: </label>
@@ -46,8 +48,8 @@ class JournalEntryForm extends Component {
             <input type="text" id="topics" name="topics" value={topics} onChange={this.handleChange} />
           </p>
           <p>
-            <label htmlFor="entry_text">Entry Text: </label>
-            <textarea id="entry_text" name="entry_text" value={entry_text} onChange={this.handleChange} />
+            <label className="required-field" htmlFor="entry_text">Entry Text: </label>
+            <textarea id="entry_text" name="entry_text" value={entry_text} onChange={this.handleChange} required />
           </p>
           <p>
             <input type="submit" value="Write this Journal Entry!" />
