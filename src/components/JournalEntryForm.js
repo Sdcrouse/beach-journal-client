@@ -35,7 +35,6 @@ class JournalEntryForm extends Component {
       });
     } else {
       this.props.createJournalEntry(this.state);
-      console.log("Journal Entry succesfully written! Here's the data you submitted: ", this.state);
     }
   }
   

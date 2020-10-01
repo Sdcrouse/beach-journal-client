@@ -16,9 +16,7 @@ export const createJournalEntry = entryData => {
     fetch(`${BASE_URL}/${journal_entry.beach_id}/journal_entries`, configObj)
       .then(response => response.json())
       .then(journalJson => {
-        console.log("Journal Entry saved! Here it is: ", journalJson);
         const entry = normalizeJournalEntry(journalJson.data);
-        console.log(entry);
 
         dispatch({ type: 'ADD_ENTRY', entry });
       })
