@@ -9,7 +9,8 @@ class JournalEntryForm extends Component {
       title: '',
       topics: '',
       entry_text: ''
-    }
+    },
+    errorMessage: ''
   };
 
   handleChange = event => {
@@ -22,8 +23,17 @@ class JournalEntryForm extends Component {
   }
 
   handleSubmit = event => {
+    const { date, entry_text } = this.state.journalEntry;
+    
     event.preventDefault();
-    console.log("Journal Entry succesfully written! Here's the data you submitted: ", this.state);
+
+    if (date === '' || entry_text === '') {
+      this.setState({
+        errorMessage: "One or more required fields have not been filled out."
+      });
+    } else {
+      console.log("Journal Entry succesfully written! Here's the data you submitted: ", this.state);
+    }
   }
   
   render() {
@@ -33,6 +43,10 @@ class JournalEntryForm extends Component {
       <>
         <h3>New Journal Entry</h3>
         <p className="required-field">Red text indicates a required field.</p>
+
+        {this.state.errorMessage &&
+          <h4>{this.state.errorMessage}</h4>
+        }
 
         <form onSubmit={this.handleSubmit}>
           <p>
