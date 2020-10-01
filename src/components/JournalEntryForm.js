@@ -19,6 +19,11 @@ class JournalEntryForm extends Component {
       }
     })
   }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log("Journal Entry succesfully written! Here's the data you submitted: ", this.state);
+  }
   
   render() {
     const { date, title, topics, entry_text } = this.state.journalEntry;
@@ -27,7 +32,7 @@ class JournalEntryForm extends Component {
       <>
         <h3>New Journal Entry</h3>
 
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <p>
             <label htmlFor="date">Date: </label>
             <input type="text" id="date" name="date" value={date} onChange={this.handleChange} />
