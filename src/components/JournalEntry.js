@@ -1,6 +1,9 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteJournalEntry } from '../actions/journalEntryActions';
 
-const JournalEntry = ({ title, topics, date, entry_text }) => {
+const JournalEntry = ({ id, title, topics, date, entry_text }) => {
+  const dispatch = useDispatch();
   let topicsList;
 
   if(topics) {
@@ -15,6 +18,7 @@ const JournalEntry = ({ title, topics, date, entry_text }) => {
       {topicsList}
       <p>{date}</p>
       {textParagraphs}
+      <button onClick={() => dispatch( deleteJournalEntry(id) )}>Delete this Journal Entry</button>
     </>
   );
 };

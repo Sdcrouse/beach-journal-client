@@ -23,6 +23,12 @@ export const createJournalEntry = entryData => {
   }
 };
 
+export const deleteJournalEntry = entryId => {
+  console.log(`Journal Entry #${entryId} deleted!`);
+
+  return dispatch => {};
+}
+
 const normalizeJournalEntry = entryData => {
   const id = parseInt(entryData.id);
 
