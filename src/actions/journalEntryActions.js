@@ -17,6 +17,19 @@ export const createJournalEntry = entryData => {
       .then(response => response.json())
       .then(journalJson => {
         console.log("Journal Entry saved! Here it is: ", journalJson);
+        const entry = normalizeJournalEntry(journalJson.data);
+        console.log(entry);
       })
   }
+};
+
+const normalizeJournalEntry = entryData => {
+  const { id, attributes } = entryData;
+
+  return {
+    [id]: {
+      ...attributes,
+      id
+    }
+  };
 };
