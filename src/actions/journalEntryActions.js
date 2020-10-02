@@ -24,8 +24,6 @@ export const createJournalEntry = entryData => {
 };
 
 export const deleteJournalEntry = (id, beachId) => {
-  console.log(`Journal Entry #${id} deleted!`);
-
   const configObj = {
     method: "DELETE",
     headers: {
@@ -38,10 +36,7 @@ export const deleteJournalEntry = (id, beachId) => {
   return dispatch => {
     fetch(`${BASE_URL}/${beachId}/journal_entries/${id}`, configObj)
       .then(response => response.json())
-      .then(journalJson => {
-        console.log("Deleted Journal Entry: ", journalJson);
-        dispatch({type: 'DELETE_ENTRY', id})
-      })
+      .then( dispatch({type: 'DELETE_ENTRY', id}) )
   };
 }
 
