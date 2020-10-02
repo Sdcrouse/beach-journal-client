@@ -40,6 +40,7 @@ export const deleteJournalEntry = (id, beachId) => {
       .then(response => response.json())
       .then(journalJson => {
         console.log("Deleted Journal Entry: ", journalJson);
+        dispatch({type: 'DELETE_ENTRY', id})
       })
   };
 }

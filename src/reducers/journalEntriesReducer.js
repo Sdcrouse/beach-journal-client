@@ -9,6 +9,10 @@ const journalEntriesReducer = (state = {}, action) => {
         ...action.entry
       }
 
+    case('DELETE_ENTRY'):
+      delete state[action.id];
+      return state;
+
     default:
       return state;
   }
