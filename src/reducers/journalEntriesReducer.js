@@ -10,8 +10,11 @@ const journalEntriesReducer = (state = {}, action) => {
       }
 
     case('DELETE_ENTRY'):
-      delete state[action.id];
-      return state;
+      let updatedState = {...state};
+
+      delete updatedState[action.id];
+      
+      return updatedState;
 
     default:
       return state;
