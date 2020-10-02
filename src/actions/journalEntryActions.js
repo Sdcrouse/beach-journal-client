@@ -23,10 +23,25 @@ export const createJournalEntry = entryData => {
   }
 };
 
-export const deleteJournalEntry = entryId => {
-  console.log(`Journal Entry #${entryId} deleted!`);
+export const deleteJournalEntry = (id, beachId) => {
+  console.log(`Journal Entry #${id} deleted!`);
 
-  return dispatch => {};
+  const configObj = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({ id })
+  };
+
+  return dispatch => {
+    fetch(`${BASE_URL}/${beachId}/journal_entries/${id}`, configObj)
+      .then(response => response.json())
+      .then(journalJson => {
+        console.log("Deleted Journal Entry: ", journalJson);
+      })
+  };
 }
 
 const normalizeJournalEntry = entryData => {
