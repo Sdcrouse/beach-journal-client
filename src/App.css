@@ -1,3 +1,7 @@
+body {
+  background-color: #E2C1B2;
+}
+
 .App {
   text-align: center;
 }
@@ -5,6 +9,12 @@
 nav {
   margin: 2%;
   padding: 0 25%;
+}
+
+.App section {
+  margin: 1% 5% 2%;
+  padding: 1%;
+  background-color: #BCE5F9;
 }
 
 /* .App-logo {

@@ -26,18 +26,20 @@ class App extends Component {
       pageContent = 
         <div className="App">
           <Navbar />
-          <Switch>
-            <Route path="/beaches/new">
-              <NewBeachPage />
-            </Route>
-            <Route 
-              path="/beaches"
-              render={(props) => <BeachesContainer {...props} />}
-            />
-            <Route path='/'>
-              <Home />
-            </Route>
-          </Switch>
+          <section>
+            <Switch>
+              <Route path="/beaches/new">
+                <NewBeachPage />
+              </Route>
+              <Route 
+                path="/beaches"
+                render={(props) => <BeachesContainer {...props} />}
+              />
+              <Route path='/'>
+                <Home />
+              </Route>
+            </Switch>
+          </section>
         </div>
     }
 
