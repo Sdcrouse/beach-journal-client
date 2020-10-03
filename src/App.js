@@ -5,6 +5,8 @@ import { fetchBeaches } from "./actions/beachActions";
 import Home from "./components/Home";
 import BeachesContainer from './containers/BeachesContainer';
 import NewBeachPage from "./components/NewBeachPage";
+import FigureImage from 'react-bootstrap/FigureImage';
+import FigureCaption from 'react-bootstrap/FigureCaption'
 import Navbar from "./components/Navbar";
 import { Route, Switch } from "react-router-dom";
 
@@ -24,7 +26,7 @@ class App extends Component {
         </>;
     } else {
       pageContent = 
-        <div className="App">
+        <>
           <Navbar />
           <section>
             <Switch>
@@ -40,10 +42,18 @@ class App extends Component {
               </Route>
             </Switch>
           </section>
-        </div>
+        </>
     }
 
-    return pageContent;
+    return (
+      <div className="App">
+        <FigureImage alt="Beach Summer Sand by Pixabay" src={require('./pixabay-beach-summer-sand-cropped.png')} width="100%" />
+        <FigureCaption className="custom-caption">
+          Cropped beach image by <a href="https://pixabay.com/users/zrblue-10475804/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5422214">ZRblue</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5422214">Pixabay</a>
+        </FigureCaption>
+        {pageContent}
+      </div>
+    );
   }
 }
 
