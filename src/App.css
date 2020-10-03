@@ -1,6 +1,11 @@
-/* .App {
+.App {
   text-align: center;
-} */
+}
+
+nav {
+  margin: 2%;
+  padding: 0 25%;
+}
 
 /* .App-logo {
   height: 40vmin;
