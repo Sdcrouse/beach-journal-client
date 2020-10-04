@@ -2,8 +2,6 @@ import React from 'react';
 
 const LocationInputs = ({ city, state, country, handleChange }) => (
   <p>
-    <strong >Location Info: </strong>
-
     <label htmlFor="location_city" className="required-field">City: </label>
     <input
       name="city"
@@ -13,7 +11,7 @@ const LocationInputs = ({ city, state, country, handleChange }) => (
       required
     />
 
-    <label htmlFor="location_state" className="required-field">State: </label>
+    <label htmlFor="location_state" className="required-field">State/Province (if none, then write "N/A"): </label>
     <input
       name="state"
       id="location_state"

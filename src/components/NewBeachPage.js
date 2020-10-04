@@ -101,7 +101,6 @@ class NewBeachPage extends Component {
           <h3>{errorMessage}</h3>
         }
 
-        {/* Idea: For the location's state, make it required, but let users know that "N/A" is fine if the beach is in a country without states. */}
         <form onSubmit={this.handleSubmit}>
           <p>
             <label htmlFor="name" className="required-field">Name: </label>
@@ -128,7 +127,7 @@ class NewBeachPage extends Component {
             />
           </p>
           <p>
-            <label htmlFor="items_to_bring">What to bring, wear, etc. </label>
+            <label htmlFor="items_to_bring">What should you bring when visiting this beach? </label>
             <textarea
               name="items_to_bring"
               id="items_to_bring"
@@ -146,7 +145,7 @@ class NewBeachPage extends Component {
             />
           </p>
 
-          <h2>Attractions:</h2>
+          <h2>Attractions</h2>
           {attractions_attributes.map((attraction, index) => 
             <AttractionInputs key={index} index={index} handleChange={this.handleAttractionInputChange} {...attraction} />
           )}
