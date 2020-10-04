@@ -5,6 +5,7 @@ import '../App.css';
 import { Redirect } from 'react-router-dom';
 import LocationInputs from './LocationInputs';
 import AttractionInputs from './AttractionInputs';
+import Button from 'react-bootstrap/Button';
 
 class NewBeachPage extends Component {
   state = {
@@ -149,11 +150,11 @@ class NewBeachPage extends Component {
           {attractions_attributes.map((attraction, index) => 
             <AttractionInputs key={index} index={index} handleChange={this.handleAttractionInputChange} {...attraction} />
           )}
-          <button onClick={this.handleAddAttraction}>Add Attraction</button>
-
           <p>
-            <input type="submit" value="Create Beach" />
+            <Button onClick={this.handleAddAttraction}>Add Attraction</Button>
           </p>
+          
+          <Button type="submit">Create Beach</Button>
         </form>
       </>
     );
