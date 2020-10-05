@@ -107,14 +107,11 @@ class NewBeachPage extends Component {
 
         <Form onSubmit={this.handleSubmit}>
           <Form.Group as={Row} controlId="name" className="align-items-center">
-            <Col xs="auto">
-              <Form.Label className="required-field">Name: </Form.Label>
-            </Col>
+            <Form.Label className="required-field">Name:</Form.Label>
             <Col xs="auto">
               <Form.Control
                 type="text"
                 name="name"
-                placeholder="Beach Name"
                 value={name}
                 onChange={this.handleChange}
                 required
