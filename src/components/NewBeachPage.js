@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { LabeledInput, LabeledTextarea } from './LabelsAndInputs';
 
 class NewBeachPage extends Component {
   state = {
@@ -106,18 +107,14 @@ class NewBeachPage extends Component {
         }
 
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group as={Row} controlId="name" className="align-items-center">
-            <Form.Label className="required-field">Name:</Form.Label>
-            <Col xs="auto">
-              <Form.Control
-                type="text"
-                name="name"
-                value={name}
-                onChange={this.handleChange}
-                required
-              />
-            </Col>
-          </Form.Group>
+          <LabeledInput
+            inputName="name"
+            inputValue={name}
+            labelClass="required-field"
+            labelText="Name:"
+            onChange={this.handleChange}
+            required={true}
+          />
 
           <LocationInputs handleChange={this.handleLocationInputChange} {...location} />
 
