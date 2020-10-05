@@ -134,7 +134,7 @@ class NewBeachPage extends Component {
           <LabeledTextarea
             inputName="popular_activities"
             inputValue={popular_activities}
-            labelText="Popular Activities"
+            labelText="Popular Activities:"
             onChange={this.handleChange}
             colSize={5}
           />

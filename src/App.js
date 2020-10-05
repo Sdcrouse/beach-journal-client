@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import BeachesContainer from './containers/BeachesContainer';
 import NewBeachPage from "./components/NewBeachPage";
 import FigureImage from 'react-bootstrap/FigureImage';
-import FigureCaption from 'react-bootstrap/FigureCaption'
+import FigureCaption from 'react-bootstrap/FigureCaption';
 import Navbar from "./components/Navbar";
 import { Route, Switch } from "react-router-dom";
 
