@@ -1,34 +1,36 @@
 import React from 'react';
+import { LabeledInput } from './LabelsAndInputs';
 
 const LocationInputs = ({ city, state, country, handleChange }) => (
-  <p>
-    <label htmlFor="location_city" className="required-field">City: </label>
-    <input
-      name="city"
-      id="location_city"
+  <>
+    <LabeledInput
+      inputName="city"
       value={city}
+      inputId="location_city"
+      labelClass="required-field"
+      labelText="City:"
       onChange={handleChange}
-      required
+      required={true}
     />
-
-    <label htmlFor="location_state" className="required-field">State/Province (if none, then write "N/A"): </label>
-    <input
-      name="state"
-      id="location_state"
+    <LabeledInput
+      inputName="state"
       value={state}
+      inputId="location_state"
+      labelClass="required-field"
+      labelText="State/Province (if none, then write 'N/A'):"
       onChange={handleChange}
-      required
+      required={true}
     />
-
-    <label htmlFor="location_country" className="required-field">Country: </label>
-    <input
-      name="country"
-      id="location_country"
+    <LabeledInput
+      inputName="country"
       value={country}
+      inputId="location_country"
+      labelClass="required-field"
+      labelText="Country:"
       onChange={handleChange}
-      required
+      required={true}
     />
-  </p>
+  </>
 );
 
 export default LocationInputs;
