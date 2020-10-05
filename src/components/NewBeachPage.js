@@ -7,8 +7,6 @@ import LocationInputs from './LocationInputs';
 import AttractionInputs from './AttractionInputs';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { LabeledInput, LabeledTextarea } from './LabelsAndInputs';
 
 class NewBeachPage extends Component {
@@ -117,44 +115,29 @@ class NewBeachPage extends Component {
           />
 
           <LocationInputs handleChange={this.handleLocationInputChange} {...location} />
-
-          <Form.Group as={Row} controlId="description" className="align-items-center">
-            <Form.Label className="required-field">Description:</Form.Label>
-            <Col sm={5}>
-              <Form.Control
-                as="textarea"
-                rows="2"
-                name="description"
-                value={description}
-                onChange={this.handleChange}
-                required
-              />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId="items_to_bring" className="align-items-center">
-            <Form.Label>What should you bring<br />when visiting this beach?</Form.Label>
-            <Col sm={4}>
-              <Form.Control
-                as="textarea"
-                rows="2"
-                name="items_to_bring"
-                value={items_to_bring}
-                onChange={this.handleChange}
-              />
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} controlId="popular_activities" className="align-items-center">
-            <Form.Label>Popular<br />Activities:</Form.Label>
-            <Col sm={5}>
-              <Form.Control
-                as="textarea"
-                rows="2"
-                name="popular_activities"
-                value={popular_activities}
-                onChange={this.handleChange}
-              />
-            </Col>
-          </Form.Group>
+          <LabeledTextarea
+            inputName="description"
+            inputValue={description}
+            labelClass="required-field"
+            labelText="Description:"
+            onChange={this.handleChange}
+            required={true}
+            colSize={5}
+          />
+          <LabeledTextarea
+            inputName="items_to_bring"
+            inputValue={items_to_bring}
+            labelText="What should you bring when visiting this beach?"
+            onChange={this.handleChange}
+            colSize={4}
+          />
+          <LabeledTextarea
+            inputName="popular_activities"
+            inputValue={popular_activities}
+            labelText="Popular Activities"
+            onChange={this.handleChange}
+            colSize={5}
+          />
 
           <h2>Attractions</h2>
           {attractions_attributes.map((attraction, index) => 
