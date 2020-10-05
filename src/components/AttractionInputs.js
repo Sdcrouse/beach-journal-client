@@ -1,29 +1,30 @@
 import React from 'react';
 import '../App.css';
+import { LabeledInput } from './LabelsAndInputs';
 
 const AttractionInputs = ({ index, category, name, description, handleChange }) => {
   let categoryId = `category-${index}`, nameId = `name-${index}`, descId = `description-${index}`;
   return (
     <p>
-      <label htmlFor={categoryId} className="required-field">Category: </label>
-      <input
-        type="text"
-        id={categoryId}
-        data-id={index}
-        name="category"
-        value={category}
+      <LabeledInput
+        inputName="category"
+        inputValue={category}
+        inputId={categoryId}
+        inputDataId={index}
+        labelClass="required-field"
+        labelText="Category:"
         onChange={handleChange}
-        required
+        required={true}
       />
-      <label htmlFor={nameId} className="required-field">Name: </label>
-      <input
-        type="text"
-        id={nameId}
-        data-id={index}
-        name="name"
-        value={name}
+      <LabeledInput
+        inputName="name"
+        inputValue={name}
+        inputId={nameId}
+        inputDataId={index}
+        labelClass="required-field"
+        labelText="Name:"
         onChange={handleChange}
-        required
+        required={true}
       />
       <label htmlFor={descId} className="required-field">Description: </label>
       <textarea

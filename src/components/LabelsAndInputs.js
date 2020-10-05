@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export const LabeledInput = ({ inputName, inputValue, inputId, labelClass, labelText, onChange, required }) => {
+export const LabeledInput = ({ inputName, inputValue, inputId, inputDataId, labelClass, labelText, onChange, required }) => {
   const controlId = inputId ? inputId : inputName;
   
   return (
@@ -13,6 +13,7 @@ export const LabeledInput = ({ inputName, inputValue, inputId, labelClass, label
       <Col xs="auto">
         <Form.Control
           type="text"
+          data-id={inputDataId}
           name={inputName}
           value={inputValue}
           onChange={onChange}
