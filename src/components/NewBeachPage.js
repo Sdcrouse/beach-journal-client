@@ -6,6 +6,9 @@ import { Redirect } from 'react-router-dom';
 import LocationInputs from './LocationInputs';
 import AttractionInputs from './AttractionInputs';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 class NewBeachPage extends Component {
   state = {
@@ -102,18 +105,22 @@ class NewBeachPage extends Component {
           <h3>{errorMessage}</h3>
         }
 
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <label htmlFor="name" className="required-field">Name: </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={name}
-              onChange={this.handleChange}
-              required
-            />
-          </p>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group as={Row} controlId="name" className="align-items-center">
+            <Col xs="auto">
+              <Form.Label className="required-field">Name: </Form.Label>
+            </Col>
+            <Col xs="auto">
+              <Form.Control
+                type="text"
+                name="name"
+                placeholder="Beach Name"
+                value={name}
+                onChange={this.handleChange}
+                required
+              />
+            </Col>
+          </Form.Group>
 
           <LocationInputs handleChange={this.handleLocationInputChange} {...location} />
 
@@ -155,7 +162,7 @@ class NewBeachPage extends Component {
           </p>
           
           <Button type="submit">Create Beach</Button>
-        </form>
+        </Form>
       </>
     );
   }

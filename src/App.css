@@ -38,6 +38,11 @@ header {
   margin-bottom: 0;
 }
 
+.align-items-center {
+  display: flex;
+  justify-content: center;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
