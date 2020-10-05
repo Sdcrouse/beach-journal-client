@@ -23,7 +23,7 @@ class JournalEntriesContainer extends Component {
 
     return (
       <>
-        <h2>Journal Entries:</h2>
+        <h2 className="secondary-labels">Journal Entries:</h2>
 
         {location.state && 
           <h4 className="success-message">{location.state.successMessage}</h4>

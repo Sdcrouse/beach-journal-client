@@ -5,7 +5,7 @@ const Attractions = ({ attractions }) => {
 
   return (
     <>
-      <h2>Attractions:</h2>
+      <h2 className="secondary-labels">Attractions:</h2>
       <ul>
         {Object.keys(attrsByCategory).map(category =>
           <li key={category}>
@@ -13,7 +13,7 @@ const Attractions = ({ attractions }) => {
             <ul>
               {attrsByCategory[category].map (attraction =>
                 <li key={attraction.id}>
-                  <strong>{attraction.name}: </strong>{attraction.description}
+                  <strong className="tertiary-labels">{attraction.name}: </strong>{attraction.description}
                 </li>
               )}
             </ul>

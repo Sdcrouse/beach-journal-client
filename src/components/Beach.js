@@ -18,17 +18,17 @@ const Beach = props => {
     <>
       <h1>{name}</h1>
       <Location {...locationInfo} />
-      <p><strong>Description: </strong>{description}</p>
+      <p><strong className="tertiary-labels">Description: </strong>{description}</p>
 
       {items_to_bring &&
         <p>
-          <strong>Items to Bring: </strong>{items_to_bring}
+          <strong className="tertiary-labels">Items to Bring: </strong>{items_to_bring}
         </p>
       }
 
       {popular_activities &&
         <p>
-          <strong>Popular Activities: </strong>{popular_activities}
+          <strong className="tertiary-labels">Popular Activities: </strong>{popular_activities}
         </p>
       }
       

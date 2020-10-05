@@ -75,4 +75,5 @@ header {
 } */
 
 .required-field { color: red; }
-.success-message { color: green }
+.success-message, .secondary-labels { color: green }
+.tertiary-labels { color: brown }

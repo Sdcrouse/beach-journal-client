@@ -14,7 +14,7 @@ const JournalEntry = ({ id, beach_id, title, topics, date, entry_text }) => {
 
   return (
     <>
-      <p><strong>{title}</strong></p>
+      <p><strong className="tertiary-labels">{title}</strong></p>
       {topicsList}
       <p>{date}</p>
       {textParagraphs}

@@ -139,12 +139,12 @@ class NewBeachPage extends Component {
             colSize={5}
           />
 
-          <h2>Attractions</h2>
+          <h2 className="secondary-labels">Attractions</h2>
           {attractions_attributes.map((attraction, index) => 
             <AttractionInputs key={index} index={index} handleChange={this.handleAttractionInputChange} {...attraction} />
           )}
           <p>
-            <Button onClick={this.handleAddAttraction}>Add Attraction</Button>
+            <Button onClick={this.handleAddAttraction} variant="warning">Add Attraction</Button>
           </p>
           
           <Button type="submit">Create Beach</Button>
