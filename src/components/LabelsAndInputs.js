@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 export const LabeledInput = ({ inputName, inputValue, labelClass, labelText, onChange, required }) => 
-  <Form.Group as={Row} controlId={inputName} className="align-items-center">
+  <Form.Group as={Row} controlId={inputName} className="center-justify-content">
     <Form.Label className={labelClass}>{labelText}</Form.Label>
     <Col xs="auto">
       <Form.Control
@@ -19,7 +19,7 @@ export const LabeledInput = ({ inputName, inputValue, labelClass, labelText, onC
   </Form.Group>
 
 export const LabeledTextarea = ({ inputName, inputValue, labelClass, labelText, onChange, required, colSize }) =>
-  <Form.Group as={Row} controlId={inputName} className="align-items-center">
+  <Form.Group as={Row} controlId={inputName} className="center-justify-content">
     <Form.Label className={labelClass}>{labelText}</Form.Label>
     <Col sm={colSize}>
       <Form.Control

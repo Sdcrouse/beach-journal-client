@@ -38,7 +38,7 @@ header {
   margin-bottom: 0;
 }
 
-.align-items-center {
+.center-justify-content {
   display: flex;
   justify-content: center;
 }
