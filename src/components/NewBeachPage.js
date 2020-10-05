@@ -124,34 +124,43 @@ class NewBeachPage extends Component {
 
           <LocationInputs handleChange={this.handleLocationInputChange} {...location} />
 
-          <p>
-            <label htmlFor="description" className="required-field">Description: </label>
-            <textarea
-              name="description"
-              id="description"
-              value={description}
-              onChange={this.handleChange}
-              required
-            />
-          </p>
-          <p>
-            <label htmlFor="items_to_bring">What should you bring when visiting this beach? </label>
-            <textarea
-              name="items_to_bring"
-              id="items_to_bring"
-              value={items_to_bring}
-              onChange={this.handleChange}
-            />
-          </p>
-          <p>
-            <label htmlFor="popular_activities">Popular Activities: </label>
-            <textarea
-              name="popular_activities"
-              id="popular_activities"
-              value={popular_activities}
-              onChange={this.handleChange}
-            />
-          </p>
+          <Form.Group as={Row} controlId="description" className="align-items-center">
+            <Form.Label className="required-field">Description:</Form.Label>
+            <Col sm={5}>
+              <Form.Control
+                as="textarea"
+                rows="2"
+                name="description"
+                value={description}
+                onChange={this.handleChange}
+                required
+              />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} controlId="items_to_bring" className="align-items-center">
+            <Form.Label>What should you bring<br />when visiting this beach?</Form.Label>
+            <Col sm={4}>
+              <Form.Control
+                as="textarea"
+                rows="2"
+                name="items_to_bring"
+                value={items_to_bring}
+                onChange={this.handleChange}
+              />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} controlId="popular_activities" className="align-items-center">
+            <Form.Label>Popular<br />Activities:</Form.Label>
+            <Col sm={5}>
+              <Form.Control
+                as="textarea"
+                rows="2"
+                name="popular_activities"
+                value={popular_activities}
+                onChange={this.handleChange}
+              />
+            </Col>
+          </Form.Group>
 
           <h2>Attractions</h2>
           {attractions_attributes.map((attraction, index) => 
