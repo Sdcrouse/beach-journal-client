@@ -54,6 +54,20 @@ header {
   color: yellow;
 }
 
+.attraction-info {
+  background-color: cornflowerblue;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.attraction-info h3, .attraction-info p {
+  color: white;
+}
+
+.attraction-info strong {
+  color: greenyellow;
+}
+
 .journal-entry-form, .beach-card {
   background-color: white;
   padding-top: 1%;
