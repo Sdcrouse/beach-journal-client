@@ -49,6 +49,11 @@ header {
   padding-bottom: 1%;
 }
 
+.journal-entry {
+  background-color: beige;
+  padding: 1%;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

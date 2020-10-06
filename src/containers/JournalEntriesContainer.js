@@ -4,6 +4,7 @@ import JournalEntry from '../components/JournalEntry';
 import { withRouter } from 'react-router';
 import { Switch, Route, Link } from 'react-router-dom';
 import JournalEntryForm from '../components/JournalEntryForm';
+import Container from 'react-bootstrap/Container';
 
 class JournalEntriesContainer extends Component {
   render() {
@@ -41,7 +42,9 @@ class JournalEntriesContainer extends Component {
           </Route>
         </Switch>
 
-        {pageContent}
+        <Container>
+          {pageContent}
+        </Container>
       </>
     )
   }

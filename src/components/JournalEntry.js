@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteJournalEntry } from '../actions/journalEntryActions';
 import Button from 'react-bootstrap/Button';
+import '../App.css';
 
 const JournalEntry = ({ id, beach_id, title, topics, date, entry_text }) => {
   const dispatch = useDispatch();
@@ -15,11 +16,15 @@ const JournalEntry = ({ id, beach_id, title, topics, date, entry_text }) => {
 
   return (
     <>
-      <p><strong className="tertiary-labels">{title}</strong></p>
-      {topicsList}
-      <p>{date}</p>
-      {textParagraphs}
-      <Button variant="dark" onClick={() => dispatch( deleteJournalEntry(id, beach_id) )}>Delete this Journal Entry</Button>
+      <br />
+      <div className="journal-entry">
+        <p><strong className="tertiary-labels">{title}</strong></p>
+        {topicsList}
+        <p>{date}</p>
+        {textParagraphs}
+        <Button variant="dark" onClick={() => dispatch( deleteJournalEntry(id, beach_id) )}>Delete this Journal Entry</Button>
+      </div>
+      <br />
     </>
   );
 };
