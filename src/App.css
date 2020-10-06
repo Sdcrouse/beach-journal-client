@@ -68,7 +68,7 @@ header {
   color: greenyellow;
 }
 
-.journal-entry-form, .beach-card {
+.App-description, .journal-entry-form, .beach-card {
   background-color: white;
   padding-top: 1%;
   padding-bottom: 1%;
@@ -112,4 +112,4 @@ header {
 
 .required-field { color: red; }
 .success-message, .secondary-labels { color: green }
-.tertiary-labels { color: brown }
+.button-names, .tertiary-labels { color: brown }
