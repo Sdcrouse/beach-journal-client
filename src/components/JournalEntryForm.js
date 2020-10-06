@@ -5,6 +5,9 @@ import { createJournalEntry } from '../actions/journalEntryActions';
 import { Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import { LabeledInput, LabeledTextarea } from './LabelsAndInputs';
+import '../App.css';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
 class JournalEntryForm extends Component {
   state = {
@@ -64,7 +67,7 @@ class JournalEntryForm extends Component {
     const { date, title, topics, entry_text, beach_id } = this.state.journalEntry;
 
     return (
-      <>
+      <Container className="journal-entry-form">
         {this.redirectToBeach(beach_id)}
 
         <h3>New Journal Entry</h3>
@@ -105,11 +108,9 @@ class JournalEntryForm extends Component {
             colSize={10}
             rows="15"
           />
-          <p>
-            <input type="submit" value="Write this Journal Entry!" />
-          </p>
+          <Button type="submit">Write this Journal Entry!</Button>
         </Form>
-      </>
+      </Container>
     )
   }
 }

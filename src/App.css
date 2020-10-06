@@ -43,6 +43,12 @@ header {
   justify-content: center;
 }
 
+.journal-entry-form {
+  background-color: white;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
