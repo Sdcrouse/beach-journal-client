@@ -7,14 +7,14 @@ const Attractions = ({ attractions }) => {
     <>
       <h2 className="secondary-labels">Attractions:</h2>
       {Object.keys(attrsByCategory).map(category =>
-        <p key={category}>
+        <div key={category}>
           <h3>{category}</h3>
           {attrsByCategory[category].map (attraction =>
             <p key={attraction.id}>
               <strong className="tertiary-labels">{attraction.name}: </strong>{attraction.description}
             </p>
           )}
-        </p>
+        </div>
       )}
     </>
   );
