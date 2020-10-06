@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteJournalEntry } from '../actions/journalEntryActions';
+import Button from 'react-bootstrap/Button';
 
 const JournalEntry = ({ id, beach_id, title, topics, date, entry_text }) => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const JournalEntry = ({ id, beach_id, title, topics, date, entry_text }) => {
       {topicsList}
       <p>{date}</p>
       {textParagraphs}
-      <button onClick={() => dispatch( deleteJournalEntry(id, beach_id) )}>Delete this Journal Entry</button>
+      <Button variant="dark" onClick={() => dispatch( deleteJournalEntry(id, beach_id) )}>Delete this Journal Entry</Button>
     </>
   );
 };
