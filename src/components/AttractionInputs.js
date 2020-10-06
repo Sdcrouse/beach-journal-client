@@ -1,11 +1,11 @@
 import React from 'react';
 import '../App.css';
-import { LabeledInput } from './LabelsAndInputs';
+import { LabeledInput, LabeledTextarea } from './LabelsAndInputs';
 
 const AttractionInputs = ({ index, category, name, description, handleChange }) => {
   let categoryId = `category-${index}`, nameId = `name-${index}`, descId = `description-${index}`;
   return (
-    <p>
+    <>
       <LabeledInput
         inputName="category"
         inputValue={category}
@@ -26,16 +26,18 @@ const AttractionInputs = ({ index, category, name, description, handleChange }) 
         onChange={handleChange}
         required={true}
       />
-      <label htmlFor={descId} className="required-field">Description: </label>
-      <textarea
-        id={descId}
-        data-id={index}
-        name="description"
-        value={description}
+      <LabeledTextarea
+        inputName="description"
+        inputValue={description}
+        inputId={descId}
+        inputDataId={index}
+        labelClass="required-field"
+        labelText="Description:"
         onChange={handleChange}
-        required
+        required={true}
+        colSize={5}
       />
-    </p>
+    </>
   );
 };
 
