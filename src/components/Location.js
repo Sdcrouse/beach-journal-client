@@ -2,7 +2,7 @@ import React from 'react';
 
 const Location = ({ city, state, country }) => (
   <p>
-    <strong className="tertiary-labels">Location: </strong>{city}, {state}, {country}
+    <strong className="beach-info-labels">Location: </strong>{city}, {state}, {country}
   </p>
 );
 

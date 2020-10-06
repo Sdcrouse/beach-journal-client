@@ -43,6 +43,17 @@ header {
   justify-content: center;
 }
 
+.main-beach-info {
+  background-color: palevioletred;
+  color: seashell; /* A fitting color for a Beach Journal, eh? */
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.beach-info-labels {
+  color: yellow;
+}
+
 .journal-entry-form, .beach-card {
   background-color: white;
   padding-top: 1%;
