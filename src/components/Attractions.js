@@ -6,20 +6,16 @@ const Attractions = ({ attractions }) => {
   return (
     <>
       <h2 className="secondary-labels">Attractions:</h2>
-      <ul>
-        {Object.keys(attrsByCategory).map(category =>
-          <li key={category}>
-            <h3>{category}</h3>
-            <ul>
-              {attrsByCategory[category].map (attraction =>
-                <li key={attraction.id}>
-                  <strong className="tertiary-labels">{attraction.name}: </strong>{attraction.description}
-                </li>
-              )}
-            </ul>
-          </li>
-        )}
-      </ul>
+      {Object.keys(attrsByCategory).map(category =>
+        <p key={category}>
+          <h3>{category}</h3>
+          {attrsByCategory[category].map (attraction =>
+            <p key={attraction.id}>
+              <strong className="tertiary-labels">{attraction.name}: </strong>{attraction.description}
+            </p>
+          )}
+        </p>
+      )}
     </>
   );
 }
