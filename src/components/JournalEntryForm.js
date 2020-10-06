@@ -3,6 +3,8 @@ import '../App.css';
 import { connect } from 'react-redux';
 import { createJournalEntry } from '../actions/journalEntryActions';
 import { Redirect } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import { LabeledInput } from './LabelsAndInputs';
 
 class JournalEntryForm extends Component {
   state = {
@@ -72,19 +74,38 @@ class JournalEntryForm extends Component {
           <h4>{this.state.errorMessage}</h4>
         }
 
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <label className="required-field" htmlFor="date">Date: </label>
-            <input type="text" id="date" name="date" value={date} onChange={this.handleChange} required />
-          </p>
-          <p>
-            <label htmlFor="title">Title: </label>
-            <input type="text" id="title" name="title" value={title} onChange={this.handleChange} />
-          </p>
-          <p>
-            <label htmlFor="topics">Topics: </label>
-            <input type="text" id="topics" name="topics" value={topics} onChange={this.handleChange} />
-          </p>
+        <Form onSubmit={this.handleSubmit}>
+          {/* <LabeledInput
+          inputName="category"
+          inputValue={category}
+          inputId={categoryId}
+          inputDataId={index}
+          labelClass="required-field"
+          labelText="Category:"
+          onChange={handleChange}
+          required={true}
+        /> */}
+
+          <LabeledInput
+            inputName="date"
+            inputValue={date}
+            labelClass="required-field"
+            labelText="Date:"
+            onChange={this.handleChange}
+            required={true}
+          />
+          <LabeledInput
+            inputName="title"
+            inputValue={title}
+            labelText="Title:"
+            onChange={this.handleChange}
+          />
+          <LabeledInput
+            inputName="topics"
+            inputValue={topics}
+            labelText="Topics:"
+            onChange={this.handleChange}
+          />
           <p>
             <label className="required-field" htmlFor="entry_text">Entry Text: </label>
             <textarea id="entry_text" name="entry_text" value={entry_text} onChange={this.handleChange} required />
@@ -92,7 +113,7 @@ class JournalEntryForm extends Component {
           <p>
             <input type="submit" value="Write this Journal Entry!" />
           </p>
-        </form>
+        </Form>
       </>
     )
   }
