@@ -24,9 +24,8 @@ export const LabeledInput = ({ inputName, inputValue, inputId, inputDataId, labe
   );
 };
 
-export const LabeledTextarea = ({ inputName, inputValue, inputId, inputDataId, labelClass, labelText, onChange, required, colSize, rows }) => {
+export const LabeledTextarea = ({ inputName, inputValue, inputId, inputDataId, labelClass, labelText, onChange, required, colSize, rows = 2 }) => {
   const controlId = inputId ? inputId : inputName;
-  const rowNumber = rows ? rows : "2";
 
   return (
     <Form.Group as={Row} controlId={controlId} className="center-justify-content">
@@ -34,7 +33,7 @@ export const LabeledTextarea = ({ inputName, inputValue, inputId, inputDataId, l
       <Col sm={colSize}>
         <Form.Control
           as="textarea"
-          rows={rowNumber}
+          rows={rows}
           data-id={inputDataId}
           name={inputName}
           value={inputValue}
