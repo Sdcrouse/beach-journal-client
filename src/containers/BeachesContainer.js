@@ -4,6 +4,7 @@ import BeachCard from '../components/BeachCard';
 import Beach from '../components/Beach';
 import { Switch, Route } from 'react-router-dom';
 import '../App.css';
+import Container from 'react-bootstrap/Container';
 
 class BeachesContainer extends Component {
   render() {
@@ -36,7 +37,9 @@ class BeachesContainer extends Component {
             <h1>Your Saved Beaches:</h1>
           </header>
 
-          {beachCards}
+          <Container>
+            {beachCards}
+          </Container>
         </Route>
       </Switch>
     );

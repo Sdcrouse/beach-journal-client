@@ -43,7 +43,7 @@ header {
   justify-content: center;
 }
 
-.journal-entry-form {
+.journal-entry-form, .beach-card {
   background-color: white;
   padding-top: 1%;
   padding-bottom: 1%;
