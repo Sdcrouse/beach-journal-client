@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createJournalEntry } from '../actions/journalEntryActions';
 import { Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-import { LabeledInput } from './LabelsAndInputs';
+import { LabeledInput, LabeledTextarea } from './LabelsAndInputs';
 
 class JournalEntryForm extends Component {
   state = {
@@ -75,17 +75,6 @@ class JournalEntryForm extends Component {
         }
 
         <Form onSubmit={this.handleSubmit}>
-          {/* <LabeledInput
-          inputName="category"
-          inputValue={category}
-          inputId={categoryId}
-          inputDataId={index}
-          labelClass="required-field"
-          labelText="Category:"
-          onChange={handleChange}
-          required={true}
-        /> */}
-
           <LabeledInput
             inputName="date"
             inputValue={date}
@@ -106,10 +95,16 @@ class JournalEntryForm extends Component {
             labelText="Topics:"
             onChange={this.handleChange}
           />
-          <p>
-            <label className="required-field" htmlFor="entry_text">Entry Text: </label>
-            <textarea id="entry_text" name="entry_text" value={entry_text} onChange={this.handleChange} required />
-          </p>
+          <LabeledTextarea
+            inputName="entry_text"
+            inputValue={entry_text}
+            labelClass="required-field"
+            labelText="Entry Text:"
+            onChange={this.handleChange}
+            required={true}
+            colSize={10}
+            rows="15"
+          />
           <p>
             <input type="submit" value="Write this Journal Entry!" />
           </p>
