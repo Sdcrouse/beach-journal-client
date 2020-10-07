@@ -1,12 +1,40 @@
 # Beach Journal
 
-Welcome to the Beach Journal app! This is my final project for the Flatiron School. It allows users to create and save beaches, as well as write journal entries for those beaches.
+Welcome to the Beach Journal app! This is my final project for the Flatiron School. It allows users to create and save beaches, as well as write journal entries for those beaches. This repository contains the React/Redux frontend of the project.
 
 The backend for the Beach Journal can be found here: [https://github.com/Sdcrouse/beach-journal-backend](https://github.com/Sdcrouse/beach-journal-backend)
 
 To view a demo of this app, check out [https://www.loom.com/share/dfdc7f0bdced4f13bc0c6f935c38e892](https://www.loom.com/share/dfdc7f0bdced4f13bc0c6f935c38e892)
 
 To read my blog post for this app, go to [https://www.loom.com/share/dfdc7f0bdced4f13bc0c6f935c38e892](https://www.loom.com/share/dfdc7f0bdced4f13bc0c6f935c38e892)
+
+## Installing and Starting Up the Beach Journal App
+
+Follow these steps to start up the Beach Journal app:
+
+1. Fork and clone this repository onto your own computer and run `cd beach-journal-client`.
+2. Navigate to the backend repository and follow the installation instructions, up to and including starting the Rails server.
+3. From the `beach-journal-client` directory, run `npm install` and `npm start`.
+
+You're all set to use this app!
+
+## Usage
+
+The Beach Journal app serves two main purposes: Saving information about your favorite beaches and keeping a journal of your beach trips.
+
+Once the app loads, you can do any of the following:
+
+1. Create a new beach by navigating to the "New Beach" page and filling out the form. 
+   * On that form, you can fill out a beach's location and general information.
+   * You can also add an attraction with the "Add Attraction" button. Any attractions that you create for a beach will be sorted by their categories.
+2. Once you submit the form, you will be redirected to the "Your Saved Beaches" page. Scroll down to the bottom to view your new beach.
+   * **Special note:** If this is your first time using the app, you will need to create a new beach before you can write a journal entry for it.
+3. Click on the "View Saved Beaches" button to see a list of all of the beaches you've created.
+4. On that page, click "View Beach" to check out the information that you've written about a beach.
+5. To write a journal entry for a beach, just go to that beach's page, click on the "New Journal Entry" button, and fill out the form.
+   * Every journal entry needs a date and text. However, if you want to make your journal entry more like a blog post, you also have the option to give it a title and/or topics.
+   * Once you submit the form, you can check out your new journal entry at the bottom of the page.
+6. You also have the option of deleting any of your journal entries; just click on its "Delete Journal Entry" button.
 
 ## Contributing
 
