@@ -22,7 +22,8 @@ const Beach = props => {
 
       <br />
       <Container className="main-beach-info">
-        <Location {...locationInfo} />
+        <strong className="beach-info-labels">Location: </strong><Location {...locationInfo} />
+        
         <p><strong className="beach-info-labels">Description: </strong>{description}</p>
 
         {items_to_bring &&

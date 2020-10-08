@@ -9,11 +9,7 @@ const Location = ({ city, state, country }) => {
     locationInfo = <>{city}, {state}, {country}</>;
   }
 
-  return (
-    <p>
-      <strong className="beach-info-labels">Location: </strong>{locationInfo}
-    </p>
-  )
+  return <p>{locationInfo}</p>;
 };
 
 export default Location;
