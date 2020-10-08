@@ -1,8 +1,6 @@
 # Beach Journal
 
-<p>
-  <img src="./beach-journal-app.png" alt="Beach Journal App" width="800" height="380">
-</p>
+![Beach Journal App](./beach-journal-app.png)
 
 Welcome to the Beach Journal app! This is my final project for the Flatiron School. It allows users to create and save beaches, as well as write journal entries for those beaches. This repository contains the React/Redux frontend of the project.
 
@@ -12,9 +10,8 @@ The backend for the Beach Journal can be found here: [https://github.com/Sdcrous
 
 ## Demo and Blog Post
 
-To view a demo of this app, check out [https://www.loom.com/share/dfdc7f0bdced4f13bc0c6f935c38e892](https://www.loom.com/share/dfdc7f0bdced4f13bc0c6f935c38e892)
-
-To read my blog post for this app, go to [https://www.loom.com/share/dfdc7f0bdced4f13bc0c6f935c38e892](https://www.loom.com/share/dfdc7f0bdced4f13bc0c6f935c38e892)
+* [Click Here](https://www.loom.com/share/dfdc7f0bdced4f13bc0c6f935c38e892) to view a demo of the Beach Journal.
+* [Click Here](https://stevendcrouse.com/beach_journal_my_final_and_most_complicated_project) to read my blog post about the Beach Journal.
 
 ## Installing and Starting Up the Beach Journal App
 
