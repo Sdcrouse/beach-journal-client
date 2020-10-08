@@ -62,6 +62,8 @@ In addition to the Node packages provided by Create React App, the following pac
   * [React Router](https://reactrouter.com/web/guides/quick-start)
   * [React Bootstrap](https://react-bootstrap.github.io/)
 
+To see how I wireframed part of the Beach Journal app, check out [this Figma file](https://www.figma.com/file/odK1rO040HWJ1k5u4Ck4Is/Single-Page-Application?node-id=61%3A38).
+
 ## Available Scripts
 
 In the project directory, you can run:
