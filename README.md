@@ -1,5 +1,9 @@
 # Beach Journal
 
+<p>
+  <img src="./beach-journal-app.png" alt="Beach Journal App" width="800" height="380">
+</p>
+
 Welcome to the Beach Journal app! This is my final project for the Flatiron School. It allows users to create and save beaches, as well as write journal entries for those beaches. This repository contains the React/Redux frontend of the project.
 
 ## Backend
