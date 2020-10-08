@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Location from './Location';
 import '../App.css';
 
 const BeachCard = ({ beachInfo, locationInfo }) => {
@@ -10,7 +11,7 @@ const BeachCard = ({ beachInfo, locationInfo }) => {
         <h2>{beachInfo.name}</h2>
         
         {locationInfo &&
-          <p>{locationInfo.city}, {locationInfo.state}, {locationInfo.country}</p>
+          <Location {...locationInfo} />
         }
         
         <p>{beachInfo.description}</p>
