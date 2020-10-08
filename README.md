@@ -2,7 +2,11 @@
 
 Welcome to the Beach Journal app! This is my final project for the Flatiron School. It allows users to create and save beaches, as well as write journal entries for those beaches. This repository contains the React/Redux frontend of the project.
 
+## Backend
+
 The backend for the Beach Journal can be found here: [https://github.com/Sdcrouse/beach-journal-backend](https://github.com/Sdcrouse/beach-journal-backend)
+
+## Demo and Blog Post
 
 To view a demo of this app, check out [https://www.loom.com/share/dfdc7f0bdced4f13bc0c6f935c38e892](https://www.loom.com/share/dfdc7f0bdced4f13bc0c6f935c38e892)
 
@@ -20,7 +24,7 @@ You're all set to use this app!
 
 ## Usage
 
-The Beach Journal app serves two main purposes: Saving information about your favorite beaches and keeping a journal of your beach trips.
+The Beach Journal app is a single-page application that serves two main purposes: Saving information about your favorite beaches and keeping a journal of your beach trips.
 
 Once the app loads, you can do any of the following:
 
@@ -49,6 +53,13 @@ Licensed under the [MIT License](LICENSE).
 ## Development Notes
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+In addition to the Node packages provided by Create React App, the following packages were used:
+  * [Redux](https://redux.js.org/)
+  * [React Redux](https://react-redux.js.org/)
+  * [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+  * [React Router](https://reactrouter.com/web/guides/quick-start)
+  * [React Bootstrap](https://react-bootstrap.github.io/)
 
 ## Available Scripts
 
