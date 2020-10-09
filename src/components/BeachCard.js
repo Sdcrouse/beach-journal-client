@@ -11,7 +11,7 @@ const BeachCard = ({ beachInfo, locationInfo }) => {
         <h2>{beachInfo.name}</h2>
         
         {locationInfo &&
-          <Location {...locationInfo} />
+          <p><Location {...locationInfo} /></p>
         }
         
         <p>{beachInfo.description}</p>

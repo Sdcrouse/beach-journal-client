@@ -9,7 +9,7 @@ const Location = ({ city, state, country }) => {
     locationInfo = <>{city}, {state}, {country}</>;
   }
 
-  return <p>{locationInfo}</p>;
+  return <>{locationInfo}</>;
 };
 
 export default Location;
