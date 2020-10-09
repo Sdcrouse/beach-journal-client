@@ -1,5 +1,6 @@
 import React from 'react';
 import Location from './Location';
+import BeachInfo from './BeachInfo';
 import Attractions from './Attractions';
 import JournalEntriesContainer from '../containers/JournalEntriesContainer';
 import Container from 'react-bootstrap/Container';
@@ -22,21 +23,15 @@ const Beach = props => {
 
       <br />
       <Container className="main-beach-info">
-        <p><strong className="beach-info-labels">Location: </strong><Location {...locationInfo} /></p>
-        
-        <p><strong className="beach-info-labels">Description: </strong>{description}</p>
+        <BeachInfo label="Location: ">
+          <Location {...locationInfo} />
+        </BeachInfo>
 
-        {items_to_bring &&
-          <p>
-            <strong className="beach-info-labels">Items to Bring: </strong>{items_to_bring}
-          </p>
-        }
+        <BeachInfo label="Description: ">{description}</BeachInfo>
 
-        {popular_activities &&
-          <p>
-            <strong className="beach-info-labels">Popular Activities: </strong>{popular_activities}
-          </p>
-        }
+        {items_to_bring && <BeachInfo label="Items to Bring: ">{items_to_bring}</BeachInfo>}
+
+        {popular_activities && <BeachInfo label="Popular Activities: ">{popular_activities}</BeachInfo>}
       </Container>
       <br />
       
