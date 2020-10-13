@@ -71,7 +71,7 @@ class JournalEntryForm extends Component {
         {this.redirectToBeach(beach_id)}
 
         <h3>New Journal Entry</h3>
-        <p className="required-field">Red text indicates a required field.</p>
+        <p><strong>* </strong><span className="required-field">Required field</span></p>
 
         {this.state.errorMessage &&
           <h4>{this.state.errorMessage}</h4>

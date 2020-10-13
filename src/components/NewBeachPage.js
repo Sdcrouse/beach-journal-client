@@ -98,7 +98,7 @@ class NewBeachPage extends Component {
         {this.redirectToBeaches()}
 
         <h1>New Beach</h1>
-        <p className="required-field">Red text indicates a required field.</p>
+        <p><strong>* </strong><span className="required-field">Required field</span></p>
 
         {errorMessage &&
           <h3>{errorMessage}</h3>

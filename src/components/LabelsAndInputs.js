@@ -6,10 +6,14 @@ import Col from 'react-bootstrap/Col';
 
 export const LabeledInput = ({ inputName, inputValue, inputId, inputDataId, labelClass, labelText, onChange, required }) => {
   const controlId = inputId ? inputId : inputName;
+  const requiredFieldMarker = labelClass === "required-field" ? <strong>*</strong> : '';
   
   return (
     <Form.Group as={Row} controlId={controlId} className="center-justify-content">
-      <Form.Label className={labelClass}>{labelText}</Form.Label>
+      <p>
+        {requiredFieldMarker} <Form.Label className={labelClass}>{labelText}</Form.Label>
+      </p>
+      
       <Col xs="auto">
         <Form.Control
           type="text"
@@ -26,10 +30,14 @@ export const LabeledInput = ({ inputName, inputValue, inputId, inputDataId, labe
 
 export const LabeledTextarea = ({ inputName, inputValue, inputId, inputDataId, labelClass, labelText, onChange, required, colSize, rows = 2 }) => {
   const controlId = inputId ? inputId : inputName;
+  const requiredFieldMarker = labelClass === "required-field" ? <strong>*</strong> : '';
 
   return (
     <Form.Group as={Row} controlId={controlId} className="center-justify-content">
-      <Form.Label className={labelClass}>{labelText}</Form.Label>
+      <p>
+        {requiredFieldMarker} <Form.Label className={labelClass}>{labelText}</Form.Label>
+      </p>
+
       <Col sm={colSize}>
         <Form.Control
           as="textarea"
