@@ -9,9 +9,9 @@ const Attractions = ({ attractions }) => {
     <>
       <h2 className="secondary-labels">Attractions:</h2>
       {Object.keys(attrsByCategory).map(category =>
-        <>
+        <React.Fragment key={category}>
           <br />
-          <Container key={category} className="attraction-info">
+          <Container className="attraction-info">
             <h3>{category}</h3>
             {attrsByCategory[category].map (attraction =>
               <p key={attraction.id}>
@@ -19,7 +19,7 @@ const Attractions = ({ attractions }) => {
               </p>
             )}
           </Container>
-        </>
+        </React.Fragment>
       )}
       <br />
     </>
