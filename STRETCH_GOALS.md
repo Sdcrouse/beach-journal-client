@@ -3,6 +3,8 @@
 **My BIG stretch goal** is to change this into a Beach Blog that lets users not only save information and journal entries for beaches, but also share them with others and comment on them.
 To that end, it might be a good idea to separate the BlogPost from the JournalEntry (and in that case, I should remove the title and topics from the JournalEntry and add them to the BlogPost).
 
+Is there a way to automatically go to the top of the page when accessing nested links? E.g. "View Beach" won't currently go to the top of the Beach page.
+
 Move the components for Location, Beach, and JournalEntry into their own sub-directories.
 
 Implement user login/logout, authorization/authentication, and TDD.
@@ -37,6 +39,9 @@ Allow users to add maps of their beaches (maybe have them provide the link, and 
 Also, use this for testing JS and React: https://jestjs.io/
 
 I think I want to display the newest beaches first, so that the user doesn't have to keep scrolling down to see the new beach they create. Same with the journal entries.
+Related idea: Put the newest beach at the top (temporarily - **I'd like to eventually redirect to the new beach instead of the index page**), then sort them alphabetically by name and location. 
+I would also sort the journal entries by date, either from newest to oldest or oldest to newest (except for when creating a new entry - that one would be displayed at the top).
+**Related stretch goal:** See if instead of redirecting to the beach after creating the journal entry, I can replace the "New Journal Entry" form with the newest journal entry.
 
 Make the Saved Beaches button a <select> list that links to all or one of them.
 When the user clicks their choice, the "Saved Beaches" button will still show up dark blue...maybe.
@@ -58,7 +63,7 @@ Attraction category ideas:
 
 Here's how I can do something like that: https://stackoverflow.com/questions/42316604/how-to-implement-a-dynamic-form-with-controlled-components-in-reactjs
 
-Attractions with a category of "Other" should be displayed last.
+Attractions with a category of "Other" should be displayed last. The other categories should be displayed alphabetically, and the Attractions under each category can also be sorted alphabetically by name.
 
 Maybe give each Attraction a Location/address.
 I could let the user associate their journal entries with one or more Attractions.
@@ -95,6 +100,7 @@ What I don't know is how to get the new component or which component should redi
 
 If I need to have a value in state that indicates whether submission was successful or not,
 then maybe I could somehow submit that data without that specific key/value pair of the form's state.
+On a related note, I currently have a `redirectToBeaches` function that conditionally returns a `<Redirect>` component. Is that OK to do (Separation of Concerns), or is it better to put that logic inside of `render`?
 
 Also, I don't know how to display an error message (like for invalid/blank input) without using a Hook, which requires a functional component, which the NewBeachPage is NOT.
 
@@ -140,12 +146,15 @@ When I refresh the /beaches page, the beaches object is empty twice, and filled 
 For that matter, at this time the Location Info passed to the BeachCard is undefined 5 times initially.
 And each BeachCard seems to get rendered three times.
 
+In the LocationInputs.js file, check out the stretch goal at the bottom. It involves playing around with a different Form/Row/Col layout.
+
 It wouldn't hurt to use the column-count property, especially when dealing with media queries.
 I like the idea of using "fixed" as the value of my background-attachment property. I should use that somewhere in this project.
 Same thing with 'background: linear-gradient()'. This example uses a similar color scheme to my Beach Journal app; maybe I should use it: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients#Creating_hard_lines
 
 Use accordion-style CSS: https://www.w3schools.com/howto/howto_js_accordion.asp
 CSS idea: Fix the main links to the top of the page at all times, no matter where the user scrolls.
+Also, I should use a media query and/or the NavLink or React-Bootstrap docs to fix the "Saved Beaches" button - it doesn't look good on screens with smaller widths.
 
 Use one of these fonts in the app: https://www.fontspace.com/category/beach
 
