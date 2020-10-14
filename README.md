@@ -8,10 +8,11 @@ Welcome to the Beach Journal app! This is my final project for the Flatiron Scho
 
 The backend for the Beach Journal can be found here: [https://github.com/Sdcrouse/beach-journal-backend](https://github.com/Sdcrouse/beach-journal-backend)
 
-## Demo and Blog Post
+## Demo, Blog Post, and Mock Assessment
 
 * [Click Here](https://www.loom.com/share/dfdc7f0bdced4f13bc0c6f935c38e892) to view a demo of the Beach Journal.
 * [Click Here](https://stevendcrouse.com/beach_journal_my_final_and_most_complicated_project) to read my blog post about the Beach Journal.
+* [Click Here](https://youtu.be/XNG1M5rR5uI) to watch the Beach Journal's mock assessment, which I did with other students.
 
 ## Installing and Starting Up the Beach Journal App
 
