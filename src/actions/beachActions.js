@@ -43,7 +43,6 @@ export const createBeach = beachData => {
 // Helper functions:
 
 const normalizeBeaches = beachesData => {
-  // Initialize an object:
   let normalized = {
     beaches: {},
     locations: {},
@@ -51,17 +50,16 @@ const normalizeBeaches = beachesData => {
     journal_entries: {}
   };
 
-  // Iterate over the beachesData array:
   for (const beachObj of beachesData) {
-    const normalizedBeachObj = normalizeBeach(beachObj);
+    const { beach, location, attractions, journal_entries } = normalizeBeach(beachObj);
 
-    normalized.beaches = {...normalized.beaches, ...normalizedBeachObj.beach};
+    normalized.beaches = {...normalized.beaches, ...beach};
 
-    normalized.locations[normalizedBeachObj.location.id] = normalizedBeachObj.location;
+    normalized.locations[location.id] = location;
 
-    normalized.attractions = {...normalized.attractions, ...normalizedBeachObj.attractions};
+    normalized.attractions = {...normalized.attractions, ...attractions};
 
-    normalized.journal_entries = {...normalized.journal_entries, ...normalizedBeachObj.journal_entries};
+    normalized.journal_entries = {...normalized.journal_entries, ...journal_entries};
   }
 
   return normalized;
