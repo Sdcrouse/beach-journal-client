@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import BeachCard from '../components/BeachCard';
-import Beach from '../components/Beach';
+import BeachCard from '../components/beach/BeachCard';
+import Beach from '../components/beach/Beach';
 import { Switch, Route } from 'react-router-dom';
 import '../App.css';
 import Container from 'react-bootstrap/Container';

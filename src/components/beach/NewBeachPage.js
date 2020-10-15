@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { createBeach } from '../actions/beachActions';
+import { createBeach } from '../../actions/beachActions';
 import { connect } from 'react-redux';
-import '../App.css';
+import '../../App.css';
 import { Redirect } from 'react-router-dom';
-import LocationInputs from './location/LocationInputs';
-import AttractionInputs from './attraction/AttractionInputs';
+import LocationInputs from '../location/LocationInputs';
+import AttractionInputs from '../attraction/AttractionInputs';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { LabeledInput, LabeledTextarea } from './LabelsAndInputs';
+import { LabeledInput, LabeledTextarea } from '../LabelsAndInputs';
 
 class NewBeachPage extends Component {
   state = {
