@@ -1,7 +1,7 @@
 import React from 'react';
 import Location from './location/Location';
 import BeachInfo from './BeachInfo';
-import Attractions from './Attractions';
+import Attractions from './attraction/Attractions';
 import JournalEntriesContainer from '../containers/JournalEntriesContainer';
 import Container from 'react-bootstrap/Container';
 import '../App.css';

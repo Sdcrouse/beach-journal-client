@@ -1,6 +1,6 @@
 import React from 'react';
-import '../App.css';
-import { LabeledInput, LabeledTextarea } from './LabelsAndInputs';
+import '../../App.css';
+import { LabeledInput, LabeledTextarea } from '../LabelsAndInputs';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 

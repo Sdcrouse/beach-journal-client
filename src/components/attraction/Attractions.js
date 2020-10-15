@@ -1,5 +1,5 @@
 import React from 'react';
-import "../App.css";
+import "../../App.css";
 import Container from 'react-bootstrap/Container';
 
 const Attractions = ({ attractions }) => {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import '../App.css';
 import { Redirect } from 'react-router-dom';
 import LocationInputs from './location/LocationInputs';
-import AttractionInputs from './AttractionInputs';
+import AttractionInputs from './attraction/AttractionInputs';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { LabeledInput, LabeledTextarea } from './LabelsAndInputs';
