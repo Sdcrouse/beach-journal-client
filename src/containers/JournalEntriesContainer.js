@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import JournalEntry from '../components/JournalEntry';
+import JournalEntry from '../components/journalEntry/JournalEntry';
 import { withRouter } from 'react-router';
 import { Switch, Route, Link } from 'react-router-dom';
-import JournalEntryForm from '../components/JournalEntryForm';
+import JournalEntryForm from '../components/journalEntry/JournalEntryForm';
 import Container from 'react-bootstrap/Container';
 
 class JournalEntriesContainer extends Component {

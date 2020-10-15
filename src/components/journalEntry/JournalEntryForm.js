@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import '../App.css';
 import { connect } from 'react-redux';
-import { createJournalEntry } from '../actions/journalEntryActions';
+import { createJournalEntry } from '../../actions/journalEntryActions';
 import { Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-import { LabeledInput, LabeledTextarea } from './LabelsAndInputs';
-import '../App.css';
+import { LabeledInput, LabeledTextarea } from '../LabelsAndInputs';
+import '../../App.css';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 

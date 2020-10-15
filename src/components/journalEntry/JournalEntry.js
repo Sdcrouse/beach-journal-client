@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteJournalEntry } from '../actions/journalEntryActions';
+import { deleteJournalEntry } from '../../actions/journalEntryActions';
 import Button from 'react-bootstrap/Button';
-import '../App.css';
+import '../../App.css';
 
 const JournalEntry = ({ id, beach_id, title, topics, date, entry_text }) => {
   const dispatch = useDispatch();
