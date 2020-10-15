@@ -8,7 +8,7 @@ export const fetchBeaches = () => {
       .then(resp => resp.json())
       .then(beachesJson => {
         const { beaches, locations, attractions, journal_entries } = normalizeBeaches(beachesJson.data);
-
+        
         dispatch({ type: 'LOAD_BEACHES', beaches });
         dispatch({ type: 'LOAD_LOCATIONS', locations });
         dispatch({ type: 'LOAD_ATTRACTIONS', attractions });
@@ -53,37 +53,15 @@ const normalizeBeaches = beachesData => {
 
   // Iterate over the beachesData array:
   for (const beachObj of beachesData) {
-    const id = parseInt(beachObj.id);
+    const normalizedBeachObj = normalizeBeach(beachObj);
 
-    const {
-      name,
-      description,
-      items_to_bring,
-      popular_activities,
-      location,
-      attractions,
-      journal_entries
-    } = beachObj.attributes;
+    normalized.beaches = {...normalized.beaches, ...normalizedBeachObj.beach};
 
-    // Add the beachObj and its attributes (not including its associations):
-    normalized.beaches[id] = {
-      id,
-      location_id: location.id,
-      name, description, items_to_bring, popular_activities
-    };
+    normalized.locations[normalizedBeachObj.location.id] = normalizedBeachObj.location;
 
-    // Add the beachObj's location:
-    normalized.locations[location.id] = location;
+    normalized.attractions = {...normalized.attractions, ...normalizedBeachObj.attractions};
 
-    // Add the beachObj's attractions:
-    for (const attraction of attractions) {
-      normalized.attractions[attraction.id] = attraction;
-    }
-
-    // Add the beachObj's journal entries:
-    for (const entry of journal_entries) {
-      normalized.journal_entries[entry.id] = entry;
-    }
+    normalized.journal_entries = {...normalized.journal_entries, ...normalizedBeachObj.journal_entries};
   }
 
   return normalized;
