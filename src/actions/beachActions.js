@@ -53,7 +53,7 @@ const normalizeBeaches = beachesData => {
 
   // Iterate over the beachesData array:
   for (const beachObj of beachesData) {
-    const beach_id = parseInt(beachObj.id);
+    const id = parseInt(beachObj.id);
 
     const {
       name,
@@ -66,8 +66,8 @@ const normalizeBeaches = beachesData => {
     } = beachObj.attributes;
 
     // Add the beachObj and its attributes (not including its associations):
-    normalized.beaches[beach_id] = {
-      id: beach_id,
+    normalized.beaches[id] = {
+      id,
       location_id: location.id,
       name, description, items_to_bring, popular_activities
     };
