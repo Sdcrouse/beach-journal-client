@@ -1,5 +1,5 @@
 import React from 'react';
-import { LabeledInput } from './LabelsAndInputs';
+import { LabeledInput } from '../LabelsAndInputs';
 
 const LocationInputs = ({ city, state, country, handleChange }) => (
   <>

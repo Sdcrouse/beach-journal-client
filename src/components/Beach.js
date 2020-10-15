@@ -1,5 +1,5 @@
 import React from 'react';
-import Location from './Location';
+import Location from './location/Location';
 import BeachInfo from './BeachInfo';
 import Attractions from './Attractions';
 import JournalEntriesContainer from '../containers/JournalEntriesContainer';
