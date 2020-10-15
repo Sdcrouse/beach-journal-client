@@ -96,7 +96,8 @@ const normalizeBeach = beachData => {
     description,
     items_to_bring,
     popular_activities,
-    attractions
+    attractions,
+    journal_entries
   } = beachData.attributes;
 
   const id = parseInt(beachData.id);
@@ -114,11 +115,16 @@ const normalizeBeach = beachData => {
       }
     },
     location,
-    attractions: {}
+    attractions: {},
+    journal_entries: {}
   };
 
   for (const attraction of attractions) {
     normalized.attractions[attraction.id] = attraction;
+  }
+
+  for (const entry of journal_entries) {
+    normalized.journal_entries[entry.id] = entry;
   }
 
   return normalized;
