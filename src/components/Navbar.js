@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const linkStyles = {
+  display: 'flex',
+  justifyContent: 'center',
   padding: '5%',
   background: '#BCE5F9',
   textDecoration: 'none',
