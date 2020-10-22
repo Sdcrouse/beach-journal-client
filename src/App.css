@@ -25,15 +25,6 @@ header {
   position: relative;
 }
 
-.app-name {
-  font-size: 45px;
-  background-color: #E2C1B2;
-  position: absolute;
-  padding: 0.5%;
-  top: 40px;
-  left: 40%;
-}
-
 .app-name p {
   margin-bottom: 0;
 }
