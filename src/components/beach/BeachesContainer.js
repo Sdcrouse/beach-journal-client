@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import BeachCard from '../components/beach/BeachCard';
-import Beach from '../components/beach/Beach';
+import BeachCard from './BeachCard';
+import Beach from './Beach';
 import { Switch, Route } from 'react-router-dom';
-import '../App.css';
+import '../../App.css';
 import Container from 'react-bootstrap/Container';
 
 const BeachesContainer = props => {

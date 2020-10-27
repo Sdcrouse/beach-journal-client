@@ -3,7 +3,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { fetchBeaches } from "./actions/beachActions";
 import Home from "./components/Home";
-import BeachesContainer from './containers/BeachesContainer';
+import BeachesContainer from './components/beach/BeachesContainer';
 import NewBeachPage from "./components/beach/NewBeachPage";
 import FigureImage from 'react-bootstrap/FigureImage';
 import FigureCaption from 'react-bootstrap/FigureCaption';
