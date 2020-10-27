@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import JournalEntry from '../components/journalEntry/JournalEntry';
+import JournalEntry from './JournalEntry';
 import { withRouter } from 'react-router';
 import { Switch, Route, Link } from 'react-router-dom';
-import JournalEntryForm from '../components/journalEntry/JournalEntryForm';
+import JournalEntryForm from './JournalEntryForm';
 import Container from 'react-bootstrap/Container';
 
 const JournalEntriesContainer = props => {
