@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { journalEntriesSelector } from '../../selectors';
 import JournalEntry from './JournalEntry';
 import { withRouter } from 'react-router';
 import { Switch, Route, Link } from 'react-router-dom';
@@ -7,7 +8,7 @@ import JournalEntryForm from './JournalEntryForm';
 import Container from 'react-bootstrap/Container';
 
 const JournalEntriesContainer = props => {
-  const journalEntries = useSelector(state => state.journalEntries);
+  const journalEntries = useSelector(journalEntriesSelector);
   const { beachId, location } = props;
 
   const entriesByBeach = Object.values(journalEntries).filter(
