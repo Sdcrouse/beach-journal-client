@@ -42,7 +42,7 @@ const JournalEntryForm = props => {
     }
   }
 
-  const redirectToBeach = beach_id => {
+  const conditionallyRedirectToBeach = beach_id => {
     // Stretch goal: See if I can just replace the form with all of the journal entries, instead of redirecting.
 
     if (redirect) {
@@ -59,7 +59,7 @@ const JournalEntryForm = props => {
 
   return (
     <Container className="journal-entry-form">
-      {redirectToBeach(beach_id)}
+      {conditionallyRedirectToBeach(beach_id)}
 
       <h3>New Journal Entry</h3>
       <p><strong>* </strong><span className="required-field">Required field</span></p>
