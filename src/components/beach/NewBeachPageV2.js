@@ -21,6 +21,7 @@ const NewBeachPageV2 = () => {
   });
 
   const [attractions, setAttractions] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleChange = event => {
     setBeachData({
@@ -55,17 +56,27 @@ const NewBeachPageV2 = () => {
   }
 
   const handleSubmit = event => {
+    const {name, description} = beachData;
+    const {city, state, country} = location;
+
     event.preventDefault();
-    console.log("Beach form submitted!");
-    console.log("Beach data: ", beachData);
-    console.log("Location Data: ", location);
-    console.log("Attraction Data: ", attractions);
+
+    if (name === '' || description === '' || city === '' || state === '' || country === '') {
+      setErrorMessage("One or more required fields have not been filled out.");
+    } else {
+      console.log("Beach form submitted!");
+      console.log("Beach data: ", beachData);
+      console.log("Location Data: ", location);
+      console.log("Attraction Data: ", attractions);
+    }
   }
 
   return (
     <>
       <h1>New Beach</h1>
       <p><strong>* </strong><span className="required-field">Required field</span></p>
+
+      {errorMessage && <h3>{errorMessage}</h3>}
 
       <Form onSubmit={handleSubmit}>
         <LabeledInput
