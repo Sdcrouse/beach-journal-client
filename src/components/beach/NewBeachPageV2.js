@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LocationInputs from '../location/LocationInputs';
+import AttractionInputs from '../attraction/AttractionInputs';
 import '../../App.css';
 import Form from 'react-bootstrap/Form';
 import { LabeledInput, LabeledTextarea } from '../LabelsAndInputs';
@@ -42,6 +43,15 @@ const NewBeachPageV2 = () => {
       ...attractions,
       {category: '', name: '', description: ''}
     ]);
+  }
+
+  const handleAttractionInputChange = event => {
+    const { dataset, name, value } = event.target;
+    let updatedAttractions = [...attractions];
+
+    updatedAttractions[dataset.id][name] = value;
+
+    setAttractions(updatedAttractions);
   }
 
   const handleSubmit = event => {
@@ -94,6 +104,9 @@ const NewBeachPageV2 = () => {
         />
 
         <h2 className="secondary-labels">Attractions</h2>
+        {attractions.map((attraction, index) => 
+          <AttractionInputs key={index} index={index} handleChange={handleAttractionInputChange} {...attraction} />
+        )}
         <p>
           <Button onClick={handleAddAttraction} variant="warning">Add Attraction</Button>
         </p>
