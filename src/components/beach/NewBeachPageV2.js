@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import LocationInputs from '../location/LocationInputs';
 import '../../App.css';
 import Form from 'react-bootstrap/Form';
-import { LabeledInput } from '../LabelsAndInputs';
+import { LabeledInput, LabeledTextarea } from '../LabelsAndInputs';
 import Button from 'react-bootstrap/Button';
 
 const NewBeachPageV2 = () => {
   const [beachData, setBeachData] = useState({
-    name: ''
+    name: '',
+    description: '',
+    items_to_bring: '',
+    popular_activities: '',
   });
 
   const [location, setLocation] = useState({
@@ -53,6 +56,30 @@ const NewBeachPageV2 = () => {
         />
 
         <LocationInputs handleChange={handleLocationInputChange} {...location} />
+
+        <LabeledTextarea
+          inputName="description"
+          inputValue={beachData.description}
+          labelClass="required-field"
+          labelText="Description:"
+          onChange={handleChange}
+          required={true}
+          colSize={5}
+        />
+        <LabeledTextarea
+          inputName="items_to_bring"
+          inputValue={beachData.items_to_bring}
+          labelText="What should you bring when visiting this beach?"
+          onChange={handleChange}
+          colSize={4}
+        />
+        <LabeledTextarea
+          inputName="popular_activities"
+          inputValue={beachData.popular_activities}
+          labelText="Popular Activities:"
+          onChange={handleChange}
+          colSize={5}
+        />
 
         <Button type="submit">Create Beach</Button>
       </Form>
