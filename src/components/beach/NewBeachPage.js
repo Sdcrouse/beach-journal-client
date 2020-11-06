@@ -1,82 +1,87 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { createBeach } from '../../actions/beachActions';
-import { connect } from 'react-redux';
-import '../../App.css';
 import { Redirect } from 'react-router-dom';
 import LocationInputs from '../location/LocationInputs';
 import AttractionInputs from '../attraction/AttractionInputs';
-import Button from 'react-bootstrap/Button';
+import '../../App.css';
 import Form from 'react-bootstrap/Form';
 import { LabeledInput, LabeledTextarea } from '../LabelsAndInputs';
+import Button from 'react-bootstrap/Button';
 
-class NewBeachPage extends Component {
-  state = {
+const NewBeachPage = () => {
+  const dispatch = useDispatch();
+
+  const [beachData, setBeachData] = useState({
     name: '',
     description: '',
     items_to_bring: '',
     popular_activities: '',
-    location: {
-      city: '',
-      state: '',
-      country: ''
-    },
-    attractions_attributes: [],
-    errorMessage: null,
-    redirect: false
-  }
+  });
 
-  handleChange = event => {
-    this.setState({
+  const [location, setLocation] = useState({
+    city: '',
+    state: '',
+    country: ''
+  });
+
+  const [attractions, setAttractions] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [redirect, setRedirect] = useState(false);
+
+  const handleChange = event => {
+    setBeachData({
+      ...beachData,
       [event.target.name]: event.target.value
     })
   }
 
-  handleLocationInputChange = event => {
-    this.setState({
-      location: {
-        ...this.state.location,
-        [event.target.name]: event.target.value
-      }
+  const handleLocationInputChange = event => {
+    setLocation({
+      ...location,
+      [event.target.name]: event.target.value
     })
   }
 
-  handleAddAttraction = event => {
+  const handleAddAttraction = event => {
     event.preventDefault();
 
-    this.setState((state) => ({
-      attractions_attributes: [...state.attractions_attributes, {category: '', name: '', description: ''}]
-    }))
+    setAttractions([
+      ...attractions,
+      {category: '', name: '', description: ''}
+    ]);
   }
 
-  handleAttractionInputChange = event => {
-    let attractions_attributes = [...this.state.attractions_attributes];
+  const handleAttractionInputChange = event => {
     const { dataset, name, value } = event.target;
+    let updatedAttractions = [...attractions];
 
-    attractions_attributes[dataset.id][name] = value;
+    updatedAttractions[dataset.id][name] = value;
 
-    this.setState({ attractions_attributes });
+    setAttractions(updatedAttractions);
   }
 
-  handleSubmit = event => {
-    event.preventDefault();
-
-    const {name, description, location} = this.state;
+  const handleSubmit = event => {
+    const {name, description} = beachData;
     const {city, state, country} = location;
 
+    event.preventDefault();
+
     if (name === '' || description === '' || city === '' || state === '' || country === '') {
-      this.setState({
-        errorMessage: "One or more required fields have not been filled out."
-      })
+      setErrorMessage("One or more required fields have not been filled out.");
     } else {
-      this.props.createBeach(this.state);
-      this.setState({
-        redirect: true
-      })
+      dispatch(createBeach({
+        ...beachData,
+        location,
+        attractions_attributes: attractions
+      }));
+
+      setRedirect(true);
     }
   }
 
-  redirectToBeaches = () => {
-    if (this.state.redirect) {
+  const conditionallyRedirectToBeaches = () => {
+    if (redirect) {
       return (
         <Redirect 
           to={{
@@ -88,74 +93,63 @@ class NewBeachPage extends Component {
     }
   }
 
-  render() {
-    const {
-      errorMessage, name, location, description, items_to_bring, popular_activities, attractions_attributes
-    } = this.state;
+  return (
+    <>
+      {conditionallyRedirectToBeaches()}
+      
+      <h1>New Beach</h1>
+      <p><strong>* </strong><span className="required-field">Required field</span></p>
 
-    return (
-      <>
-        {this.redirectToBeaches()}
+      {errorMessage && <h3>{errorMessage}</h3>}
 
-        <h1>New Beach</h1>
-        <p><strong>* </strong><span className="required-field">Required field</span></p>
+      <Form onSubmit={handleSubmit}>
+        <LabeledInput
+          inputName="name"
+          inputValue={beachData.name}
+          labelClass="required-field"
+          labelText="Name:"
+          onChange={handleChange}
+          required={true}
+        />
 
-        {errorMessage &&
-          <h3>{errorMessage}</h3>
-        }
+        <LocationInputs handleChange={handleLocationInputChange} {...location} />
 
-        <Form onSubmit={this.handleSubmit}>
-          <LabeledInput
-            inputName="name"
-            inputValue={name}
-            labelClass="required-field"
-            labelText="Name:"
-            onChange={this.handleChange}
-            required={true}
-          />
+        <LabeledTextarea
+          inputName="description"
+          inputValue={beachData.description}
+          labelClass="required-field"
+          labelText="Description:"
+          onChange={handleChange}
+          required={true}
+          colSize={5}
+        />
+        <LabeledTextarea
+          inputName="items_to_bring"
+          inputValue={beachData.items_to_bring}
+          labelText="What should you bring when visiting this beach?"
+          onChange={handleChange}
+          colSize={4}
+        />
+        <LabeledTextarea
+          inputName="popular_activities"
+          inputValue={beachData.popular_activities}
+          labelText="Popular Activities:"
+          onChange={handleChange}
+          colSize={5}
+        />
 
-          <LocationInputs handleChange={this.handleLocationInputChange} {...location} />
-          <LabeledTextarea
-            inputName="description"
-            inputValue={description}
-            labelClass="required-field"
-            labelText="Description:"
-            onChange={this.handleChange}
-            required={true}
-            colSize={5}
-          />
-          <LabeledTextarea
-            inputName="items_to_bring"
-            inputValue={items_to_bring}
-            labelText="What should you bring when visiting this beach?"
-            onChange={this.handleChange}
-            colSize={4}
-          />
-          <LabeledTextarea
-            inputName="popular_activities"
-            inputValue={popular_activities}
-            labelText="Popular Activities:"
-            onChange={this.handleChange}
-            colSize={5}
-          />
+        <h2 className="secondary-labels">Attractions</h2>
+        {attractions.map((attraction, index) => 
+          <AttractionInputs key={index} index={index} handleChange={handleAttractionInputChange} {...attraction} />
+        )}
+        <p>
+          <Button onClick={handleAddAttraction} variant="warning">Add Attraction</Button>
+        </p>
 
-          <h2 className="secondary-labels">Attractions</h2>
-          {attractions_attributes.map((attraction, index) => 
-            <AttractionInputs key={index} index={index} handleChange={this.handleAttractionInputChange} {...attraction} />
-          )}
-          <p>
-            <Button onClick={this.handleAddAttraction} variant="warning">Add Attraction</Button>
-          </p>
-          
-          <Button type="submit">Create Beach</Button>
-        </Form>
-      </>
-    );
-  }
+        <Button type="submit">Create Beach</Button>
+      </Form>
+    </>
+  );
 }
 
-const mapDispatchToProps = dispatch => ({
-  createBeach: beachData => dispatch(createBeach(beachData))
-});
-
-export default connect(null, mapDispatchToProps)(NewBeachPage);
+export default NewBeachPage;
