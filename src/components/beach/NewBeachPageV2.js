@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createBeach } from '../../actions/beachActions';
+import { Redirect } from 'react-router-dom';
 import LocationInputs from '../location/LocationInputs';
 import AttractionInputs from '../attraction/AttractionInputs';
 import '../../App.css';
@@ -26,6 +27,7 @@ const NewBeachPageV2 = () => {
 
   const [attractions, setAttractions] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [redirect, setRedirect] = useState(false);
 
   const handleChange = event => {
     setBeachData({
@@ -73,11 +75,28 @@ const NewBeachPageV2 = () => {
         location,
         attractions_attributes: attractions
       }));
+
+      setRedirect(true);
+    }
+  }
+
+  const conditionallyRedirectToBeaches = () => {
+    if (redirect) {
+      return (
+        <Redirect 
+          to={{
+            pathname: "/beaches",
+            state: {successMessage: "Beach created! Scroll down to the bottom to view it."}
+          }}
+        />
+      )
     }
   }
 
   return (
     <>
+      {conditionallyRedirectToBeaches()}
+      
       <h1>New Beach</h1>
       <p><strong>* </strong><span className="required-field">Required field</span></p>
 
