@@ -3,7 +3,7 @@ import '../../App.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const newBeachPageV2 = () => {
+const NewBeachPageV2 = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -22,4 +22,4 @@ const newBeachPageV2 = () => {
   );
 }
 
-export default newBeachPageV2;
+export default NewBeachPageV2;
