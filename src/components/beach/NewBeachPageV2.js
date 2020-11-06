@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { createBeach } from '../../actions/beachActions';
 import LocationInputs from '../location/LocationInputs';
 import AttractionInputs from '../attraction/AttractionInputs';
 import '../../App.css';
@@ -7,6 +9,8 @@ import { LabeledInput, LabeledTextarea } from '../LabelsAndInputs';
 import Button from 'react-bootstrap/Button';
 
 const NewBeachPageV2 = () => {
+  const dispatch = useDispatch();
+
   const [beachData, setBeachData] = useState({
     name: '',
     description: '',
@@ -64,10 +68,11 @@ const NewBeachPageV2 = () => {
     if (name === '' || description === '' || city === '' || state === '' || country === '') {
       setErrorMessage("One or more required fields have not been filled out.");
     } else {
-      console.log("Beach form submitted!");
-      console.log("Beach data: ", beachData);
-      console.log("Location Data: ", location);
-      console.log("Attraction Data: ", attractions);
+      dispatch(createBeach({
+        ...beachData,
+        location,
+        attractions_attributes: attractions
+      }));
     }
   }
 
