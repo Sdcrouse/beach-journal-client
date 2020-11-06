@@ -19,6 +19,8 @@ const NewBeachPageV2 = () => {
     country: ''
   });
 
+  const [attractions, setAttractions] = useState([]);
+
   const handleChange = event => {
     setBeachData({
       ...beachData,
@@ -33,11 +35,21 @@ const NewBeachPageV2 = () => {
     })
   }
 
+  const handleAddAttraction = event => {
+    event.preventDefault();
+
+    setAttractions([
+      ...attractions,
+      {category: '', name: '', description: ''}
+    ]);
+  }
+
   const handleSubmit = event => {
     event.preventDefault();
     console.log("Beach form submitted!");
     console.log("Beach data: ", beachData);
     console.log("Location Data: ", location);
+    console.log("Attraction Data: ", attractions);
   }
 
   return (
@@ -80,6 +92,11 @@ const NewBeachPageV2 = () => {
           onChange={handleChange}
           colSize={5}
         />
+
+        <h2 className="secondary-labels">Attractions</h2>
+        <p>
+          <Button onClick={handleAddAttraction} variant="warning">Add Attraction</Button>
+        </p>
 
         <Button type="submit">Create Beach</Button>
       </Form>
