@@ -29,7 +29,7 @@ const NewBeachPage = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [redirect, setRedirect] = useState(false);
 
-  const handleChange = event => {
+  const handleBeachInputChange = event => {
     setBeachData({
       ...beachData,
       [event.target.name]: event.target.value
@@ -108,7 +108,7 @@ const NewBeachPage = () => {
           inputValue={beachData.name}
           labelClass="required-field"
           labelText="Name:"
-          onChange={handleChange}
+          onChange={handleBeachInputChange}
           required={true}
         />
 
@@ -119,7 +119,7 @@ const NewBeachPage = () => {
           inputValue={beachData.description}
           labelClass="required-field"
           labelText="Description:"
-          onChange={handleChange}
+          onChange={handleBeachInputChange}
           required={true}
           colSize={5}
         />
@@ -127,14 +127,14 @@ const NewBeachPage = () => {
           inputName="items_to_bring"
           inputValue={beachData.items_to_bring}
           labelText="What should you bring when visiting this beach?"
-          onChange={handleChange}
+          onChange={handleBeachInputChange}
           colSize={4}
         />
         <LabeledTextarea
           inputName="popular_activities"
           inputValue={beachData.popular_activities}
           labelText="Popular Activities:"
-          onChange={handleChange}
+          onChange={handleBeachInputChange}
           colSize={5}
         />
 
