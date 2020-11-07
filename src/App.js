@@ -36,10 +36,9 @@ const App = () => {
             <Route path="/beaches/new">
               <NewBeachPage />
             </Route>
-            <Route 
-              path="/beaches"
-              render={(props) => <BeachesContainer {...props} />}
-            />
+            <Route path="/beaches">
+              <BeachesContainer />
+            </Route>
             <Route path='/'>
               <Home />
             </Route>

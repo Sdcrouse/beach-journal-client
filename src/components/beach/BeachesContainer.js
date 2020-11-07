@@ -3,12 +3,13 @@ import { useSelector } from 'react-redux';
 import { structuredBeachesSelector } from '../../selectors';
 import BeachCard from './BeachCard';
 import Beach from './Beach';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import '../../App.css';
 import Container from 'react-bootstrap/Container';
 
-const BeachesContainer = props => {
+const BeachesContainer = () => {
   const { beaches, locations, attractions } = useSelector(structuredBeachesSelector);
+  const { state } = useLocation();
 
   let [beachRoutes, beachCards] = [ [], [] ];
 
@@ -29,10 +30,7 @@ const BeachesContainer = props => {
     <Switch>
       {beachRoutes}
       <Route path={'/beaches'}>
-
-        {props.location.state && 
-          <h4 className="success-message">{props.location.state.successMessage}</h4>
-        }
+        {state && <h4 className="success-message">{state.successMessage}</h4>}
 
         <header className="App-header">
           <h1>Your Saved Beaches:</h1>
