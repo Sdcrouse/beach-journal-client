@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { createJournalEntry } from '../../actions/journalEntryActions';
 import { Redirect } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
@@ -8,49 +8,44 @@ import '../../App.css';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
-class JournalEntryForm extends Component {
-  state = {
-    journalEntry: {
-      beach_id: this.props.beachId,
-      date: '',
-      title: '',
-      topics: '',
-      entry_text: ''
-    },
-    errorMessage: '',
-    redirect: false
-  };
+const JournalEntryForm = props => {
+  const dispatch = useDispatch();
+  
+  const [journalEntry, setJournalEntry] = useState({
+    beach_id: props.beachId,
+    date: '',
+    title: '',
+    topics: '',
+    entry_text: ''
+  });
 
-  handleChange = event => {
-    this.setState({
-      journalEntry: {
-        ...this.state.journalEntry,
-        [event.target.name]: event.target.value
-      }
+  const { date, title, topics, entry_text, beach_id } = journalEntry;
+  
+  const [errorMessage, setErrorMessage] = useState('');
+  const [redirect, setRedirect] = useState(false);
+  
+  const handleChange = event => {
+    setJournalEntry({
+      ...journalEntry,
+      [event.target.name]: event.target.value
     })
   }
 
-  handleSubmit = event => {
-    const { date, entry_text } = this.state.journalEntry;
-    
+  const handleSubmit = event => {
     event.preventDefault();
 
     if (date === '' || entry_text === '') {
-      this.setState({
-        errorMessage: "One or more required fields have not been filled out."
-      });
+      setErrorMessage("One or more required fields have not been filled out.");
     } else {
-      this.props.createJournalEntry(this.state);
-      this.setState({
-        redirect: true
-      })
+      dispatch(createJournalEntry({ journalEntry }));
+      setRedirect(true);
     }
   }
 
-  redirectToBeach = beach_id => {
+  const conditionallyRedirectToBeach = beach_id => {
     // Stretch goal: See if I can just replace the form with all of the journal entries, instead of redirecting.
 
-    if (this.state.redirect) {
+    if (redirect) {
       return (
         <Redirect 
           to={{
@@ -61,61 +56,51 @@ class JournalEntryForm extends Component {
       )
     }
   }
-  
-  render() {
-    const { date, title, topics, entry_text, beach_id } = this.state.journalEntry;
 
-    return (
-      <Container className="journal-entry-form">
-        {this.redirectToBeach(beach_id)}
+  return (
+    <Container className="journal-entry-form">
+      {conditionallyRedirectToBeach(beach_id)}
 
-        <h3>New Journal Entry</h3>
-        <p><strong>* </strong><span className="required-field">Required field</span></p>
+      <h3>New Journal Entry</h3>
+      <p><strong>* </strong><span className="required-field">Required field</span></p>
 
-        {this.state.errorMessage &&
-          <h4>{this.state.errorMessage}</h4>
-        }
+      {errorMessage && <h4>{errorMessage}</h4>}
 
-        <Form onSubmit={this.handleSubmit}>
-          <LabeledInput
-            inputName="date"
-            inputValue={date}
-            labelClass="required-field"
-            labelText="Date:"
-            onChange={this.handleChange}
-            required={true}
-          />
-          <LabeledInput
-            inputName="title"
-            inputValue={title}
-            labelText="Title:"
-            onChange={this.handleChange}
-          />
-          <LabeledInput
-            inputName="topics"
-            inputValue={topics}
-            labelText="Topics:"
-            onChange={this.handleChange}
-          />
-          <LabeledTextarea
-            inputName="entry_text"
-            inputValue={entry_text}
-            labelClass="required-field"
-            labelText="Entry Text:"
-            onChange={this.handleChange}
-            required={true}
-            colSize={10}
-            rows="15"
-          />
-          <Button type="submit">Write this Journal Entry!</Button>
-        </Form>
-      </Container>
-    )
-  }
+      <Form onSubmit={handleSubmit}>
+        <LabeledInput
+          inputName="date"
+          inputValue={date}
+          labelClass="required-field"
+          labelText="Date:"
+          onChange={handleChange}
+          required={true}
+        />
+        <LabeledInput
+          inputName="title"
+          inputValue={title}
+          labelText="Title:"
+          onChange={handleChange}
+        />
+        <LabeledInput
+          inputName="topics"
+          inputValue={topics}
+          labelText="Topics:"
+          onChange={handleChange}
+        />
+        <LabeledTextarea
+          inputName="entry_text"
+          inputValue={entry_text}
+          labelClass="required-field"
+          labelText="Entry Text:"
+          onChange={handleChange}
+          required={true}
+          colSize={10}
+          rows="15"
+        />
+        <Button type="submit">Write this Journal Entry!</Button>
+      </Form>
+    </Container>
+  )
 }
 
-const mapDispatchToProps = dispatch => ({
-  createJournalEntry: entryData => dispatch(createJournalEntry(entryData))
-});
-
-export default connect(null, mapDispatchToProps)(JournalEntryForm);
+export default JournalEntryForm;
