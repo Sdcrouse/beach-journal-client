@@ -205,3 +205,121 @@ Other ideas: Back/forward buttons (see https://github.com/learn-co-curriculum/re
 Interactive map of US Beaches? You click on a state to see beaches, and click on a beach for more info.
 
 See if I can use a beachball image against a white background. Then, use Animate.css to make it bounce or roll in. Either with "bounce" or "rollIn". See https://animate.style/
+
+--------------------------------------------------------------------------------------------------------------
+This is as far as I got with trying to refactor my nested routes with hooks (I'm leaving that as a stretch goal):
+
+<!-- BeachesContainer.js
+
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { structuredBeachesSelector } from '../../selectors';
+import BeachCard from './BeachCard';
+// import Beach from './Beach';
+import { Switch, Route, useLocation } from 'react-router-dom';
+import '../../App.css';
+import Container from 'react-bootstrap/Container';
+
+const BeachesContainer = () => {
+  const { beaches, locations } = useSelector(structuredBeachesSelector);
+  const { state } = useLocation();
+
+  let [beachCards] = [ [] ];
+
+  for (const beach of Object.values(beaches)) {
+    const location = locations[beach.location_id];
+    // const beachAttractions = Object.values(attractions).filter(attr => attr.beach_id === beach.id);
+
+    // beachRoutes.push(
+    //   <Route path={`/beaches/${beach.id}`} key={beach.id}>
+    //     <Beach locationInfo={location} attractions={beachAttractions} {...beach} />
+    //   </Route>
+    // );
+
+    beachCards.push(<BeachCard beachInfo={beach} locationInfo={location} key={beach.id} />);
+  }
+
+  return (
+    <Switch>
+      {/* {beachRoutes} */}
+      <Route path={'/beaches'}>
+        {state && <h4 className="success-message">{state.successMessage}</h4>}
+
+        <header className="App-header">
+          <h1>Your Saved Beaches:</h1>
+        </header>
+
+        <Container>
+          {beachCards}
+        </Container>
+      </Route>
+    </Switch>
+  );
+}
+
+export default BeachesContainer; -->
+
+<!-- Beach.js
+
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useRouteMatch } from "react-router-dom";
+import { structuredBeachesSelector } from '../../selectors';
+import Location from '../location/Location';
+import BeachInfo from './BeachInfo';
+import Attractions from '../attraction/Attractions';
+import JournalEntriesContainer from '../journalEntry/JournalEntriesContainer';
+import Container from 'react-bootstrap/Container';
+import '../../App.css';
+
+const Beach = props => {
+  const {
+    id,
+    name,
+    description,
+    items_to_bring,
+    popular_activities,
+    locationInfo,
+    // attractions
+  } = props;
+
+  let match = useRouteMatch("/beaches/:id");
+
+  const { beaches, locations, attractions } = useSelector(structuredBeachesSelector);
+
+  const beachAttractions = Object.values(attractions).filter(attr => attr.beach_id === match.id);
+
+  beachRoutes.push(
+    <Route path={`/beaches/${beach.id}`} key={beach.id}>
+      <Beach locationInfo={location} attractions={beachAttractions} {...beach} />
+    </Route>
+  );
+
+  return (
+    <>
+      <h1>{name}</h1>
+
+      <br />
+      <Container className="main-beach-info">
+        <BeachInfo label="Location: ">
+          <Location {...locationInfo} />
+        </BeachInfo>
+
+        <BeachInfo label="Description: ">{description}</BeachInfo>
+
+        {items_to_bring && <BeachInfo label="Items to Bring: ">{items_to_bring}</BeachInfo>}
+
+        {popular_activities && <BeachInfo label="Popular Activities: ">{popular_activities}</BeachInfo>}
+      </Container>
+      <br />
+      
+      {attractions.length > 0 && 
+        <Attractions attractions={attractions} />
+      }
+
+      <JournalEntriesContainer beachId={id} />
+    </>
+  )
+};
+
+export default Beach; -->

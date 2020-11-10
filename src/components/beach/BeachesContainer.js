@@ -11,7 +11,7 @@ const BeachesContainer = () => {
   const { beaches, locations, attractions } = useSelector(structuredBeachesSelector);
   const { state } = useLocation();
 
-  let [beachRoutes, beachCards] = [ [], [] ];
+  let [beachRoutes, beachCards] = [ [], [] ]; // Stretch goal: Refactor these nested routes with hooks.
 
   for (const beach of Object.values(beaches)) {
     const location = locations[beach.location_id];
