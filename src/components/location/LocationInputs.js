@@ -7,7 +7,6 @@ const LocationInputs = ({ city, state, country, handleChange }) => (
       inputName="city"
       value={city}
       inputId="location_city"
-      labelClass="required-field"
       labelText="City:"
       onChange={handleChange}
       required={true}
@@ -16,7 +15,6 @@ const LocationInputs = ({ city, state, country, handleChange }) => (
       inputName="state"
       value={state}
       inputId="location_state"
-      labelClass="required-field"
       labelText="State/Province (if none, then write 'N/A'):"
       onChange={handleChange}
       required={true}
@@ -25,7 +23,6 @@ const LocationInputs = ({ city, state, country, handleChange }) => (
       inputName="country"
       value={country}
       inputId="location_country"
-      labelClass="required-field"
       labelText="Country:"
       onChange={handleChange}
       required={true}

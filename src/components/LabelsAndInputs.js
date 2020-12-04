@@ -12,7 +12,7 @@ const createLabel = (isRequired, labelText) => {
   );
 }
 
-export const LabeledInput = ({ inputName, inputValue, inputId, inputDataId, labelClass, labelText, onChange, required }) => {
+export const LabeledInput = ({ inputName, inputValue, inputId, inputDataId, labelText, onChange, required }) => {
   const controlId = inputId ? inputId : inputName;
     
   return (
@@ -33,7 +33,7 @@ export const LabeledInput = ({ inputName, inputValue, inputId, inputDataId, labe
   );
 };
 
-export const LabeledTextarea = ({ inputName, inputValue, inputId, inputDataId, labelClass, labelText, onChange, required, colSize, rows = 2 }) => {
+export const LabeledTextarea = ({ inputName, inputValue, inputId, inputDataId, labelText, onChange, required, colSize, rows = 2 }) => {
   const controlId = inputId ? inputId : inputName;
 
   return (

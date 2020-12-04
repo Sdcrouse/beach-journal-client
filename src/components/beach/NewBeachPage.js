@@ -99,7 +99,6 @@ const NewBeachPage = () => {
         <LabeledInput
           inputName="name"
           inputValue={beachData.name}
-          labelClass="required-field"
           labelText="Name:"
           onChange={e => handleInputChange(e, setBeachData, beachData)}
           required={true}
@@ -110,7 +109,6 @@ const NewBeachPage = () => {
         <LabeledTextarea
           inputName="description"
           inputValue={beachData.description}
-          labelClass="required-field"
           labelText="Description:"
           onChange={e => handleInputChange(e, setBeachData, beachData)}
           required={true}
