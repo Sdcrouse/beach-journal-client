@@ -29,20 +29,6 @@ const NewBeachPage = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [redirect, setRedirect] = useState(false);
 
-  const handleBeachInputChange = event => {
-    setBeachData({
-      ...beachData,
-      [event.target.name]: event.target.value
-    })
-  }
-
-  const handleLocationInputChange = event => {
-    setLocation({
-      ...location,
-      [event.target.name]: event.target.value
-    })
-  }
-
   const handleAddAttraction = event => {
     event.preventDefault();
 
@@ -50,6 +36,13 @@ const NewBeachPage = () => {
       ...attractions,
       {category: '', name: '', description: ''}
     ]);
+  }
+
+  const handleInputChange = (event, setData, data) => {
+    setData({
+      ...data,
+      [event.target.name]: event.target.value
+    })
   }
 
   const handleAttractionInputChange = event => {
@@ -108,18 +101,18 @@ const NewBeachPage = () => {
           inputValue={beachData.name}
           labelClass="required-field"
           labelText="Name:"
-          onChange={handleBeachInputChange}
+          onChange={e => handleInputChange(e, setBeachData, beachData)}
           required={true}
         />
 
-        <LocationInputs handleChange={handleLocationInputChange} {...location} />
+        <LocationInputs handleChange={e => handleInputChange(e, setLocation, location)} {...location} />
 
         <LabeledTextarea
           inputName="description"
           inputValue={beachData.description}
           labelClass="required-field"
           labelText="Description:"
-          onChange={handleBeachInputChange}
+          onChange={e => handleInputChange(e, setBeachData, beachData)}
           required={true}
           colSize={5}
         />
@@ -127,14 +120,14 @@ const NewBeachPage = () => {
           inputName="items_to_bring"
           inputValue={beachData.items_to_bring}
           labelText="What should you bring when visiting this beach?"
-          onChange={handleBeachInputChange}
+          onChange={e => handleInputChange(e, setBeachData, beachData)}
           colSize={4}
         />
         <LabeledTextarea
           inputName="popular_activities"
           inputValue={beachData.popular_activities}
           labelText="Popular Activities:"
-          onChange={handleBeachInputChange}
+          onChange={e => handleInputChange(e, setBeachData, beachData)}
           colSize={5}
         />
 
