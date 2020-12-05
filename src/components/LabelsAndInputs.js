@@ -12,12 +12,12 @@ const createLabel = (isRequired, labelText) => {
   );
 }
 
-export const LabeledInput = ({ inputName, inputValue, inputId, inputDataId, labelText, onChange, required }) => {
+export const LabeledInput = ({ inputName, inputValue, inputId, inputDataId, labelText, onChange, isRequired }) => {
   const controlId = inputId ? inputId : inputName;
     
   return (
     <Form.Group as={Row} controlId={controlId} className="center-justify-content">
-      {createLabel(required, labelText)}
+      {createLabel(isRequired, labelText)}
 
       <Col xs="auto">
         <Form.Control
@@ -26,19 +26,19 @@ export const LabeledInput = ({ inputName, inputValue, inputId, inputDataId, labe
           name={inputName}
           value={inputValue}
           onChange={onChange}
-          required={required}
+          required={isRequired}
         />
       </Col>
     </Form.Group>
   );
 };
 
-export const LabeledTextarea = ({ inputName, inputValue, inputId, inputDataId, labelText, onChange, required, colSize, rows = 2 }) => {
+export const LabeledTextarea = ({ inputName, inputValue, inputId, inputDataId, labelText, onChange, isRequired, colSize, rows = 2 }) => {
   const controlId = inputId ? inputId : inputName;
 
   return (
     <Form.Group as={Row} controlId={controlId} className="center-justify-content">
-      {createLabel(required, labelText)}
+      {createLabel(isRequired, labelText)}
 
       <Col sm={colSize}>
         <Form.Control
@@ -48,7 +48,7 @@ export const LabeledTextarea = ({ inputName, inputValue, inputId, inputDataId, l
           name={inputName}
           value={inputValue}
           onChange={onChange}
-          required={required}
+          required={isRequired}
         />
       </Col>
     </Form.Group>

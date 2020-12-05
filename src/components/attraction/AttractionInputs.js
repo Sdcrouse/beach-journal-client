@@ -16,7 +16,7 @@ const AttractionInputs = ({ index, category, name, description, handleChange }) 
           inputDataId={index}
           labelText="Category:"
           onChange={handleChange}
-          required={true}
+          isRequired={true}
         />
       </Col>
       <Col xs={3}>
@@ -27,7 +27,7 @@ const AttractionInputs = ({ index, category, name, description, handleChange }) 
           inputDataId={index}
           labelText="Name:"
           onChange={handleChange}
-          required={true}
+          isRequired={true}
         />
       </Col>
       <Col xs={6}>
@@ -38,7 +38,7 @@ const AttractionInputs = ({ index, category, name, description, handleChange }) 
           inputDataId={index}
           labelText="Description:"
           onChange={handleChange}
-          required={true}
+          isRequired={true}
           colSize={10}
         />
       </Col>

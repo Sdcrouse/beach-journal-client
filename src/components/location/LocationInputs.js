@@ -9,7 +9,7 @@ const LocationInputs = ({ city, state, country, handleChange }) => (
       inputId="location_city"
       labelText="City:"
       onChange={handleChange}
-      required={true}
+      isRequired={true}
     />
     <LabeledInput
       inputName="state"
@@ -17,7 +17,7 @@ const LocationInputs = ({ city, state, country, handleChange }) => (
       inputId="location_state"
       labelText="State/Province (if none, then write 'N/A'):"
       onChange={handleChange}
-      required={true}
+      isRequired={true}
     />
     <LabeledInput
       inputName="country"
@@ -25,7 +25,7 @@ const LocationInputs = ({ city, state, country, handleChange }) => (
       inputId="location_country"
       labelText="Country:"
       onChange={handleChange}
-      required={true}
+      isRequired={true}
     />
   </>
 );
@@ -41,10 +41,9 @@ export default LocationInputs;
  *        inputName="city"
  *        value={city}
  *        inputId="location_city"
- *        labelClass="required-field"
  *        labelText="City:"
  *        onChange={handleChange}
- *        required={true}
+ *        isRequired={true}
  *      />
  *    </Col>
  *    <Col xs={6}>
@@ -52,10 +51,9 @@ export default LocationInputs;
  *        inputName="state"
  *        value={state}
  *        inputId="location_state"
- *        labelClass="required-field"
  *        labelText="State/Province (if none, then write 'N/A'):"
  *        onChange={handleChange}
- *        required={true}
+ *        isRequired={true}
  *      />
  *    </Col>
  *    <Col xs={3}>
@@ -63,10 +61,9 @@ export default LocationInputs;
  *        inputName="country"
  *        value={country}
  *        inputId="location_country"
- *        labelClass="required-field"
  *        labelText="Country:"
  *        onChange={handleChange}
- *        required={true}
+ *        isRequired={true}
  *      />
  *    </Col>
  *  </Form.Row>

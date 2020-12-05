@@ -72,7 +72,7 @@ const JournalEntryForm = props => {
           inputValue={date}
           labelText="Date:"
           onChange={handleChange}
-          required={true}
+          isRequired={true}
         />
         <LabeledInput
           inputName="title"
@@ -91,7 +91,7 @@ const JournalEntryForm = props => {
           inputValue={entry_text}
           labelText="Entry Text:"
           onChange={handleChange}
-          required={true}
+          isRequired={true}
           colSize={10}
           rows="15"
         />

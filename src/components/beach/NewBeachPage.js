@@ -101,7 +101,7 @@ const NewBeachPage = () => {
           inputValue={beachData.name}
           labelText="Name:"
           onChange={e => handleInputChange(e, setBeachData, beachData)}
-          required={true}
+          isRequired={true}
         />
 
         <LocationInputs handleChange={e => handleInputChange(e, setLocation, location)} {...location} />
@@ -111,7 +111,7 @@ const NewBeachPage = () => {
           inputValue={beachData.description}
           labelText="Description:"
           onChange={e => handleInputChange(e, setBeachData, beachData)}
-          required={true}
+          isRequired={true}
           colSize={5}
         />
         <LabeledTextarea
