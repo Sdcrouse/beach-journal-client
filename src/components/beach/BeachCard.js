@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import Location from '../location/Location';
 import '../../App.css';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const BeachCard = ({ beachInfo, locationInfo }) => {
   return (
@@ -16,8 +19,17 @@ const BeachCard = ({ beachInfo, locationInfo }) => {
         }
         
         <p>{beachInfo.description}</p>
-        <p><Link to={`/beaches/${beachInfo.id}`}><button>View Beach</button></Link></p>
-        <Button variant="dark" onClick={() => console.log(`Beach #${beachInfo.id} deleted!`)}>Delete Beach</Button>
+
+        <Container>
+          <Row>
+            <Col>
+              <Link to={`/beaches/${beachInfo.id}`}><Button variant="info">View Beach</Button></Link>            
+            </Col>
+            <Col>
+              <Button variant="dark" onClick={() => console.log(`Beach #${beachInfo.id} deleted!`)}>Delete Beach</Button>
+            </Col>
+          </Row>
+        </Container>
       </div>
       <br />
     </>
