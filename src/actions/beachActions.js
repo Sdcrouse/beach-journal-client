@@ -40,6 +40,22 @@ export const createBeach = beachData => {
   }
 };
 
+export const deleteBeach = id => {
+  const configObj = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({ id })
+  };
+
+  return dispatch => {
+    fetch(`${BASE_URL}/${id}`, configObj)
+      .then(console.log(`Beach ${id} deleted!`))
+  };
+}
+
 // Helper functions:
 
 const normalizeBeaches = beachesData => {
