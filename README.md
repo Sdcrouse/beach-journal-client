@@ -36,7 +36,7 @@ Once the app loads, you can do any of the following:
 2. Once you submit the form, you will be redirected to the "Your Saved Beaches" page. Scroll down to the bottom to view your new beach.
    * **Special note:** If this is your first time using the app, you will need to create a new beach before you can write a journal entry for it.
 3. Click on the "View Saved Beaches" button to see a list of all of the beaches you've created.
-4. On that page, click "View Beach" to check out the information that you've written about a beach.
+4. On that page, click "View Beach" to check out the information that you've written about a beach. Or, click "Delete Beach" to delete the beach and its journal entries.
 5. To write a journal entry for a beach, just go to that beach's page, click on the "New Journal Entry" button, and fill out the form.
    * Every journal entry needs a date and text. However, if you want to make your journal entry more like a blog post, you also have the option to give it a title and/or topics.
    * Once you submit the form, you can check out your new journal entry at the bottom of the page.

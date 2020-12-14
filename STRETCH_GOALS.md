@@ -14,7 +14,7 @@ https://auth0.com/blog/role-based-access-control-rbac-and-react-apps/  (This may
 
 Intro to TDD: https://www.youtube.com/watch?v=VN_7gmn68no&feature=youtu.be
 
-I should consider using the PureComponent later on. See https://github.com/learn-co-curriculum/react-types-of-components and https://reactjs.org/docs/react-api.html#reactpurecomponent. It sounds like I should look into hooks later on, as well.
+I should consider using the PureComponent later on. See https://github.com/learn-co-curriculum/react-types-of-components and https://reactjs.org/docs/react-api.html#reactpurecomponent. It sounds like I should look into hooks later on, as well. (**Update:** This project now uses hooks.)
 
 Other routes I could make: beaches/:beach_id/journal_entries, beaches/:beach_id/ journal_entries /:entry_id, beaches/:beach_id/ journal_entries /:entry_id/edit
 I could also make a route that shows ALL journal entries, sorted by beach (/journal_entries).
@@ -23,7 +23,6 @@ The Beach page should have an Edit button that links to /beaches/:beach_id/edit.
 
 Each journal entry on the beach page could display a link to its corresponding JournalEntry page (/beaches/:beach_id/journal_entries/:entry_id). The Beach page would then have an EntryCard that has the name, date, (possibly) topics, and first paragraph of the entry.
 On the JournalEntry page, I would have an “Edit” button that goes to /beaches/:beach_id/journal_entries/:entry_id/edit.
-Later, I could add “Delete” buttons to the JournalEntries and BeachPages (deleting a BeachPage would also delete its corresponding JournalEntries, so I’d need to account for that in Rails).
 
 I should remember to use defaultProps when needed.
 
