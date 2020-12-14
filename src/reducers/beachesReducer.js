@@ -23,6 +23,18 @@ const beachesReducer = (state = { beaches: {}, retrievingData: false }, action) 
         }
       }
 
+    case('DELETE_BEACH'):
+      let updatedState = {
+        ...state,
+        beaches: {
+          ...state.beaches
+        }
+      };
+
+      delete updatedState.beaches[action.id];
+      
+      return updatedState;
+
     default:
       return state;
   }

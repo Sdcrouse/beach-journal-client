@@ -52,7 +52,7 @@ export const deleteBeach = id => {
 
   return dispatch => {
     fetch(`${BASE_URL}/${id}`, configObj)
-      .then(console.log(`Beach ${id} deleted!`))
+      .then( dispatch({type: 'DELETE_BEACH', id}) )
   };
 }
 
