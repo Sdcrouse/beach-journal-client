@@ -35,7 +35,6 @@ export const deleteJournalEntry = (id, beachId) => {
 
   return dispatch => {
     fetch(`${BASE_URL}/${beachId}/journal_entries/${id}`, configObj)
-      .then(response => response.json())
       .then( dispatch({type: 'DELETE_ENTRY', id}) )
   };
 }
