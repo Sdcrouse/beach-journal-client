@@ -5,10 +5,10 @@ const attractionsReducer = (state = {}, action) => {
 
     case ('ADD_ATTRACTIONS'):
       return {
-        ...state.attractions,
+        ...state,
         ...action.attractions
       };
-
+    
     default:
       return state;
   }
