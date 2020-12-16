@@ -16,6 +16,13 @@ const journalEntriesReducer = (state = {}, action) => {
       
       return updatedState;
 
+    case('DELETE_ENTRIES'):
+      let newState = {...state};
+      
+      action.ids.forEach(id => delete newState[id]);
+      
+      return newState;
+
     default:
       return state;
   }

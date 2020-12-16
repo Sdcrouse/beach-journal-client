@@ -8,6 +8,13 @@ const attractionsReducer = (state = {}, action) => {
         ...state,
         ...action.attractions
       };
+
+    case('DELETE_ATTRACTIONS'):
+      let updatedState = {...state};
+      
+      action.ids.forEach(id => delete updatedState[id]);
+
+      return updatedState;
     
     default:
       return state;

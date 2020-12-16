@@ -52,7 +52,12 @@ export const deleteBeach = id => {
 
   return dispatch => {
     fetch(`${BASE_URL}/${id}`, configObj)
-      .then( dispatch({type: 'DELETE_BEACH', id}) )
+      .then(resp => resp.json())
+      .then(idsJson => {
+        dispatch({type: 'DELETE_BEACH', id});
+        dispatch({type: 'DELETE_ATTRACTIONS', ids: idsJson.attractionIds});
+        dispatch({type: 'DELETE_ENTRIES', ids: idsJson.journalEntryIds});
+      })
   };
 }
 
