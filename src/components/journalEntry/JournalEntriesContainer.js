@@ -7,9 +7,8 @@ import { Switch, Route, Link } from 'react-router-dom';
 import JournalEntryForm from './JournalEntryForm';
 import Container from 'react-bootstrap/Container';
 
-const JournalEntriesContainer = props => {
+const JournalEntriesContainer = ({ beachId, location }) => {
   const journalEntries = useSelector(journalEntriesSelector);
-  const { beachId, location } = props;
 
   const entriesByBeach = Object.values(journalEntries).filter(
     entry => entry.beach_id === beachId
