@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { journalEntriesSelector } from '../../selectors';
+import { journalEntriesByBeachSelector } from '../../selectors';
 import JournalEntry from './JournalEntry';
 import { withRouter } from 'react-router';
 import { Switch, Route, Link } from 'react-router-dom';
@@ -8,16 +8,19 @@ import JournalEntryForm from './JournalEntryForm';
 import Container from 'react-bootstrap/Container';
 
 const JournalEntriesContainer = ({ beachId, location }) => {
-  const journalEntries = useSelector(journalEntriesSelector);
+  const selectJournalEntriesByBeach = useMemo(
+    journalEntriesByBeachSelector,
+    []
+  );
 
-  const entriesByBeach = Object.values(journalEntries).filter(
-    entry => entry.beach_id === beachId
+  const journalEntriesByBeach = useSelector(state => 
+    selectJournalEntriesByBeach(state, beachId)
   );
 
   let pageContent;
 
-  if (entriesByBeach.length > 0) {
-    pageContent = entriesByBeach.map( entry => <JournalEntry key={entry.id} {...entry} /> )
+  if (journalEntriesByBeach.length > 0) {
+    pageContent = journalEntriesByBeach.map( entry => <JournalEntry key={entry.id} {...entry} /> )
   } else {
     pageContent = <p>No journal entries yet. Feel free to write one!</p>
   }

@@ -10,7 +10,9 @@ export const structuredBeachesSelector = createStructuredSelector({
   attractions: attractionsSelector
 });
 
-export const journalEntriesSelector = createSelector(
-  state => state.journalEntries,
-  journalEntries => journalEntries  
-);
+export const journalEntriesByBeachSelector = () => 
+  createSelector(
+    state => state.journalEntries,
+    (_, beachId) => beachId,
+    (journalEntries, beachId) => Object.values(journalEntries).filter(entry => entry.beach_id === beachId)
+  );
