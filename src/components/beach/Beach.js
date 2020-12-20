@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { attractionsByBeachSelector } from '../../selectors';
 import Location from '../location/Location';
 import BeachInfo from './BeachInfo';
 import Attractions from '../attraction/Attractions';
@@ -14,8 +16,16 @@ const Beach = props => {
     items_to_bring,
     popular_activities,
     locationInfo,
-    attractions
   } = props;
+
+  const selectAttractionsByBeach = useMemo(
+    attractionsByBeachSelector,
+    []
+  );
+
+  const attractionsByBeach = useSelector(state => 
+    selectAttractionsByBeach(state, id)
+  );
 
   return (
     <>
@@ -35,8 +45,8 @@ const Beach = props => {
       </Container>
       <br />
       
-      {attractions.length > 0 && 
-        <Attractions attractions={attractions} />
+      {attractionsByBeach.length > 0 && 
+        <Attractions attractions={attractionsByBeach} />
       }
 
       <JournalEntriesContainer beachId={id} />

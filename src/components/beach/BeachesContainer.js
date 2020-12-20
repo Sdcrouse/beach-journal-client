@@ -8,18 +8,17 @@ import '../../App.css';
 import Container from 'react-bootstrap/Container';
 
 const BeachesContainer = () => {
-  const { beaches, locations, attractions } = useSelector(structuredBeachesSelector);
+  const { beaches, locations } = useSelector(structuredBeachesSelector);
   const { state } = useLocation();
 
   let [beachRoutes, beachCards] = [ [], [] ]; // Stretch goal: Refactor these nested routes with hooks.
 
   for (const beach of Object.values(beaches)) {
     const location = locations[beach.location_id];
-    const beachAttractions = Object.values(attractions).filter(attr => attr.beach_id === beach.id);
 
     beachRoutes.push(
       <Route path={`/beaches/${beach.id}`} key={beach.id}>
-        <Beach locationInfo={location} attractions={beachAttractions} {...beach} />
+        <Beach locationInfo={location} {...beach} />
       </Route>
     );
 
