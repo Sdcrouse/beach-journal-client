@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 
 const BeachesContainer = () => {
   const { beaches, locations } = useSelector(structuredBeachesSelector);
-  const { state } = useLocation();
+  const { state: routerState } = useLocation();
 
   let [beachRoutes, beachCards] = [ [], [] ]; // Stretch goal: Refactor these nested routes with hooks.
 
@@ -29,7 +29,7 @@ const BeachesContainer = () => {
     <Switch>
       {beachRoutes}
       <Route path={'/beaches'}>
-        {state && <h4 className="success-message">{state.successMessage}</h4>}
+        {routerState && <h4 className="success-message">{routerState.successMessage}</h4>}
 
         <header className="App-header">
           <h1>Your Saved Beaches:</h1>
