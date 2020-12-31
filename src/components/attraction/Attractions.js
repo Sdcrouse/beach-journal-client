@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { attractionsByBeachSelector } from '../../selectors';
 import "../../App.css";
 import Container from 'react-bootstrap/Container';
 
-const Attractions = ({ attractions }) => {
-  const attrsByCategory = sortedByCategory(attractions);
+const Attractions = ({ beachId }) => {
+  const selectAttractionsByBeach = useMemo(
+    attractionsByBeachSelector,
+    []
+  );
+
+  const attractionsByBeach = useSelector(state => 
+    selectAttractionsByBeach(state, beachId)
+  );
+
+  const attrsByCategory = sortedByCategory(attractionsByBeach);
 
   return (
     <>
