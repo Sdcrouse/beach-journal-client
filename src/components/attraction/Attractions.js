@@ -14,10 +14,12 @@ const Attractions = ({ beachId }) => {
     selectAttractionsByBeach(state, beachId)
   );
 
-  const attrsByCategory = sortedByCategory(attractionsByBeach);
+  let pageContent = null;
 
-  return (
-    <>
+  if (attractionsByBeach.length > 0) {
+    const attrsByCategory = sortedByCategory(attractionsByBeach);
+
+    pageContent = <>
       <h2 className="secondary-labels">Attractions:</h2>
       {Object.keys(attrsByCategory).map(category =>
         <React.Fragment key={category}>
@@ -34,7 +36,9 @@ const Attractions = ({ beachId }) => {
       )}
       <br />
     </>
-  );
+  }
+
+  return pageContent;
 }
 
 const sortedByCategory = attractions => {
