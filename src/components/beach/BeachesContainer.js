@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { structuredBeachesSelector } from '../../selectors';
+import { beachesSelector } from '../../selectors';
 import BeachCard from './BeachCard';
 import Beach from './Beach';
 import { Switch, Route, useLocation } from 'react-router-dom';
@@ -8,7 +8,7 @@ import '../../App.css';
 import Container from 'react-bootstrap/Container';
 
 const BeachesContainer = () => {
-  const { beaches } = useSelector(structuredBeachesSelector);
+  const beaches = useSelector(beachesSelector);
   const { state: routerState } = useLocation();
 
   let [beachRoutes, beachCards] = [ [], [] ]; // Stretch goal: Refactor these nested routes with hooks.
