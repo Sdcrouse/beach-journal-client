@@ -14,13 +14,15 @@ const BeachesContainer = () => {
   let [beachRoutes, beachCards] = [ [], [] ]; // Stretch goal: Refactor these nested routes with hooks.
 
   for (const beach of Object.values(beaches)) {
+    const { id } = beach;
+
     beachRoutes.push(
-      <Route path={`/beaches/${beach.id}`} key={beach.id}>
+      <Route path={`/beaches/${id}`} key={id}>
         <Beach {...beach} />
       </Route>
     );
 
-    beachCards.push(<BeachCard beachInfo={beach} key={beach.id} />);
+    beachCards.push(<BeachCard beachInfo={beach} key={id} />);
   }
 
   return (
