@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { deleteBeach } from '../../actions/beachActions';
 
-const BeachCard = ({ beachInfo, locationInfo }) => {
+const BeachCard = ({ beachInfo }) => {
   const dispatch = useDispatch();
 
   return (
@@ -18,9 +18,7 @@ const BeachCard = ({ beachInfo, locationInfo }) => {
       <div className="beach-card">
         <h2>{beachInfo.name}</h2>
         
-        {locationInfo &&
-          <p><Location {...locationInfo} /></p>
-        }
+        <p><Location id={beachInfo.location_id} /></p>
         
         <p>{beachInfo.description}</p>
 
