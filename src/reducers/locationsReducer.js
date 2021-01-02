@@ -4,7 +4,7 @@ const locationsReducer = (state = {}, action) => {
       return action.locations;
 
     case('ADD_LOCATION'):
-      if (Object.values(state).includes(action.location)) {
+      if (state[action.location.id]) {
         return state;
       }
 
