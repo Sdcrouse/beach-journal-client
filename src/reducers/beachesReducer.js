@@ -14,12 +14,12 @@ const beachesReducer = (state = { beaches: {}, retrievingData: false }, action) 
         beaches: {...action.beachData.beaches}
       };
 
-    case ('ADD_BEACH'):
+    case ('ADD_NEW_BEACH_DATA'):
       return {
         ...state,
         beaches: {
           ...state.beaches,
-          ...action.beach
+          ...action.newBeachData.beach
         }
       }
 

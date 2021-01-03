@@ -3,10 +3,10 @@ const attractionsReducer = (state = {}, action) => {
     case('LOAD_BEACH_DATA'):
       return action.beachData.attractions;
 
-    case ('ADD_ATTRACTIONS'):
+    case ('ADD_NEW_BEACH_DATA'):
       return {
         ...state,
-        ...action.attractions
+        ...action.newBeachData.attractions
       };
 
     case('DELETE_ATTRACTIONS'):

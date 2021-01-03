@@ -28,11 +28,9 @@ export const createBeach = beachData => {
     fetch(BASE_URL, configObj)
       .then(resp => resp.json())
       .then(beachJson => {
-        const { beach, location, attractions } = normalizeBeach(beachJson.data);
+        const normalizedBeachData = normalizeBeach(beachJson.data);
 
-        dispatch({ type: 'ADD_BEACH', beach });
-        dispatch({ type: 'ADD_LOCATION', location });
-        dispatch({ type: 'ADD_ATTRACTIONS', attractions });
+        dispatch({ type: 'ADD_NEW_BEACH_DATA', newBeachData: normalizedBeachData });
       })
   }
 };

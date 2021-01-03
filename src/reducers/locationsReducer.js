@@ -3,14 +3,16 @@ const locationsReducer = (state = {}, action) => {
     case('LOAD_BEACH_DATA'):
       return action.beachData.locations;
 
-    case('ADD_LOCATION'):
-      if (state[action.location.id]) {
+    case('ADD_NEW_BEACH_DATA'):
+      const { location } = action.newBeachData;
+
+      if ( state[location.id] ) {
         return state;
       }
 
       return {
         ...state,
-        [action.location.id]: action.location
+        [location.id]: location
       }
 
     default:
