@@ -1,7 +1,7 @@
 const journalEntriesReducer = (state = {}, action) => {
   switch(action.type) {
-    case('LOAD_JOURNAL_ENTRIES'):
-      return action.journal_entries;
+    case('LOAD_BEACH_DATA'):
+      return action.beachData.journal_entries;
 
     case('ADD_ENTRY'):
       return {

@@ -7,11 +7,11 @@ const beachesReducer = (state = { beaches: {}, retrievingData: false }, action) 
         retrievingData: true
       };
 
-    case('LOAD_BEACHES'):
+    case('LOAD_BEACH_DATA'):
       return {
         ...state,
         retrievingData: false,
-        beaches: {...action.beaches}
+        beaches: {...action.beachData.beaches}
       };
 
     case ('ADD_BEACH'):
