@@ -1,35 +1,35 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { structuredBeachesSelector } from '../../selectors';
+import { beachesSelector } from '../../selectors';
 import BeachCard from './BeachCard';
 import Beach from './Beach';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import SuccessMessage from '../SuccessMessage';
+import { Switch, Route } from 'react-router-dom';
 import '../../App.css';
 import Container from 'react-bootstrap/Container';
 
 const BeachesContainer = () => {
-  const { beaches, locations } = useSelector(structuredBeachesSelector);
-  const { state: routerState } = useLocation();
+  const beaches = useSelector(beachesSelector);
 
   let [beachRoutes, beachCards] = [ [], [] ]; // Stretch goal: Refactor these nested routes with hooks.
 
   for (const beach of Object.values(beaches)) {
-    const location = locations[beach.location_id];
+    const { id } = beach;
 
     beachRoutes.push(
-      <Route path={`/beaches/${beach.id}`} key={beach.id}>
-        <Beach locationInfo={location} {...beach} />
+      <Route path={`/beaches/${id}`} key={id}>
+        <Beach {...beach} />
       </Route>
     );
 
-    beachCards.push(<BeachCard beachInfo={beach} locationInfo={location} key={beach.id} />);
+    beachCards.push(<BeachCard beachInfo={beach} key={id} />);
   }
 
   return (
     <Switch>
       {beachRoutes}
       <Route path={'/beaches'}>
-        {routerState && <h4 className="success-message">{routerState.successMessage}</h4>}
+        <SuccessMessage />
 
         <header className="App-header">
           <h1>Your Saved Beaches:</h1>

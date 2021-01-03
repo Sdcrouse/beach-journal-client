@@ -1,12 +1,15 @@
-import { createSelector, createStructuredSelector } from 'reselect';
+import { createSelector } from 'reselect';
 
-const beachesSelector = state => state.beachData.beaches;
-const locationsSelector = state => state.locations;
+export const beachesSelector = createSelector(
+  state => state.beachData,
+  beachData => beachData.beaches
+);
 
-export const structuredBeachesSelector = createStructuredSelector({
-  beaches: beachesSelector,
-  locations: locationsSelector,
-});
+export const locationSelector = createSelector(
+  state => state.locations,
+  (_, locationId) => locationId,
+  (locations, locationId) => locations[locationId]
+)
 
 export const attractionsByBeachSelector = () =>
   createSelector(

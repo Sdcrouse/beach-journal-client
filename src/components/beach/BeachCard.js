@@ -9,28 +9,27 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { deleteBeach } from '../../actions/beachActions';
 
-const BeachCard = ({ beachInfo, locationInfo }) => {
+const BeachCard = ({ beachInfo }) => {
   const dispatch = useDispatch();
+  const { name, location_id, description, id } = beachInfo;
 
   return (
     <>
       <br />
       <div className="beach-card">
-        <h2>{beachInfo.name}</h2>
+        <h2>{name}</h2>
         
-        {locationInfo &&
-          <p><Location {...locationInfo} /></p>
-        }
+        <p><Location id={location_id} /></p>
         
-        <p>{beachInfo.description}</p>
+        <p>{description}</p>
 
         <Container>
           <Row>
             <Col>
-              <Link to={`/beaches/${beachInfo.id}`}><Button variant="info">View Beach</Button></Link>            
+              <Link to={`/beaches/${id}`}><Button variant="info">View Beach</Button></Link>            
             </Col>
             <Col>
-              <Button variant="dark" onClick={() => dispatch( deleteBeach(beachInfo.id) )}>Delete Beach</Button>
+              <Button variant="dark" onClick={() => dispatch( deleteBeach(id) )}>Delete Beach</Button>
             </Col>
           </Row>
         </Container>

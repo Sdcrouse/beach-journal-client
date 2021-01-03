@@ -13,7 +13,7 @@ const Beach = props => {
     description,
     items_to_bring,
     popular_activities,
-    locationInfo,
+    location_id,
   } = props;
 
   return (
@@ -23,7 +23,7 @@ const Beach = props => {
       <br />
       <Container className="main-beach-info">
         <BeachInfo label="Location: ">
-          <Location {...locationInfo} />
+          <Location id={location_id} />
         </BeachInfo>
 
         <BeachInfo label="Description: ">{description}</BeachInfo>
