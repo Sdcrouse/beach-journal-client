@@ -11,6 +11,12 @@ export const locationSelector = createSelector(
   (locations, locationId) => locations[locationId]
 )
 
+export const locationSelector = createSelector(
+  state => state.locations,
+  (_, locationId) => locationId,
+  (locations, locationId) => locations[locationId]
+)
+
 export const attractionsByBeachSelector = () =>
   createSelector(
     state => state.attractions,

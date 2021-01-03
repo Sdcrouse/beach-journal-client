@@ -1,12 +1,12 @@
 const attractionsReducer = (state = {}, action) => {
   switch(action.type) {
-    case('LOAD_ATTRACTIONS'):
-      return action.attractions;
+    case('LOAD_BEACH_DATA'):
+      return action.beachData.attractions;
 
-    case ('ADD_ATTRACTIONS'):
+    case ('ADD_NEW_BEACH_DATA'):
       return {
         ...state,
-        ...action.attractions
+        ...action.newBeachData.attractions
       };
 
     case('DELETE_ATTRACTIONS'):

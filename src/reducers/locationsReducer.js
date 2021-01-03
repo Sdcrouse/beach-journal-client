@@ -1,16 +1,18 @@
 const locationsReducer = (state = {}, action) => {
   switch(action.type) {
-    case('LOAD_LOCATIONS'):
-      return action.locations;
+    case('LOAD_BEACH_DATA'):
+      return action.beachData.locations;
 
-    case('ADD_LOCATION'):
-      if (Object.values(state).includes(action.location)) {
+    case('ADD_NEW_BEACH_DATA'):
+      const { location } = action.newBeachData;
+
+      if ( state[location.id] ) {
         return state;
       }
 
       return {
         ...state,
-        [action.location.id]: action.location
+        [location.id]: location
       }
 
     default:

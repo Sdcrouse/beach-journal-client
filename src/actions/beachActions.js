@@ -7,12 +7,9 @@ export const fetchBeaches = () => {
     fetch(BASE_URL)
       .then(resp => resp.json())
       .then(beachesJson => {
-        const { beaches, locations, attractions, journal_entries } = normalizeBeaches(beachesJson.data);
+        const normalizedBeachData = normalizeBeaches(beachesJson.data);
         
-        dispatch({ type: 'LOAD_BEACHES', beaches });
-        dispatch({ type: 'LOAD_LOCATIONS', locations });
-        dispatch({ type: 'LOAD_ATTRACTIONS', attractions });
-        dispatch({ type: 'LOAD_JOURNAL_ENTRIES', journal_entries });
+        dispatch({ type: 'LOAD_BEACH_DATA', beachData: normalizedBeachData });
       })
   };
 };
@@ -31,11 +28,9 @@ export const createBeach = beachData => {
     fetch(BASE_URL, configObj)
       .then(resp => resp.json())
       .then(beachJson => {
-        const { beach, location, attractions } = normalizeBeach(beachJson.data);
+        const normalizedBeachData = normalizeBeach(beachJson.data);
 
-        dispatch({ type: 'ADD_BEACH', beach });
-        dispatch({ type: 'ADD_LOCATION', location });
-        dispatch({ type: 'ADD_ATTRACTIONS', attractions });
+        dispatch({ type: 'ADD_NEW_BEACH_DATA', newBeachData: normalizedBeachData });
       })
   }
 };
