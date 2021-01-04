@@ -1,11 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { locationSelector } from '../../selectors';
 
 const Location = ({ id }) => {
-  const { city, state, country } = useSelector(state => 
-    locationSelector(state, id)
-  );
+  const { city, state, country } = useSelector( state => state.locations[id] );
 
   let locationInfo;
 
