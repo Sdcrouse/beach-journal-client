@@ -1,10 +1,5 @@
 import { createSelector } from 'reselect';
 
-export const beachesSelector = createSelector(
-  state => state.beachData,
-  beachData => beachData.beaches
-);
-
 export const locationSelector = createSelector(
   state => state.locations,
   (_, locationId) => locationId,
