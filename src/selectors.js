@@ -1,15 +1,19 @@
 import { createSelector } from 'reselect';
 
+const filterCollectionByBeachId = (collection, beachId) => Object.values(collection).filter(
+  collectionObj => collectionObj.beach_id === beachId
+);
+
 export const attractionsByBeachSelector = () =>
   createSelector(
     state => state.attractions,
     (_, beachId) => beachId,
-    (attractions, beachId) => Object.values(attractions).filter(attraction => attraction.beach_id === beachId)
+    (attractions, beachId) => filterCollectionByBeachId(attractions, beachId)
   )
 
 export const journalEntriesByBeachSelector = () => 
   createSelector(
     state => state.journalEntries,
     (_, beachId) => beachId,
-    (journalEntries, beachId) => Object.values(journalEntries).filter(entry => entry.beach_id === beachId)
+    (journalEntries, beachId) => filterCollectionByBeachId(journalEntries, beachId)
   );
