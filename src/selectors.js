@@ -15,7 +15,23 @@ export const attractionsByBeachSelector = () =>
   createSelector(
     state => state.attractions,
     (_, beachId) => beachId,
-    (attractions, beachId) => filterCollectionByBeachId(attractions, beachId)
+    (attractions, beachId) => {      
+      // Stretch goal: Sort each category's attractions alphabetically. And is there a more efficient way to do all this?
+      // Right now, organizing by category takes O(n) time for each beach.
+
+      const attractionsByBeach = filterCollectionByBeachId(attractions, beachId);
+      let organizedByCategory = {};
+
+      attractionsByBeach.forEach(attraction => {
+        if (organizedByCategory[attraction.category]) {
+          organizedByCategory[attraction.category].push(attraction);
+        } else {
+          organizedByCategory[attraction.category] = [attraction];
+        }
+      });
+
+      return organizedByCategory;
+    }
   )
 
 export const journalEntriesByBeachSelector = () => 

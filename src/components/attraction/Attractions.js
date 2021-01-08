@@ -14,19 +14,18 @@ const Attractions = ({ beachId }) => {
     selectAttractionsByBeach(state, beachId)
   );
 
+  const attractionCategories = Object.keys(attractionsByBeach);
   let pageContent = null;
 
-  if (attractionsByBeach.length > 0) {
-    const attrsByCategory = sortedByCategory(attractionsByBeach);
-
+  if (attractionCategories.length > 0) {
     pageContent = <>
       <h2 className="secondary-labels">Attractions:</h2>
-      {Object.keys(attrsByCategory).map(category =>
+      {attractionCategories.map(category =>
         <React.Fragment key={category}>
           <br />
           <Container className="attraction-info">
             <h3>{category}</h3>
-            {attrsByCategory[category].map (attraction =>
+            {attractionsByBeach[category].map(attraction =>
               <p key={attraction.id}>
                 <strong className="tertiary-labels">{attraction.name}: </strong>{attraction.description}
               </p>
@@ -40,22 +39,5 @@ const Attractions = ({ beachId }) => {
 
   return pageContent;
 }
-
-const sortedByCategory = attractions => {
-  // Stretch goal: Sort these alphabetically. And is there a more efficient way to do all this?
-  // Right now, this takes O(n) time for each beach.
-
-  let sorted = {};
-
-  Object.values(attractions).forEach(attraction => {
-    if (sorted[attraction.category]) {
-      sorted[attraction.category].push(attraction);
-    } else {
-      sorted[attraction.category] = [attraction];
-    }
-  });
-
-  return sorted;
-};
 
 export default Attractions;
