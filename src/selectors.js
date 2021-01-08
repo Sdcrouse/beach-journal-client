@@ -4,6 +4,11 @@ const filterCollectionByBeachId = (collection, beachId) => Object.values(collect
   collectionObj => collectionObj.beach_id === beachId
 );
 
+export const beachesSelector = createSelector(
+  state => state.beachData.beaches,
+  beaches => Object.values(beaches).sort((beachA, beachB) => beachB.id - beachA.id)
+)
+
 export const attractionsByBeachSelector = () =>
   createSelector(
     state => state.attractions,

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { beachesSelector } from '../../selectors';
 import BeachCard from './BeachCard';
 import Beach from './Beach';
 import SuccessMessage from '../SuccessMessage';
@@ -8,11 +9,11 @@ import '../../App.css';
 import Container from 'react-bootstrap/Container';
 
 const BeachesContainer = () => {
-  const beaches = useSelector(state => state.beachData.beaches);
+  const beaches = useSelector(beachesSelector);
   
   let [beachRoutes, beachCards] = [ [], [] ]; // Stretch goal: Refactor these nested routes with hooks.
 
-  for (const beach of Object.values(beaches)) {
+  for (const beach of beaches) {
     const { id } = beach;
 
     beachRoutes.push(

@@ -79,7 +79,7 @@ const NewBeachPage = () => {
         <Redirect 
           to={{
             pathname: "/beaches",
-            state: {successMessage: "Beach created! Scroll down to the bottom to view it."}
+            state: {successMessage: "Your new beach was successfully created!"}
           }}
         />
       )
